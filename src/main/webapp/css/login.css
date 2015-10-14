@@ -1,0 +1,21 @@
+.login-content {
+    width: 100%;
+    height: auto;
+}
+#logincontainer>div{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.panel-title{
+    font-weight: bold;
+}
+
+.panel-heading{
+    background-color: #829aa8;
+    color:#fff;
+}
+
+.panel-body{
+    border:1px solid #ddd;
+}

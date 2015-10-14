@@ -1,0 +1,285 @@
+.rowleft, .rowmiddle, .rowright {
+    float: left;
+    position: relative;
+}
+
+.rowmiddle {
+    width: 50%;
+    padding: 0 8px;
+}
+
+.rowleft, .rowright {
+    width: 25%;
+}
+
+/*用户信息面板*/
+.userpanel {
+    height: 210px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.userpanel > a {
+    display: block;
+    margin: -1px;
+    padding: 0;
+    height: 100px;
+    background: #428bca;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.userimglink {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 6px;
+    margin: -30px 0 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+}
+
+.userfields {
+    position: absolute;
+    top: 103px;
+    left: 100px;
+    width: 185px;
+}
+
+.uname {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.uname a {
+    color: #292f33;
+}
+
+.uscreenname a {
+    color: #66757F;
+}
+
+.uscreenname {
+    font-size: 12px;
+    padding-right: 5px;
+    color: #66757f;
+}
+
+.uscreenname a:hover {
+    color: #428bca;
+}
+
+.userimg {
+    border-radius: 7px;
+    height: 72px;
+    width: 72px;
+    border: 2px solid #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.userstats {
+    padding: 10px 0;
+}
+
+.arrange {
+    width: 100%;
+    box-sizing: border-box;
+    display: table;
+    font-size: 14px;
+}
+
+.arrange li {
+    width: 1%;
+    display: table-cell;
+}
+
+.arrange li a {
+    display: block;
+}
+
+.arrange li a:hover {
+    text-decoration: none;
+    color: #428bca !important;
+}
+
+.arrange li a span:last-child {
+    text-align: center;
+    color: #8c9ca9;
+    font-size: 10px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    transition: color .15s ease-in-out;
+    overflow: hidden;
+    display: block;
+}
+
+.arrange li a span:first-child {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    padding-top: 3px;
+    font-weight: 500;
+    transition: color .15s ease-in-out;
+}
+
+/*tab页面*/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: none;
+    border-bottom: 3px solid #428bca;
+}
+
+.infocontent {
+    font-size: 14px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: -1px;
+}
+
+.infocontent:hover {
+    background: #F5F8FA;
+    cursor: pointer;
+}
+
+/*用户动态信息内容*/
+.infocontent-avator {
+    float: left;
+}
+
+.infocontent-avator a {
+    display: inline-block;
+    border-radius: 7px;
+}
+
+.infocontent-avator img {
+    border-radius: 8px;
+    height: 60px;
+    width: 60px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.infocontent:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.infocontent:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.infocontent-toolbar ul {
+    display: table;
+    margin: 0;
+    padding: 0;
+}
+
+.infocontent-toolbar ul li {
+    display: table-cell;
+    padding: 10px 10px 0 10px;
+    width: 100px;
+}
+
+.infocontent-toolbar ul li a {
+    color: #CCD6DD;
+}
+
+.infocontent-toolbar ul li:first-child a:hover {
+    color: #0084B4;
+}
+
+.infocontent-toolbar ul li + li a:hover {
+    color: #5C913B;
+}
+
+.infocontent-toolbar ul li:last-child a:hover {
+    color: #FFAC33;
+}
+
+.infocontent-content {
+    margin-left: 70px;
+}
+
+.infocontent-content-header a {
+    color: #333;
+}
+
+.infocontent-content-header a:hover {
+    color: #428bca;
+}
+
+.infocontent-content-header a:first-child {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.infocontent-content-header a + a {
+    font-size: 14px;
+    color: #66757F;
+}
+
+.infocontent-content-header > small {
+    float: right;
+}
+
+/*右侧面板*/
+.showother {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+.showother-header {
+    padding: 10px 0;
+    color: #6A97BB;
+}
+
+.showother-header a {
+    font-size: 12px;
+}
+
+.showother-content {
+    margin-bottom: 15px;
+}
+
+.showother-avator {
+    float: left;
+}
+
+.showother-avator a {
+    display: inline-block;
+    border-radius: 7px;
+}
+
+.showother-avator img {
+    border-radius: 8px;
+    height: 60px;
+    width: 60px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.showother-main {
+    margin-left: 70px;
+}
+
+.showother-main-header a {
+    color: #333;
+}
+
+.showother-main-header a:hover {
+    color: #428bca;
+}
+
+.showother-main-header a:first-child {
+    font-weight: bold;
+}
+
+.showother-main-header a:last-child {
+    font-size: 14px;
+    color: #66757F;
+}
+
+.showother-main-btn {
+    margin: 5px 0 0 0;
+}
