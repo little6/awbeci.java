@@ -27,9 +27,13 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="typeAliasesPackage" value="com.mybatis3.domain"/>
-        <property name="typeHandlersPackage" value="com.mybatis3.typehandlers"/>
+        <property name="typeAliasesPackage" value="com.awbeci.domain"/>
         <property name="mapperLocations" value="classpath*:com/awbeci/**/*.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.awbeci.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
     <!-- 配置事务管理器 -->
