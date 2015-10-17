@@ -1,7 +1,7 @@
 <sitemesh>
     <!--默认装饰页面-->
     <mapping decorator="/WEB-INF/views/template/template.jsp"/>
-    <!--<mapping path="/navigation/*" decorator="/WEB-INF/views/template/template.jsp"/>-->
+    <!--<mapper path="/navigation/*" decorator="/WEB-INF/views/template/template.jsp"/>-->
     <!---排除对json的装饰-->
     <mapping path="/json/*" exclue="true"/>
 </sitemesh>

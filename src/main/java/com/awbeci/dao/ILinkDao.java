@@ -1,4 +1,4 @@
-package com.awbeci.mapper;
+package com.awbeci.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -20,9 +20,9 @@ import com.awbeci.domain.Link;
  * @author Siva
  *
  */
-public interface LinkMapper
+public interface ILinkDao
 {
-    @Select("select * from Link where id=#{id}")
-    @ResultMap("com.awbeci.mappers.LinkMapper.LinkResult")
-    List<Link> selectLinkById(int id);
+    @Select("select * from Link")
+    @ResultMap("com.awbeci.mapper.LinkMapper.LinkResult")
+    List<Link> selectLinkById();
 }

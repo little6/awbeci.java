@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.awbeci.mapper.LinkMapper">
+    <resultMap id="LinkResult" type="Link">
+        <id property="id" column="id"/>
+        <result property="icon" column="icon"/>
+        <result property="level" column="level"/>
+    </resultMap>
+</mapper>
