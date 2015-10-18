@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * Created by zhangwei on 2015/7/1.
- */
 @Controller
 public class MainController {
 
@@ -27,6 +24,15 @@ public class MainController {
     @RequestMapping("/")
     public String index(Model model, HttpSession session) {
         List<Link> list = linkService.selectLinkById();
+        if (session.getAttribute("user") == null) {
+            return "main/index";
+        } else {
+            return "/main/main";
+        }
+    }
+
+    @RequestMapping("/main/main.html")
+    public String main(Model model, HttpSession session) {
         if (session.getAttribute("user") == null) {
             return "main/index";
         } else {
