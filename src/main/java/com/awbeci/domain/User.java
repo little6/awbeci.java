@@ -2,26 +2,21 @@ package com.awbeci.domain;
 
 
 import java.sql.Timestamp;
+import java.util.Date;
 
-/**
- * Created by zhangwei on 2015/6/27.
- */
 public class User {
     private String id;
-
     private String name;
-
-    private String email;
-
-    private int isActivate;
-
-    private String activeCode;
-
     private String password;
-
-    private Timestamp createDt;
-
-    private Timestamp updateDt;
+    private String avatarUrl;
+    private String niceName;
+    private String email;
+    private String url;
+    private String activationKey;
+    private Integer status;
+    private Integer deleted;
+    private Date createDt;
+    private Date updateDt;
 
     public String getId() {
         return id;
@@ -39,14 +34,6 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -55,36 +42,75 @@ public class User {
         this.password = password;
     }
 
-    public Timestamp getCreateDt() {
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getNiceName() {
+        return niceName;
+    }
+
+    public void setNiceName(String niceName) {
+        this.niceName = niceName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getActivationKey() {
+        return activationKey;
+    }
+
+    public void setActivationKey(String activationKey) {
+        this.activationKey = activationKey;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
+
+    public Date getCreateDt() {
         return createDt;
     }
 
-    public void setCreateDt(Timestamp createDt) {
+    public void setCreateDt(Date createDt) {
         this.createDt = createDt;
     }
 
-    public Timestamp getUpdateDt() {
+    public Date getUpdateDt() {
         return updateDt;
     }
 
-    public void setUpdateDt(Timestamp updateDt) {
+    public void setUpdateDt(Date updateDt) {
         this.updateDt = updateDt;
-    }
-
-    public int getIsActivate() {
-        return isActivate;
-    }
-
-
-    public void setIsActivate(int isActivate) {
-        this.isActivate = isActivate;
-    }
-
-    public String getActiveCode() {
-        return activeCode;
-    }
-
-    public void setActiveCode(String activeCode) {
-        this.activeCode = activeCode;
     }
 }
