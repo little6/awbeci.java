@@ -3,25 +3,12 @@ $(function () {
     $("[data-toggle='tooltip']").tooltip({html: true});
     $('#treeview').treeview(treeviewobj);
     //$("#showlink ul").dragsort({});
-    $(".we-edit").hide();
-    $("#shownav4").dropmenu({
-        title: '请选择分类',
-        display: 'selection',
-        showFilter: false,
-        width: '180px',
-        position: 'right'
-    });
-    $("#shownav").dropmenu({
-        title: 'please choose item',
-        display: 'complex',
-        width: '280px',
-        showFilter: false,
-        position: 'left'
-    });
+    //$(".we-edit").hide();
     $('#menu').metisMenu();
-    addnavlink()
+    addnavSite()
     editNav();
     editLink();
+
 });
 var defaultData = [
     {
@@ -150,10 +137,24 @@ var treeviewobj = {
     }
 };
 
-function addnavlink() {
+function addnavSite() {
     $('#addnavlink').on('click', function () {
-        //todo:
-        alert('add')
+        $('#navSiteModal').modal({
+            keyboard: true
+        });
+        $("#shownav4").dropmenu({
+            data: [{
+                text: '导航',
+                icon: 'octicon octicon-plus'
+            }, {
+                text: '网址',
+                icon: 'octicon octicon-pencil'
+            }],
+            title: '请选择分类',
+            display: 'selection',
+            showFilter: false,
+            width: '180px'
+        });
     })
 }
 
@@ -167,7 +168,6 @@ function editNav() {
         else {
             $('.linkedit').removeClass('show').addClass('hide');
         }
-
         canceledit();
         canceleditLink();
     });

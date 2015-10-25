@@ -51,40 +51,8 @@
                         <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
                                baiduSug="1">
 
-                        <div class="input-group-btn dropmenu">
+                        <div class="input-group-btn">
                             <button type="submit" class="btn btn-default">搜索</button>
-
-                            <button id="shownav4" type="button" class="btn btn-default"
-                                    data-toggle="dropmenu"
-                                    aria-expanded="false">操作<b
-                                    class="caret"></b></button>
-
-                            <div class="dropmenu-panel">
-                                <div class="dropmenu-header">
-                                    <span class="dropmenu-title">title</span>
-                                        <span class="octicon octicon-x header-close" role="button"
-                                              aria-label="Close"></span>
-                                </div>
-                                <div class="dropmenu-filters">
-                                    <div class="dropmenu-filter">
-                                        <input type="text" class="filter-input" placeholder="please input content">
-                                    </div>
-                                </div>
-                                <div class="dropmenu-items">
-                                    <div class="dropmenu-item">
-                                        <span class="item-icon"><span class="octicon octicon-plus"></span></span>
-        <span class="item-content">
-            <div class="item-lable">添加</div>
-        </span>
-                                    </div>
-                                    <div class="dropmenu-item">
-                                        <span class="item-icon octicon octicon-pencil"></span>
-        <span class="item-content">
-            <div class="item-lable">编辑</div>
-        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -187,6 +155,39 @@
         </div>
     </div>
 </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<!-- 模态框（Modal添加链接） -->
+<div class="modal fade" id="navSiteModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title">添加链接</h4>
+            </div>
+            <div class="modal-body">
+                <div><span>类型：</span>
+                <span>
+                    <a id="shownav4" href="#" data-toggle="dropmenu" aria-expanded="false">操作
+                        <b class="caret"></b></a>
+
+                    </span></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary"
+                        data-dismiss="modal" onclick="addLink()">保存
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 </body>
 <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>

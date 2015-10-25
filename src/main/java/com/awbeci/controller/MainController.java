@@ -1,7 +1,5 @@
 package com.awbeci.controller;
 
-import com.awbeci.domain.Link;
-import com.awbeci.service.ILinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,15 +13,15 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
-    private ILinkService linkService;
+    //@Autowired
+    //private ILinkService linkService;
 
     /**
      * 首页页面
      */
     @RequestMapping("/")
     public String index(Model model, HttpSession session) {
-        List<Link> list = linkService.selectLinkById();
+        //List<Link> list = linkService.selectLinkById();
         if (session.getAttribute("user") == null) {
             return "main/index";
         } else {

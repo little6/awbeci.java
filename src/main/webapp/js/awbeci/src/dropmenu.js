@@ -9,8 +9,30 @@
 
     DropMenu.prototype = {
         _init: function () {
-            //设置
-            this._set();
+            this.$element.parent().addClass('dropmenu');
+            var header =
+                '<div class="dropmenu-header">' +
+                '   <span class="dropmenu-title">title</span>' +
+                '   <span class="octicon octicon-x header-close" role="button"  aria-label="Close"></span>' +
+                '</div>';
+
+            var filter =
+                '<div class="dropmenu-filters">' +
+                '<div class="dropmenu-filter">' +
+                '<input type="text" class="filter-input" placeholder="please input content">' +
+                '</div></div>';
+            var items = '<div class="dropmenu-items">';
+            for (var i = 0; i < this.options.data.length; i++) {
+                items += '<div class="dropmenu-item">';
+                items += '<span class="item-icon"><span class="' + this.options.data[i].icon + '"></span></span>'
+                items += '<span class="item-content"><div class="item-lable">' + this.options.data[i].text + '</div></span>'
+                items += '</div>'
+            }
+            items += '</div>'
+            this.$element.parent().append('<div class="dropmenu-panel">' + header + filter + items + '</div>');
+
+            //设置样式
+            this._setStyle();
             //注册事件
             this._onListener();
             return this;
@@ -27,7 +49,7 @@
             }
             return this;
         },
-        _set: function () {
+        _setStyle: function () {
             var $parent = this.$element.parent();
             $parent.find('.dropmenu-panel').width(this.options.width).addClass(this.options.position);
             $parent.find('.dropmenu-title').text(this.options.title);
@@ -145,8 +167,9 @@
     $.fn.dropmenu.defaults = {
         width: '300px',
         title: '标题',
+        data: [],
         fontWeight: true,
-        fontSize: '14px',
+        fontSize: '12px',
         position: 'left',
         display: 'simple',//complex
         padding: '8px',

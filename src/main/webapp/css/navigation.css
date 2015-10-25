@@ -237,12 +237,12 @@ a.list-group-item:hover {
     padding-left: 10px;
 }
 
-.modal-body {
+/*.modal-body {
     min-height: 480px;
     font-size: 14px;
     padding: 1px;
     margin: -1px;
-}
+}*/
 
 /*编辑pencil*/
 .list-group-item {
@@ -323,3 +323,5 @@ a.list-group-item:hover {
 .showlinkicon {
     position: relative;
 }
+
+/*设置modal属性*/
