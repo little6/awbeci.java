@@ -5,12 +5,11 @@
 <head>
     <title>个性导航</title>
     <link href="/js/bootstrap-treeview/src/css/bootstrap-treeview.css" rel="stylesheet">
-    <link href="/js/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="/js/metisMenu/demo.css" rel="stylesheet">
+    <link href="/js/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/css/navigation.css" rel="stylesheet">
     <script type="text/javascript" src="/js/dragsort-0.5.2/jquery.dragsort-0.5.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
-    <script type="text/javascript" src="/js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/js/views/navigation.js"></script>
 </head>
 <body>
@@ -170,13 +169,38 @@
                 <h4 class="modal-title">添加链接</h4>
             </div>
             <div class="modal-body">
-                <div><span>类型：</span>
-                <span>
-                    <a id="shownav4" href="#" data-toggle="dropmenu" aria-expanded="false">操作
-                        <b class="caret"></b></a>
-
-                    </span></div>
-
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="type" class="col-sm-2 control-label">类型</label>
+                        <div class="col-sm-10">
+                            <select id="type" class="selectpicker  show-tick" data-header="请选择类型">
+                                <option value="1">导航</option>
+                                <option value="2">网址</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="site" class="col-sm-2 control-label">网址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="site" placeholder="请输入网址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="site" class="col-sm-2 control-label">添加到</label>
+                        <div class="col-sm-10">
+                            <select id="navSiteT" class="selectpicker  show-tick" data-header="请选择类型">
+                                <option value="1">导航</option>
+                                <option value="2">网址</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>

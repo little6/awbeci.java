@@ -4,7 +4,6 @@ $(function () {
     $('#treeview').treeview(treeviewobj);
     //$("#showlink ul").dragsort({});
     //$(".we-edit").hide();
-    $('#menu').metisMenu();
     addnavSite()
     editNav();
     editLink();
@@ -142,19 +141,7 @@ function addnavSite() {
         $('#navSiteModal').modal({
             keyboard: true
         });
-        $("#shownav4").dropmenu({
-            data: [{
-                text: '导航',
-                icon: 'octicon octicon-plus'
-            }, {
-                text: '网址',
-                icon: 'octicon octicon-pencil'
-            }],
-            title: '请选择分类',
-            display: 'selection',
-            showFilter: false,
-            width: '180px'
-        });
+        $('#type').selectpicker();
     })
 }
 

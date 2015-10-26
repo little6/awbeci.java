@@ -16,9 +16,7 @@
     <link href="http://static.bootcss.com/www/assets/ico/favicon.png" rel="shortcut icon">
     <link href="/css/common.css" rel="stylesheet">
     <script src="/js/jquery/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="/js/Bootstrap/js/modal.js"></script>
-    <script type="text/javascript" src="/js/Bootstrap/js/tooltip.js"></script>
-    <script type="text/javascript" src="/js/awbeci/src/dropmenu.js"></script>
+    <script type="text/javascript" src="/js/Bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/views/common.js"></script>
     <sitemesh:write property="head"/>
     <%if (request.getSession().getAttribute("user") != null) {%>
