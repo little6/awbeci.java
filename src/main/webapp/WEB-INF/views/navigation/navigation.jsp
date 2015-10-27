@@ -166,41 +166,68 @@
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">×
                 </button>
-                <h4 class="modal-title">添加链接</h4>
+                <h4 class="modal-title">添加</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="type" class="col-sm-2 control-label">类型</label>
-                        <div class="col-sm-10">
-                            <select id="type" class="selectpicker  show-tick" data-header="请选择类型">
-                                <option value="1">导航</option>
-                                <option value="2">网址</option>
-                            </select>
-                        </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#category" data-toggle="tab">添加导航</a></li>
+                    <li>
+                        <a href="#site" data-toggle="tab">添加链接</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="category">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="categoryName" class="col-sm-2 control-label">名称</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="categoryName" placeholder="请输入名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryType" class="col-sm-2 control-label">添加到</label>
+
+                                <div class="col-sm-10">
+                                    <select id="categoryType" class="selectpicker  show-tick" data-header="请选择类型">
+                                        <option value="1">导航</option>
+                                        <option value="2">网址</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">名称</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" placeholder="请输入名称">
-                        </div>
+                    <div class="tab-pane fade" id="site">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="siteName" class="col-sm-2 control-label">名称</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="siteName" placeholder="请输入名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="url" class="col-sm-2 control-label">网址</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="url" placeholder="请输入网址">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="siteType" class="col-sm-2 control-label">添加到</label>
+
+                                <div class="col-sm-10">
+                                    <select id="siteType" class="selectpicker  show-tick" data-header="请选择类型">
+                                        <option value="1">导航</option>
+                                        <option value="2">网址</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="site" class="col-sm-2 control-label">网址</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="site" placeholder="请输入网址">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="site" class="col-sm-2 control-label">添加到</label>
-                        <div class="col-sm-10">
-                            <select id="navSiteT" class="selectpicker  show-tick" data-header="请选择类型">
-                                <option value="1">导航</option>
-                                <option value="2">网址</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>

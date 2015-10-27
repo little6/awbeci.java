@@ -141,7 +141,6 @@ function addnavSite() {
         $('#navSiteModal').modal({
             keyboard: true
         });
-        $('#type').selectpicker();
     })
 }
 

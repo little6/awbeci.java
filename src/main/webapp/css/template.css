@@ -7,10 +7,6 @@
     margin-top: -10px;
 }
 
-.nav > li:first-child > a {
-    padding-left: 0;
-}
-
 .row {
     margin: 0;
 }

@@ -325,3 +325,8 @@ a.list-group-item:hover {
 }
 
 /*设置modal属性*/
+
+/*设置tab*/
+#myTabContent{
+    padding: 20px 0;
+}
