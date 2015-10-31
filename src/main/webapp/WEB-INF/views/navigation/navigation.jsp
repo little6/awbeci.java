@@ -6,10 +6,12 @@
     <title>个性导航</title>
     <link href="/js/bootstrap-treeview/src/css/bootstrap-treeview.css" rel="stylesheet">
     <link href="/js/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/js/github/github.css" rel="stylesheet">
     <link href="/css/navigation.css" rel="stylesheet">
     <script type="text/javascript" src="/js/dragsort-0.5.2/jquery.dragsort-0.5.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
     <script type="text/javascript" src="/js/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/js/github/github.js"></script>
     <script type="text/javascript" src="/js/views/navigation.js"></script>
 </head>
 <body>
@@ -29,7 +31,43 @@
                     </a>
                 </div>
             </div>
-            <div id="treeview"></div>
+            <div class="sidebar-module">
+                <ul>
+                    <li class="js-expand-btn">
+                        <h3>
+                            <a href="#">
+                                <span class="octicon octicon-triangle-right arrow-btn"></span>
+                                JavaScript
+                            </a>
+                        </h3>
+                        <ul class="js-guides">
+                            <li><a href="#">JQuery</a></li>
+                            <li><a href="#">EXTJS</a></li>
+                            <li><a href="#">AngularJS</a></li>
+                            <li><a href="#">React</a></li>
+                            <li><a href="#">Node.JS</a></li>
+                            <li><a href="#">EasyUI</a></li>
+                        </ul>
+                    </li>
+                    <li class="js-expand-btn">
+                        <h3>
+                            <a href="#">
+                                <span class="octicon octicon-triangle-right arrow-btn"></span>
+                                JavaScript
+                            </a>
+                        </h3>
+                        <ul class="js-guides">
+                            <li><a href="#">JQuery</a></li>
+                            <li><a href="#">EXTJS</a></li>
+                            <li><a href="#">AngularJS</a></li>
+                            <li><a href="#">React</a></li>
+                            <li><a href="#">Node.JS</a></li>
+                            <li><a href="#">EasyUI</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /sidebar-module -->
             <div class="editdlg">
                 <form>
                     <div class="form-group form-group-sm">

@@ -1,0 +1,104 @@
+/*------------------------------------------------------------------------------
+     Sidebar
+------------------------------------------------------------------------------*/
+
+.sidebar-module {
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+}
+
+.sidebar-module ul {
+    margin: 0px;
+}
+
+.sidebar-module.notice {
+    background: #fafafb;
+    border: 1px solid #CACACA;
+    border-radius: 4px;
+    line-height: 1.5em;
+}
+
+.sidebar-module li {
+    list-style-type: none;
+}
+
+.sidebar-module ul li:last-child h3, .headlines li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-module ul li:last-child ul li:first-child {
+    border-top: 1px solid #eee;
+}
+
+.sidebar-module ul h3, .headlines > li {
+    margin: 0px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.headlines li:hover {
+    background-color: #fdfdfd;
+}
+
+.sidebar-module h3 a {
+    padding: 8px 10px 8px 10px;
+    color: #555;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar-module h3 a:hover {
+    text-decoration: none;
+    color: #327fc7;
+    background-color: #fdfdfd;
+}
+
+.sidebar-module ul ul li {
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #666;
+    background-color: #f9f9f9;
+}
+
+.sidebar-module ul li:last-child ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-module .disable > a {
+    color: #333;
+    border-left: 2px solid #d8d8d8;
+    padding-left: 29px;
+}
+
+.sidebar-module ul ul li a {
+    padding: 6px 0px 6px 31px;
+    display: block;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.sidebar-module ul ul li a:hover {
+    background-color: #f2f2f2;
+    color: #327fc7;
+}
+
+/****************************/
+/*  Expandable List Module  */
+/****************************/
+
+.sidebar-module a + a {
+    padding-left: 27px;
+}
+
+.sidebar-module h3 {
+    position: relative;
+}
+
+.arrow-btn {
+    width: 16px;
+}
