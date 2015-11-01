@@ -53,16 +53,15 @@
 }
 
 .sidebar-module h3 a:hover {
-    text-decoration: none;
-    color: #327fc7;
-    background-color: #fdfdfd;
+    /*text-decoration: none;
+    color: #327fc7;*/
 }
 
 .sidebar-module ul ul li {
     border-bottom: 1px solid #eee;
     font-weight: bold;
     color: #666;
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 
 .sidebar-module ul li:last-child ul li:last-child {
@@ -101,4 +100,9 @@
 
 .arrow-btn {
     width: 16px;
+}
+
+/*active li*/
+.activeli {
+    border-left: 2px solid #d26911;
 }

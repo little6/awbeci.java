@@ -29,6 +29,7 @@ public class LoginController {
 
     /**
      * 登录
+     *
      * @param name
      * @param password
      * @param session
@@ -38,17 +39,16 @@ public class LoginController {
     @ResponseBody
     public Map<String, Object> loginIn(String name, String password, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-       List<User> user = userService.selectUser();/*
-        if (user.size() > 0) {
+        User user = userService.selectUser(name, password);
+        if (user != null) {
             session.setAttribute("user", name);
-            map.put("success",true);
-            return map;
+            session.setAttribute("uid", user.getId());
+            //设置session过期时间为一个月
+            session.setMaxInactiveInterval(60 * 24 * 31);
+            map.put("success", true);
         } else {
-            map.put("success",false);
-            return map;
-        }*/
-        session.setAttribute("user", name);
-        map.put("success",true);
+            map.put("success", false);
+        }
         return map;
     }
 
@@ -57,7 +57,7 @@ public class LoginController {
      */
     @RequestMapping("/json/loginOut.json")
     @ResponseBody
-    public void loginOut(HttpSession session){
-        Object sess=session.getAttribute("user");
+    public void loginOut(HttpSession session) {
+        Object sess = session.getAttribute("user");
     }
 }

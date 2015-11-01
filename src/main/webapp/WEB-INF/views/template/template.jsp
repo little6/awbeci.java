@@ -33,11 +33,10 @@
     <% }%>
 </head>
 <body>
-<nav class="navbar navbar-top" role="navigation">
+<nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand nav-logo" href="/">Awbeci</a>
-
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-01">

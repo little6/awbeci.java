@@ -1,5 +1,6 @@
 package com.awbeci.dao;
 
+import org.apache.ibatis.annotations.Param;
 import com.awbeci.domain.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -16,4 +17,7 @@ public interface IUserDao {
     @Select("select * from user")
     @ResultMap("com.awbeci.mapper.UserMapper.UserResult")
     List<User> selectUser();
+
+    @Select("select * from user where name=#{name} and password=#{password}")
+    User selectUserByParam(@Param("name") String name, @Param("password") String passwd);
 }

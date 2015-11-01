@@ -21,54 +21,21 @@
             <div class="treeview-head">导航列表
                 <div class="treeview-head-right">
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="addnavlink" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top"
+                        <span id="addnavsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top"
                               title="添加"></span>
                     </a>
 
                     <a href="#" class="treeview-head-icon-right">
-                         <span id="editnav" class=" octicon octicon-pencil" data-toggle="tooltip"
+                         <span id="editnavsite" class=" octicon octicon-pencil" data-toggle="tooltip"
                                data-placement="top" title="编辑"></span>
                     </a>
                 </div>
             </div>
             <div class="sidebar-module">
-                <ul>
-                    <li class="js-expand-btn">
-                        <h3>
-                            <a href="#">
-                                <span class="octicon octicon-triangle-right arrow-btn"></span>
-                                JavaScript
-                            </a>
-                        </h3>
-                        <ul class="js-guides">
-                            <li><a href="#">JQuery</a></li>
-                            <li><a href="#">EXTJS</a></li>
-                            <li><a href="#">AngularJS</a></li>
-                            <li><a href="#">React</a></li>
-                            <li><a href="#">Node.JS</a></li>
-                            <li><a href="#">EasyUI</a></li>
-                        </ul>
-                    </li>
-                    <li class="js-expand-btn">
-                        <h3>
-                            <a href="#">
-                                <span class="octicon octicon-triangle-right arrow-btn"></span>
-                                JavaScript
-                            </a>
-                        </h3>
-                        <ul class="js-guides">
-                            <li><a href="#">JQuery</a></li>
-                            <li><a href="#">EXTJS</a></li>
-                            <li><a href="#">AngularJS</a></li>
-                            <li><a href="#">React</a></li>
-                            <li><a href="#">Node.JS</a></li>
-                            <li><a href="#">EasyUI</a></li>
-                        </ul>
-                    </li>
-                </ul>
+
             </div>
             <!-- /sidebar-module -->
-            <div class="editdlg">
+            <div class="editnavdlg">
                 <form>
                     <div class="form-group form-group-sm">
                         <label for="naveditname">名称</label>
@@ -76,7 +43,7 @@
                     </div>
 
                     <button type="button" class="btn btn-success">确定</button>
-                    <button type="button" class="btn btn-danger" onclick="canceledit()">取消</button>
+                    <button type="button" class="btn btn-danger" onclick="canceleditNav()">取消</button>
                 </form>
             </div>
         </div>
@@ -91,7 +58,6 @@
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default">搜索</button>
                         </div>
-
                     </div>
                     <!-- /btn-group -->
 

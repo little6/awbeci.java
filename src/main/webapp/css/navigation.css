@@ -119,11 +119,11 @@ a.list-group-item:hover {
 
 #showlink ul li div {
     display: block;
-    width: 286px;
+    width: 282px;
     font-size: 14px;
-    border: 1px solid #ddd;
+    border: 1px solid #d3dce3; /*#ddd;*/
     padding: 5px;
-    margin: 4px;
+    margin: 6px;
     background: #fff;
 }
 
@@ -245,7 +245,7 @@ a.list-group-item:hover {
 }*/
 
 /*编辑pencil*/
-.list-group-item {
+.list-item {
     position: relative;
 }
 
@@ -253,29 +253,31 @@ a.list-group-item:hover {
     color: #3C3C3C;
 }
 
-.editicon {
+.navediticon {
     position: absolute;
     right: 45px;
     top: 8px;
 }
 
-.delicon {
+.navdelicon {
     position: absolute;
-    right: 20px;
+    right: 25px;
     top: 8px;
 }
 
 .editnode:hover {
     color: #4183c4;
+    cursor: pointer;
 }
 
 /*编辑框*/
-.editdlg {
+.editnavdlg {
     font-size: 14px;
     display: none;
+    margin: -1px;
     position: absolute;
     background: #f5f5f5;
-    width: 287px;
+    width: 288px;
     height: 124px;
     border: 1px solid #ddd;
     z-index: 999;
@@ -299,11 +301,11 @@ a.list-group-item:hover {
 }
 
 /*链接编辑样式*/
-.linkedit {
+.linkedit, .navedit {
     color: #3C3C3C;
 }
 
-.linkedit:hover {
+.linkedit:hover, .navedit:hover {
     cursor: pointer;
     color: #4183c4;
 }
@@ -327,6 +329,6 @@ a.list-group-item:hover {
 /*设置modal属性*/
 
 /*设置tab*/
-#myTabContent{
+#myTabContent {
     padding: 20px 0;
 }
