@@ -44,9 +44,7 @@
             <h1 class="logo"><span class="mega-octicon octicon-mark-github"></span></h1>
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/main/main.html" class="header-nav-link">首页</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">我的云址</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">资源</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">社交</a></li>
+                <li><a href="/navigation/navigation.html" class="header-nav-link">我的主页</a></li>
                 <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于我</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

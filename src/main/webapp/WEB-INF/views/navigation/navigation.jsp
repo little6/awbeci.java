@@ -170,7 +170,7 @@
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">×
                 </button>
-                <h4 class="modal-title">添加</h4>
+                <h4 class="modal-title">添加分类及类型</h4>
             </div>
             <div class="modal-body">
                 <ul id="myTab" class="nav nav-tabs">
@@ -182,7 +182,7 @@
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="category">
-                        <form class="form-horizontal">
+                        <form id="categoryform" class="form-horizontal">
                             <div class="form-group">
                                 <label for="categoryName" class="col-sm-2 control-label">名称</label>
 
@@ -194,9 +194,8 @@
                                 <label for="categoryType" class="col-sm-2 control-label">添加到</label>
 
                                 <div class="col-sm-10">
-                                    <select id="categoryType" class="selectpicker  show-tick" data-header="请选择类型">
-                                        <option value="1">导航</option>
-                                        <option value="2">网址</option>
+                                    <select id="categoryType" class="selectpicker  show-tick" data-header="请选择类型" data-size="10">
+
                                     </select>
                                 </div>
                             </div>
@@ -236,7 +235,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary"
-                        data-dismiss="modal" onclick="addLink()">保存
+                        data-dismiss="modal" onclick="saveCategory()">保存
                 </button>
             </div>
         </div>

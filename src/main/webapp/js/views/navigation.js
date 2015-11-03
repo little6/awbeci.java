@@ -1,5 +1,11 @@
 $(function () {
-
+    $.getJSON('/json/getCategoryByUid.json', function (data) {
+        var html = '<option value="">默认</option>';
+        for (var i = 0; i < data.length; i++) {
+            html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+        }
+        $('#categoryType').append(html);
+    });
     $("[data-toggle='tooltip']").tooltip({html: true});
     //$("#showlink ul").dragsort({});
     //$(".we-edit").hide();
@@ -38,8 +44,11 @@ $(function () {
 });
 function addnavSite() {
     $('#addnavsite').on('click', function () {
+        $('#categoryName').val('');
+        $('#categoryType').selectpicker('val', '');
         $('#navSiteModal').modal({
-            keyboard: true
+            keyboard: false,
+            backdrop: false
         });
     })
 }
@@ -93,4 +102,18 @@ function canceleditNav() {
 
 function canceleditLink() {
     $('.editlinkdlg').removeClass('show');
+}
+
+function saveCategory() {
+    var categoryname = $('#categoryName').val();
+    var category = $('#categoryType').val();
+    if ($.trim(categoryname).length == 0 || $.trim(category).length == 0) {
+        return alert('请输入完整');
+    }
+    $.getJSON('/json/saveCategory.json', {
+        'name': categoryname,
+        'pid': category
+    }, function (data) {
+
+    });
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IUserCategoryService {
     List<UserCategory> selectCategoryByUid(String uid);
+
+    int insertCategory(UserCategory userCategory);
 }
