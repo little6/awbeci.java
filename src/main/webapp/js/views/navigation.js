@@ -1,4 +1,5 @@
 $(function () {
+    $.ajaxSettings.async = false;
     $.getJSON('/json/getCategoryByUid.json', function (data) {
         var html = '<option value="">默认</option>';
         for (var i = 0; i < data.length; i++) {
@@ -75,7 +76,7 @@ function editNav() {
         $("#naveditname").val($.trim($(this).parent().children('a').text()));
         $('.editnavdlg').css({
             left: positon.left,
-            top: positon.top
+            top: positon.top + 35
         }).addClass('show');
         event.stopPropagation();
     });
@@ -89,8 +90,8 @@ function editLink() {
         $("#linkeditname").val($.trim($(this).parent().children('a').text()));
         $("#linkediturl").val($.trim($(this).parent().children('a').attr('href')));
         $('.editlinkdlg').css({
-            left: $positon.left + 4,
-            top: $positon.top + 4
+            left: $positon.left + 6,
+            top: $positon.top + 39
         }).addClass('show');
     })
 }

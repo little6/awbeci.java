@@ -36,15 +36,27 @@
             </div>
             <!-- /sidebar-module -->
             <div class="editnavdlg">
-                <form>
+                <div class="dlgHeader">
+                    <button type="button" class="close" aria-hidden="true">×</button>
+                    编辑
+                </div>
+                <div class="dlgBody">
                     <div class="form-group form-group-sm">
                         <label for="naveditname">名称</label>
                         <input type="text" class="form-control" id="naveditname">
                     </div>
+                    <div class="form-group form-group-sm">
+                        <label for="categoryType">添加到</label>
+                        <select id="categoryType" class="selectpicker  show-tick" data-size="10">
 
-                    <button type="button" class="btn btn-success">确定</button>
-                    <button type="button" class="btn btn-danger" onclick="canceleditNav()">取消</button>
-                </form>
+                        </select>
+                    </div>
+                    <div class="categorytoolbar">
+                        <button type="button" class="btn btn-success">确定</button>
+                        <button type="button" class="btn btn-danger" onclick="canceleditNav()">取消</button>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="col-lg-9 rowcol-right">
@@ -141,7 +153,11 @@
 
                 </ul>
                 <div class="editlinkdlg">
-                    <form>
+                    <div class="dlgHeader">
+                        <button type="button" class="close" aria-hidden="true">×</button>
+                        编辑
+                    </div>
+                    <div class="dlgBody">
                         <div class="form-group">
                             <label for="linkeditname">名称</label>
                             <input type="text" class="form-control" id="linkeditname">
@@ -150,9 +166,19 @@
                             <label for="linkediturl">URL</label>
                             <input type="text" class="form-control" id="linkediturl">
                         </div>
-                        <button type="button" class="btn btn-success">确定</button>
-                        <button type="button" class="btn btn-danger" onclick="canceleditLink()">取消</button>
-                    </form>
+                        <div class="form-group form-group-sm">
+                            <label for="siteType">添加到</label>
+                            <select id="siteType" class="selectpicker  show-tick">
+                                <option value="1">导航</option>
+                                <option value="2">网址</option>
+                            </select>
+                        </div>
+                        <div class="sitetoolbar">
+                            <button type="button" class="btn btn-success">确定</button>
+                            <button type="button" class="btn btn-danger" onclick="canceleditLink()">取消</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,9 +220,7 @@
                                 <label for="categoryType" class="col-sm-2 control-label">添加到</label>
 
                                 <div class="col-sm-10">
-                                    <select id="categoryType" class="selectpicker  show-tick" data-header="请选择类型" data-size="10">
 
-                                    </select>
                                 </div>
                             </div>
                         </form>
@@ -221,16 +245,12 @@
                                 <label for="siteType" class="col-sm-2 control-label">添加到</label>
 
                                 <div class="col-sm-10">
-                                    <select id="siteType" class="selectpicker  show-tick" data-header="请选择类型">
-                                        <option value="1">导航</option>
-                                        <option value="2">网址</option>
-                                    </select>
+
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
