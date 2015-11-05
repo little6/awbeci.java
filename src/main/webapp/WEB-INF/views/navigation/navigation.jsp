@@ -16,6 +16,21 @@
 </head>
 <body>
 <div class="container" id="container-main">
+    <div class="row"><div class="btn-search">
+        <form action="http://www.baidu.com/baidu" target="_blank">
+            <div class="input-group input-group-sm">
+                <input name="tn" type="hidden" value="baidu">
+                <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
+                       baiduSug="1">
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </div>
+            </div>
+            <!-- /btn-group -->
+
+        </form>
+    </div></div>
     <div class="row">
         <div class="col-lg-3 rowcol-left">
             <div class="treeview-head">导航列表
@@ -41,41 +56,33 @@
                     编辑
                 </div>
                 <div class="dlgBody">
-                    <div class="form-group form-group-sm">
-                        <label for="naveditname">名称</label>
+                    <div class="form-group">
                         <input type="text" class="form-control" id="naveditname">
                     </div>
-                    <div class="form-group form-group-sm">
-                        <label for="categoryType">添加到</label>
+                    <div class="form-group">
                         <select id="categoryType" class="selectpicker  show-tick" data-size="10">
-
                         </select>
                     </div>
                     <div class="categorytoolbar">
-                        <button type="button" class="btn btn-success">确定</button>
-                        <button type="button" class="btn btn-danger" onclick="canceleditNav()">取消</button>
+                        <button type="button" class="btn btn-success btn-sm">确定</button>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="canceleditNav()">取消</button>
                     </div>
                 </div>
 
             </div>
         </div>
         <div class="col-lg-9 rowcol-right">
-            <div class="btn-search">
-                <form action="http://www.baidu.com/baidu" target="_blank">
-                    <div class="input-group input-group-sm">
-                        <input name="tn" type="hidden" value="baidu">
-                        <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
-                               baiduSug="1">
+            <div class="treeview-head">网址列表
+                <div class="treeview-head-right">
+                    <a href="#" class="treeview-head-icon-right">
+                        <span id="addnavsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加"></span>
+                    </a>
 
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default">搜索</button>
-                        </div>
-                    </div>
-                    <!-- /btn-group -->
-
-                </form>
+                    <a href="#" class="treeview-head-icon-right">
+                        <span id="editnavsite" class=" octicon octicon-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"></span>
+                    </a>
+                </div>
             </div>
-
             <div id="showlink">
                 <ul>
                     <li>
@@ -159,23 +166,20 @@
                     </div>
                     <div class="dlgBody">
                         <div class="form-group">
-                            <label for="linkeditname">名称</label>
                             <input type="text" class="form-control" id="linkeditname">
                         </div>
-                        <div class="form-group form-group-sm">
-                            <label for="linkediturl">URL</label>
+                        <div class="form-group">
                             <input type="text" class="form-control" id="linkediturl">
                         </div>
-                        <div class="form-group form-group-sm">
-                            <label for="siteType">添加到</label>
+                        <div class="form-group">
                             <select id="siteType" class="selectpicker  show-tick">
                                 <option value="1">导航</option>
                                 <option value="2">网址</option>
                             </select>
                         </div>
-                        <div class="sitetoolbar">
-                            <button type="button" class="btn btn-success">确定</button>
-                            <button type="button" class="btn btn-danger" onclick="canceleditLink()">取消</button>
+                        <div class="sitetoolbar  form-group-sm">
+                            <button type="button" class="btn btn-success btn-sm">确定</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="canceleditLink()">取消</button>
                         </div>
 
                     </div>
