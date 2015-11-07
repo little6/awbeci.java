@@ -187,6 +187,7 @@ a.list-group-item:hover {
     padding: 8px 10px;
     border-radius: 4px 4px 0 0;
     font-size: 14px;
+    position: relative;
 }
 
 .link-head {
@@ -228,6 +229,7 @@ a.list-group-item:hover {
 /*右边链接*/
 .btn-search {
     padding: 5px 0;
+    margin: 0 6px;
 }
 
 .link-head-span {
@@ -282,7 +284,8 @@ a.list-group-item:hover {
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
-.dlgHeader{
+
+.dlgHeader {
     padding: 8px 14px;
     margin: 0;
     font-size: 14px;
@@ -291,15 +294,17 @@ a.list-group-item:hover {
     border-radius: 5px 5px 0 0;
 }
 
-.dlgBody{
+.dlgBody {
     padding: 15px;
     background: #fff;
 }
+
 .sitetoolbar, .categorytoolbar {
     margin-top: 20px;
     text-align: right;
 }
-.sitetoolbar button:first-child,.categorytoolbar button:first-child{
+
+.sitetoolbar button:first-child, .categorytoolbar button:first-child {
     margin-right: 10px;
 }
 
@@ -314,8 +319,6 @@ a.list-group-item:hover {
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
-
-
 
 .form-group {
     margin-bottom: 8px;
@@ -354,7 +357,6 @@ a.list-group-item:hover {
     padding: 20px 0;
 }
 
-
-.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100%;
 }

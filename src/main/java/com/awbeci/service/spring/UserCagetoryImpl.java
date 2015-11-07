@@ -14,8 +14,8 @@ public class UserCagetoryImpl implements IUserCategoryService{
     private IUserCategoryDao userCategoryDao;
 
     @Override
-    public List<UserCategory> selectCategoryByUid(String uid) {
-        return userCategoryDao.selectCategoryByUid(uid);
+    public List<UserCategory> selectCategoryParentByUid(String uid) {
+        return userCategoryDao.selectCategoryParentByUid(uid);
     }
 
     @Override
@@ -23,5 +23,8 @@ public class UserCagetoryImpl implements IUserCategoryService{
         return userCategoryDao.insertCategory(userCategory);
     }
 
-
+    @Override
+    public List<UserCategory> selectCategoryChildByPid(String pid) {
+        return userCategoryDao.selectCategoryChildByPid(pid);
+    }
 }

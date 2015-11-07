@@ -38,19 +38,31 @@ public class NavigationController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/json/getCategoryByUid.json", method = RequestMethod.GET)
+    @RequestMapping(value = "/json/getCategoryParentByUid.json", method = RequestMethod.POST)
     @ResponseBody
-    public List<UserCategory> getCategoryByUid(HttpSession session) {
+    public List<UserCategory> selectCategoryParentByUid(HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-            List<UserCategory> userCategories = userCategoryService.selectCategoryByUid(uid);
+            List<UserCategory> userCategories = userCategoryService.selectCategoryParentByUid(uid);
             return userCategories;
         } else {
             return null;
         }
     }
 
-    @RequestMapping(value = "/json/saveCategory.json", method = RequestMethod.GET)
+    @RequestMapping(value = "/json/getCategoryChildByPid.json", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserCategory> getCategoryChildByPid(String pid, HttpSession session) {
+        String uid = (String) session.getAttribute("uid");
+        if (uid != null) {
+            List<UserCategory> userCategories = userCategoryService.selectCategoryChildByPid(pid);
+            return userCategories;
+        } else {
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/json/saveCategory.json", method = RequestMethod.POST)
     @ResponseBody
     public int insertCategory(UserCategory userCategory, HttpSession session) {
         String uid = (String) session.getAttribute("uid");

@@ -16,32 +16,17 @@
 </head>
 <body>
 <div class="container" id="container-main">
-    <div class="row"><div class="btn-search">
-        <form action="http://www.baidu.com/baidu" target="_blank">
-            <div class="input-group input-group-sm">
-                <input name="tn" type="hidden" value="baidu">
-                <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
-                       baiduSug="1">
-
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default">搜索</button>
-                </div>
-            </div>
-            <!-- /btn-group -->
-
-        </form>
-    </div></div>
     <div class="row">
         <div class="col-lg-3 rowcol-left">
-            <div class="treeview-head">导航列表
+            <div class="treeview-head">分类列表
                 <div class="treeview-head-right">
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="addnavsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top"
+                        <span id="addcategory" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top"
                               title="添加"></span>
                     </a>
 
                     <a href="#" class="treeview-head-icon-right">
-                         <span id="editnavsite" class=" octicon octicon-pencil" data-toggle="tooltip"
+                         <span id="editcategory" class=" octicon octicon-pencil" data-toggle="tooltip"
                                data-placement="top" title="编辑"></span>
                     </a>
                 </div>
@@ -52,19 +37,19 @@
             <!-- /sidebar-module -->
             <div class="editnavdlg">
                 <div class="dlgHeader">
-                    <button type="button" class="close" aria-hidden="true">×</button>
-                    编辑
+                    <button type="button" id="categoryClose" class="close" aria-hidden="true">×</button>
+                    <span class="header-title">编辑</span>
                 </div>
                 <div class="dlgBody">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="naveditname">
+                        <input type="text" class="form-control" id="categoryName" placeholder="请输入名称">
                     </div>
                     <div class="form-group">
-                        <select id="categoryType" class="selectpicker  show-tick" data-size="10">
+                        <select id="categoryType" class="selectpicker  show-tick" data-size="8" data-live-search="true">
                         </select>
                     </div>
                     <div class="categorytoolbar">
-                        <button type="button" class="btn btn-success btn-sm">确定</button>
+                        <button type="button" class="btn btn-success btn-sm" onclick="saveCategory()">确定</button>
                         <button type="button" class="btn btn-danger btn-sm" onclick="canceleditNav()">取消</button>
                     </div>
                 </div>
@@ -75,15 +60,30 @@
             <div class="treeview-head">网址列表
                 <div class="treeview-head-right">
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="addnavsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加"></span>
+                        <span id="addsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加"></span>
                     </a>
 
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="editnavsite" class=" octicon octicon-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"></span>
+                        <span id="editsite" class=" octicon octicon-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"></span>
                     </a>
                 </div>
             </div>
             <div id="showlink">
+                <div class="btn-search">
+                    <form action="http://www.baidu.com/baidu" target="_blank">
+                        <div class="input-group input-group-sm">
+                            <input name="tn" type="hidden" value="baidu">
+                            <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
+                                   baiduSug="1">
+
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default">搜索</button>
+                            </div>
+                        </div>
+                        <!-- /btn-group -->
+
+                    </form>
+                </div>
                 <ul>
                     <li>
                         <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
@@ -161,8 +161,8 @@
                 </ul>
                 <div class="editlinkdlg">
                     <div class="dlgHeader">
-                        <button type="button" class="close" aria-hidden="true">×</button>
-                        编辑
+                        <button type="button"id="siteClose" class="close" aria-hidden="true">×</button>
+                        <span class="header-title">编辑</span>
                     </div>
                     <div class="dlgBody">
                         <div class="form-group">
@@ -189,83 +189,6 @@
     </div>
 </div>
 </div>
-
-<!-- 模态框（Modal） -->
-<!-- 模态框（Modal添加链接） -->
-<div class="modal fade" id="navSiteModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-hidden="true">×
-                </button>
-                <h4 class="modal-title">添加分类及类型</h4>
-            </div>
-            <div class="modal-body">
-                <ul id="myTab" class="nav nav-tabs">
-                    <li class="active">
-                        <a href="#category" data-toggle="tab">添加导航</a></li>
-                    <li>
-                        <a href="#site" data-toggle="tab">添加链接</a>
-                    </li>
-                </ul>
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active" id="category">
-                        <form id="categoryform" class="form-horizontal">
-                            <div class="form-group">
-                                <label for="categoryName" class="col-sm-2 control-label">名称</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="categoryName" placeholder="请输入名称">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryType" class="col-sm-2 control-label">添加到</label>
-
-                                <div class="col-sm-10">
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="site">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="siteName" class="col-sm-2 control-label">名称</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="siteName" placeholder="请输入名称">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="url" class="col-sm-2 control-label">网址</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="url" placeholder="请输入网址">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="siteType" class="col-sm-2 control-label">添加到</label>
-
-                                <div class="col-sm-10">
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary"
-                        data-dismiss="modal" onclick="saveCategory()">保存
-                </button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
 </div>
 </body>
 <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
