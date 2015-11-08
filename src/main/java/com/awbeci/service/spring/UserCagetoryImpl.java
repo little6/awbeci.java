@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserCagetoryImpl implements IUserCategoryService{
+public class UserCagetoryImpl implements IUserCategoryService {
     @Autowired
     private IUserCategoryDao userCategoryDao;
 
     @Override
-    public List<UserCategory> selectCategoryParentByUid(String uid) {
-        return userCategoryDao.selectCategoryParentByUid(uid);
+    public List<UserCategory> selectCategoryByUid(String uid) {
+        return userCategoryDao.selectCategoryByUid(uid);
+    }
+
+    @Override
+    public List<UserCategory> selectCategoryParent(String uid) {
+        return userCategoryDao.selectCategoryParent(uid);
     }
 
     @Override
@@ -26,5 +31,20 @@ public class UserCagetoryImpl implements IUserCategoryService{
     @Override
     public List<UserCategory> selectCategoryChildByPid(String pid) {
         return userCategoryDao.selectCategoryChildByPid(pid);
+    }
+
+    @Override
+    public int updateCategoryById(UserCategory userCategory) {
+        return userCategoryDao.updateCategoryById(userCategory);
+    }
+
+    @Override
+    public int deleteCategory(String id) {
+        return userCategoryDao.deleteCategory(id);
+    }
+
+    @Override
+    public List<UserCategory> getSiteByCategoryId(String id) {
+        return userCategoryDao.getSiteByCategoryId(id);
     }
 }

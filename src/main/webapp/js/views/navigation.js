@@ -1,3 +1,5 @@
+var categoryflag = '';
+
 $(function () {
     $("[data-toggle='tooltip']").tooltip({html: true});
     //$("#showlink ul").dragsort({});
@@ -15,19 +17,34 @@ $(function () {
 
 function initCategory() {
     $('.sidebar-module').empty();
-    $.post('/json/getCategoryParentByUid.json', function (data) {
+    $.post('/json/getCategoryByUid.json', function (data) {
         var html = '<ul>';
         for (var i = 0; i < data.length; i++) {
-            html += '<li class="js-expand-btn">';
-            html += '<h3>';
-            html += '<a id="' + data[i].id + '" href="#" class="categoryParent">';
-            html += '<span class="octicon octicon-triangle-right arrow-btn"></span>';
-            html += data[i].name;
-            html += '</a>';
-            html += '<span class="navedit navediticon octicon octicon-pencil" ></span>';
-            html += '<span class="navedit navdelicon octicon octicon-x"></span>';
-            html += '</h3>';
-            html += '</li>';
+            if (data[i].pid == null || data[i].pid == '') {
+                html += '<li class="js-expand-btn">';
+                html += '<h3>';
+                html += '<a id="' + data[i].id + '" href="#" class="categoryParent">';
+                html += '<span class="octicon octicon-triangle-right arrow-btn"></span>';
+                html += data[i].name;
+                html += '</a>';
+                html += '<span class="navedit navediticon octicon octicon-pencil" ></span>';
+                html += '<span class="navedit navdelicon octicon octicon-x"></span>';
+                html += '</h3>';
+                html += '<ul class="js-guides">';
+
+                for (var j = 0; j < data.length; j++) {
+                    if (data[j].pid == data[i].id) {
+                        html += '<li class="list-item">';
+                        html += '<a class="categoryChild" href="#" id="' + data[j].id + '" pid="' + data[j].pid + '">' + data[j].name + '</a>';
+                        html += '<span class="navedit navediticon octicon octicon-pencil"></span>';
+                        html += '<span class="navedit navdelicon octicon octicon-x"></span>';
+                        html += '</li>';
+                    }
+                }
+
+                html += '</ul>';
+                html += '</li>';
+            }
         }
         html += '</ul>';
         $('.sidebar-module').append($(html));
@@ -36,42 +53,31 @@ function initCategory() {
 
         //this funciton in github.js
         setSiteBar();
-        editCategory();
+        editDelCategory();
         editSite();
-        categoryParentClick();
+        categoryChildClick();
     }, 'json');
-}
-
-function categoryParentClick() {
-    $('.categoryParent').on('click', function () {
-        var html = '';
-        //todo
-        $.post('/json/getCategoryChildByPid.json', {
-            pid: $(this).attr('id')
-        }, function (data) {
-            html += '<ul class="js-guides">';
-            html += '<li class="list-item"><a class="categoryChild" href="#">JQuery</a>';
-            html += '<span class="navedit navediticon octicon octicon-pencil"></span>';
-            html += '<span class="navedit navdelicon octicon octicon-x"></span></li>';
-            html += '</ul>';
-            categoryChildClick();
-        }, 'json');
-    });
-
 }
 
 function categoryChildClick() {
     $('.categoryChild').on('click', function () {
-        alert(1)
+        $.post('/json/getSiteByCategoryId.json', {
+            categoryId: $(this).attr('id')
+        }, function (data) {
+
+        }, 'json');
     });
 }
 
-function bindCategories() {
+function bindCategories(id) {
     $('#categoryType').empty();
-    $.post('/json/getCategoryByUid.json', function (data) {
+    $.ajaxSettings.async = false;
+    $.post('/json/getCategoryParent.json', function (data) {
         var html = '<option value="">默认</option>';
         for (var i = 0; i < data.length; i++) {
-            html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+            if (data[i].id != id) {
+                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+            }
         }
         $('#categoryType').append(html);
         $('#categoryType').selectpicker('refresh');
@@ -80,9 +86,11 @@ function bindCategories() {
 
 function addcategory() {
     $('#addcategory').on('click', function () {
+        categoryflag = 'add';
         $('.header-title').text('添加');
         var positon = $(this).parent().parent().position();
-        $("#naveditname").val('');
+        $("#categoryName").val('');
+        $('#categoryId').val('');
         $('.editnavdlg').css({
             left: '1px',
             top: positon.top + 29
@@ -94,12 +102,15 @@ function addcategory() {
 function saveCategory() {
     var categoryname = $('#categoryName').val();
     var category = $('#categoryType').val();
-    if ($.trim(categoryname).length == 0 || $.trim(category).length == 0) {
+    if ($.trim(categoryname).length == 0) {
         return alert('请输入完整');
     }
+    //todo:注意：添加的时候不能允许名称重复
     $.post('/json/saveCategory.json', {
-        'name': categoryname,
-        'pid': category
+        id: $('#categoryId').val(),
+        name: categoryname,
+        pid: category,
+        flag: categoryflag
     }, function (data) {
         if (data != 0) {
             canceleditNav();
@@ -148,12 +159,14 @@ function editCategorySite() {
     });
 }
 
-function editCategory() {
-    //todo
-    $('.navedit').on('click', function () {
-        bindCategories();
+function editDelCategory() {
+    $('.navediticon').on('click', function () {
+        categoryflag = 'update';
+        bindCategories($(this).parent().children('a').attr('id'));
         var positon = $(this).parent().position();
+        $('#categoryId').val($(this).parent().children('a').attr('id'));
         $("#categoryName").val($.trim($(this).parent().children('a').text()));
+        $('#categoryType').selectpicker('val', $(this).parent().children('a').attr('pid'));
         $('.editnavdlg').css({
             left: positon.left,
             top: positon.top + 35
@@ -161,6 +174,27 @@ function editCategory() {
         event.stopPropagation();
     });
 
+    $('.navdelicon').on('click', function () {
+        event.stopPropagation();
+        var parents = $(this).parent().parent().find('.list-item');
+        var parent = $(this).parent();
+        if (parents.length > 0 && !parent.hasClass('list-item')) {
+            return alert('该分类下存在子分类，请先删除子分类，再删除此分类');
+        }
+        var val = confirm("您确定删除此分类？");
+        if (val) {
+            $.post('/json/deleteCategory.json', {
+                id: $(this).parent().children('a').attr('id')
+            }, function (data) {
+                if (data != 0) {
+                    initCategory();
+                }
+                else {
+                    alert('删除失败');
+                }
+            }, 'json');
+        }
+    });
 }
 
 /*编辑链接*/

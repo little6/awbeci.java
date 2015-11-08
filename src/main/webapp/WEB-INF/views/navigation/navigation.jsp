@@ -43,6 +43,7 @@
                 <div class="dlgBody">
                     <div class="form-group">
                         <input type="text" class="form-control" id="categoryName" placeholder="请输入名称">
+                        <input type="hidden" id="categoryId">
                     </div>
                     <div class="form-group">
                         <select id="categoryType" class="selectpicker  show-tick" data-size="8" data-live-search="true">
@@ -60,11 +61,13 @@
             <div class="treeview-head">网址列表
                 <div class="treeview-head-right">
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="addsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加"></span>
+                        <span id="addsite" class="octicon octicon-plus" data-toggle="tooltip" data-placement="top"
+                              title="" data-original-title="添加"></span>
                     </a>
 
                     <a href="#" class="treeview-head-icon-right">
-                        <span id="editsite" class=" octicon octicon-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"></span>
+                        <span id="editsite" class=" octicon octicon-pencil" data-toggle="tooltip" data-placement="top"
+                              title="" data-original-title="编辑"></span>
                     </a>
                 </div>
             </div>
@@ -161,7 +164,7 @@
                 </ul>
                 <div class="editlinkdlg">
                     <div class="dlgHeader">
-                        <button type="button"id="siteClose" class="close" aria-hidden="true">×</button>
+                        <button type="button" id="siteClose" class="close" aria-hidden="true">×</button>
                         <span class="header-title">编辑</span>
                     </div>
                     <div class="dlgBody">

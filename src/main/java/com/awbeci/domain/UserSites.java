@@ -11,6 +11,16 @@ public class UserSites {
     private Integer sortNo;
     private Date createDt;
     private Date updateDt;
+    private UserCategory userCategory;
+
+    public UserCategory getUserCategory() {
+        return userCategory;
+    }
+
+    public void setUserCategory(UserCategory userCategory) {
+        this.userCategory = userCategory;
+    }
+
 
     public String getId() {
         return id;

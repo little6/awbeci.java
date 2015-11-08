@@ -1,6 +1,7 @@
 package com.awbeci.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserCategory {
     private String id;
@@ -10,6 +11,15 @@ public class UserCategory {
     private Integer sortNo;
     private Date createDt;
     private Date updateDt;
+    private List<UserSites> userSiteses;
+
+    public List<UserSites> getUserSiteses() {
+        return userSiteses;
+    }
+
+    public void setUserSiteses(List<UserSites> userSiteses) {
+        this.userSiteses = userSiteses;
+    }
 
     public String getId() {
         return id;
