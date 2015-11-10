@@ -28,9 +28,4 @@ public interface IUserCategoryDao {
 
     @Delete("delete from usercategory where id=#{id}")
     int deleteCategory(String id);
-
-    @Select("select * from usercategory where id=#{id}")
-    @ResultMap("com.awbeci.mapper.UserCategoryMapper.UserCategoryResult")
-        //todo:
-    List<UserCategory> getSiteByCategoryId(String id);
 }

@@ -43,8 +43,4 @@ public class UserCagetoryImpl implements IUserCategoryService {
         return userCategoryDao.deleteCategory(id);
     }
 
-    @Override
-    public List<UserCategory> getSiteByCategoryId(String id) {
-        return userCategoryDao.getSiteByCategoryId(id);
-    }
 }

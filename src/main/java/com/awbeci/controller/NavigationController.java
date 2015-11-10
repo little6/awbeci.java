@@ -1,7 +1,9 @@
 package com.awbeci.controller;
 
 import com.awbeci.domain.UserCategory;
+import com.awbeci.domain.UserSites;
 import com.awbeci.service.IUserCategoryService;
+import com.awbeci.service.IUserSitesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ import java.util.UUID;
 public class NavigationController {
     @Autowired
     private IUserCategoryService userCategoryService;
+
+    @Autowired
+    private IUserSitesService userSitesService;
 
     @RequestMapping("/navigation/navigation.html")
     public String navigation(HttpSession session) {
@@ -112,10 +117,12 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/getSiteByCategoryId.json", method = RequestMethod.POST)
     @ResponseBody
-    public void getSiteByCategoryId(String categoryId, HttpSession session) {
+    public List<UserSites> getSiteByCategoryId(String categoryId, HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-            List<UserCategory> userCategories = userCategoryService.getSiteByCategoryId(categoryId);
+            List userSites = userSitesService.getSiteByCategoryId(categoryId);
+            return userSites;
         }
+        return null;
     }
 }

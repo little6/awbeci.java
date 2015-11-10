@@ -17,5 +17,4 @@ public interface IUserCategoryService {
 
     int deleteCategory(String id);
 
-    List<UserCategory> getSiteByCategoryId(String id);
 }
