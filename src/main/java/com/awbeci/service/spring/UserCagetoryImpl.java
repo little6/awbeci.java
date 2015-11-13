@@ -34,6 +34,11 @@ public class UserCagetoryImpl implements IUserCategoryService {
     }
 
     @Override
+    public List<UserCategory> selectCategoryChild() {
+        return userCategoryDao.selectCategoryChild();
+    }
+
+    @Override
     public int updateCategoryById(UserCategory userCategory) {
         return userCategoryDao.updateCategoryById(userCategory);
     }

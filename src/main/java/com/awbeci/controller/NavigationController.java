@@ -76,6 +76,18 @@ public class NavigationController {
         }
     }
 
+    @RequestMapping(value = "/json/getCategoryChild.json", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserCategory> getCategoryChild(HttpSession session) {
+        String uid = (String) session.getAttribute("uid");
+        if (uid != null) {
+            List<UserCategory> userCategories = userCategoryService.selectCategoryChild();
+            return userCategories;
+        } else {
+            return null;
+        }
+    }
+
     @RequestMapping(value = "/json/saveCategory.json", method = RequestMethod.POST)
     @ResponseBody
     public int saveCategory(UserCategory userCategory, HttpServletRequest request, HttpSession session) {
@@ -96,6 +108,32 @@ public class NavigationController {
             if (flag.equals("update")) {
                 int val = userCategoryService.updateCategoryById(userCategory);
                 return val;
+            }
+            return 0;
+        } else {
+            return 0;
+        }
+    }
+
+    @RequestMapping(value = "/json/saveCategory.json", method = RequestMethod.POST)
+    @ResponseBody
+    public int saveSite(UserSites userSites, HttpServletRequest request, HttpSession session) {
+        String flag = request.getParameter("flag");
+        String uid = (String) session.getAttribute("uid");
+        if (uid != null) {
+
+            userSites.setUpdateDt(new Date());
+
+            if (flag.equals("add")) {
+                userSites.setId(UUID.randomUUID().toString());
+                userSites.setSortNo(1);
+                userSites.setCreateDt(new Date());
+                int val = userSitesService.insertSite(userSites);
+                return val;
+            }
+            if (flag.equals("update")) {
+//                int val = userCategoryService.updateCategoryById(userCategory);
+//                return val;
             }
             return 0;
         } else {

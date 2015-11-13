@@ -169,19 +169,17 @@
                     </div>
                     <div class="dlgBody">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="linkeditname">
+                            <input type="text" class="form-control" id="sitename" placeholder="请输入名称">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="linkediturl">
+                            <input type="text" class="form-control" id="siteurl" placeholder="请输入网址">
                         </div>
                         <div class="form-group">
-                            <select id="siteType" class="selectpicker  show-tick">
-                                <option value="1">导航</option>
-                                <option value="2">网址</option>
+                            <select id="siteType" class="selectpicker  show-tick" data-size="8" data-live-search="true">
                             </select>
                         </div>
                         <div class="sitetoolbar  form-group-sm">
-                            <button type="button" class="btn btn-success btn-sm">确定</button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="saveSite()">确定</button>
                             <button type="button" class="btn btn-danger btn-sm" onclick="canceleditLink()">取消</button>
                         </div>
 

@@ -1,4 +1,5 @@
 var categoryflag = '';
+var siteflag = '';
 
 $(function () {
     $("[data-toggle='tooltip']").tooltip({html: true});
@@ -35,7 +36,7 @@ function initCategory() {
                 for (var j = 0; j < data.length; j++) {
                     if (data[j].pid == data[i].id) {
                         html += '<li class="list-item">';
-                        html += '<a class="categoryChild" href="#" id="' + data[j].id + '" pid="' + data[j].pid + '">' + data[j].name + '</a>';
+                        html += '<a class="categoryChild" href="javascript:void(0)" id="' + data[j].id + '" pid="' + data[j].pid + '">' + data[j].name + '</a>';
                         html += '<span class="navedit navediticon octicon octicon-pencil"></span>';
                         html += '<span class="navedit navdelicon octicon octicon-x"></span>';
                         html += '</li>';
@@ -64,7 +65,7 @@ function categoryChildClick() {
         $.post('/json/getSiteByCategoryId.json', {
             categoryId: $(this).attr('id')
         }, function (data) {
-
+//todo:点击分类生成网址
         }, 'json');
     });
 }
@@ -81,6 +82,19 @@ function bindCategories(id) {
         }
         $('#categoryType').append(html);
         $('#categoryType').selectpicker('refresh');
+    }, 'json');
+}
+
+function bindSite() {
+    $('#siteType').empty();
+    $.ajaxSettings.async = false;
+    $.post('/json/getCategoryChild.json', function (data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+            html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+        }
+        $('#siteType').append(html);
+        $('#siteType').selectpicker('refresh');
     }, 'json');
 }
 
@@ -124,15 +138,42 @@ function saveCategory() {
 
 function addSite() {
     $('#addsite').on('click', function (event, data) {
+        siteflag = 'add';
         $('.header-title').text('添加');
         var $positon = $(this).position();
-        $("#linkeditname").val('');
-        $("#linkediturl").val('');
+        $("#sitename").val('');
+        $("#siteurl").val('');
         $('.editlinkdlg').css({
             left: $positon.left - 221,
             top: $positon.top + 25
         }).addClass('show');
+        bindSite('');
     })
+}
+
+function saveSite() {
+    var sitename = $('#sitename').val();
+    var siteurl = $('#siteurl').val();
+    if ($.trim(sitename).length == 0 ||
+        $.trim(siteurl).length == 0) {
+        return alert('请输入完整');
+    }
+    var categoryid = $('#siteType').val();
+    $.post('/json/saveSite.json', {
+        id: $('#categoryId').val(),
+        name: sitename,
+        url: siteurl,
+        categoryId: categoryid,
+        flag: siteflag
+    }, function (data) {
+        if (data != 0) {
+            canceleditLink();
+            //initCategory();
+        }
+        else {
+            alert('添加失败');
+        }
+    }, 'json');
 }
 
 //编辑导航

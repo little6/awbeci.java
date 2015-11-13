@@ -18,4 +18,9 @@ public class UserSitesImpl implements IUserSitesService {
     public List<UserSites> getSiteByCategoryId(String categoryid) {
         return userSitesDao.getSiteByCategoryId(categoryid);
     }
+
+    @Override
+    public int insertSite(UserSites userSites) {
+        return userSitesDao.insertSite(userSites);
+    }
 }
