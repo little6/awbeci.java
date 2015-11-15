@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import com.awbeci.aliyun.oss.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by zhangwei on 2015/5/17.
- */
 @Controller
 public class NavigationController {
     @Autowired
@@ -115,13 +114,15 @@ public class NavigationController {
         }
     }
 
-    @RequestMapping(value = "/json/saveCategory.json", method = RequestMethod.POST)
+    @RequestMapping(value = "/json/saveSite.json", method = RequestMethod.POST)
     @ResponseBody
-    public int saveSite(UserSites userSites, HttpServletRequest request, HttpSession session) {
+    public int saveSite(UserSites userSites, HttpServletRequest request, HttpSession session) throws IOException {
         String flag = request.getParameter("flag");
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-
+            BucketObject bucketObject = new BucketObject();
+            bucketObject.initProperties();
+            bucketObject.putObject("test", "http://www.ituring.com.cn/favicon.ico");
             userSites.setUpdateDt(new Date());
 
             if (flag.equals("add")) {

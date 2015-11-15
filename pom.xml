@@ -8,6 +8,12 @@
   <name>awbeci.java Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+      <!--aliyun-->
+      <dependency>
+          <groupId>com.aliyun.oss</groupId>
+          <artifactId>aliyun-sdk-oss</artifactId>
+          <version>2.0.6</version>
+      </dependency>
       <!-- servlet -->
       <dependency>
           <groupId>javax.servlet</groupId>
