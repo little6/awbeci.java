@@ -121,8 +121,7 @@ public class NavigationController {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
             BucketObject bucketObject = new BucketObject();
-            bucketObject.initProperties();
-            bucketObject.putObject("test", "http://www.ituring.com.cn/favicon.ico");
+            bucketObject.putObject("img/siteicon/test.jpg", "F:\\照片\\QQ图片20151115151416.jpg");
             userSites.setUpdateDt(new Date());
 
             if (flag.equals("add")) {

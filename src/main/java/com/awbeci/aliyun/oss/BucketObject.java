@@ -11,17 +11,20 @@ public class BucketObject {
     OSSClient client = null;
     String accessKeyId = "";
     String accessKeySecret = "";
-    String endpoint = "";
+    String siteicon_endpoint = "";
     String bucketName = "";
 
-    public void initProperties() throws IOException {
+    public BucketObject() throws IOException {
+
         Properties prop = new Properties();
         prop.load(BucketObject.class.getClassLoader().getResourceAsStream("aliyun-oss.properties"));
 
         accessKeyId = prop.getProperty("accessKeyId");
         accessKeySecret = prop.getProperty("accessKeySecret");
-        endpoint = prop.getProperty("endpoint");
-        bucketName=prop.getProperty("bucketName");
+        siteicon_endpoint = prop.getProperty("siteicon_endpoint");
+        bucketName = prop.getProperty("bucketName");
+        // 初始化OSSClient
+        client = new OSSClient(siteicon_endpoint, accessKeyId, accessKeySecret);
     }
 
 
@@ -30,10 +33,7 @@ public class BucketObject {
         client.createBucket(bucketName);
     }
 
-    public void putObject(String key, String filePath) throws FileNotFoundException {
-
-        // 初始化OSSClient
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+    public void putObject(String filename, String filePath) throws FileNotFoundException {
 
         // 获取指定文件的输入流
         File file = new File(filePath);
@@ -46,7 +46,7 @@ public class BucketObject {
         meta.setContentLength(file.length());
 
         // 上传Object.
-        PutObjectResult result = client.putObject(bucketName, key, content, meta);
+        PutObjectResult result = client.putObject(bucketName, filename, content, meta);
 
         // 打印ETag
         System.out.println(result.getETag());
