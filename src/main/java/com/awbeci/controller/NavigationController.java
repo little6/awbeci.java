@@ -121,7 +121,7 @@ public class NavigationController {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
             BucketObject bucketObject = new BucketObject();
-            bucketObject.putObject("img/siteicon/aliyun.ico", "http://www.aliyun.com/favicon.ico");
+            bucketObject.putObject("img/siteicon/aliyun3.ico", "http://www.aliyun.com/favicon.ico");
             userSites.setUpdateDt(new Date());
 
             if (flag.equals("add")) {
