@@ -8,5 +8,5 @@ public interface IUserSitesService {
 
     List<UserSites> getSiteByCategoryId(String categoryid);
 
-    int insertSite(UserSites userSites);
+    int saveSite(String flag,String properties, UserSites userSites);
 }

@@ -3,6 +3,7 @@ package com.awbeci.aliyun.oss;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.PutObjectResult;
+import com.awbeci.controller.NavigationController;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,19 +14,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
+import com.awbeci.util.*;
+
 public class BucketObject {
-    Logger  log = LoggerFactory.getLogger(this.getClass());
+    Logger log = LoggerFactory.getLogger(BucketObject.class);
+    CatchFavicon catchFavicon = new CatchFavicon();
+    MyProperties myProperties = new MyProperties();
     OSSClient client = null;
     String accessKeyId = "";
     String accessKeySecret = "";
     String siteicon_endpoint = "";
     String bucketName = "";
 
-    public BucketObject() throws IOException {
-
-        Properties prop = new Properties();
-        prop.load(BucketObject.class.getClassLoader().getResourceAsStream("aliyun-oss.properties"));
-
+    public BucketObject(String properties) throws IOException {
+        Properties prop = myProperties.getPropertiesByName(properties);
         accessKeyId = prop.getProperty("accessKeyId");
         accessKeySecret = prop.getProperty("accessKeySecret");
         siteicon_endpoint = prop.getProperty("siteicon_endpoint");
@@ -35,37 +37,40 @@ public class BucketObject {
     }
 
 
+    /**
+     * @param bucketName
+     */
     public void createBucket(String bucketName) {
         // 新建一个Bucket
         client.createBucket(bucketName);
     }
 
-    public void putObject(String filename, String urlStr) throws IOException {
+    /**
+     * @param folder   阿里云上该图片在Bucket所处的文件夹位置，不能以'/'开头
+     * @param filename 文件名
+     * @param urlStr   网上图片路径
+     * @throws IOException
+     */
+    public boolean putObject(String folder, String filename, String urlStr) throws IOException {
         try {
-            URL url = new URL(urlStr);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            //设置超时间为3秒
-            conn.setConnectTimeout(3 * 1000);
-            //防止屏蔽程序抓取而返回403错误
-            conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-            //todo:有可能图片为空，这点要考虑
-            InputStream content = conn.getInputStream();
-            if (content.available() > 0) {
-                // 创建上传Object的Metadata
-                ObjectMetadata meta = new ObjectMetadata();
-
-                // 必须设置ContentLength
-                meta.setContentLength(content.available());
-
-                // 上传Object.
-                PutObjectResult result = client.putObject(bucketName, filename, content, meta);
-                log.debug(result.getETag());
-            } else {
-                log.info("图片加载失败");
+            InputStream content = catchFavicon.GetUrlFavicon(urlStr);
+            //判断文件是否小于1kb
+            if (content.available() / 1000 < 1) {
+                return false;
             }
+            // 创建上传Object的Metadata
+            ObjectMetadata meta = new ObjectMetadata();
+
+            // 必须设置ContentLength
+            meta.setContentLength(content.available());
+
+            // 上传Object.
+            PutObjectResult result = client.putObject(bucketName, folder + filename, content, meta);
+            log.info(result.getETag());
+            return true;
         } catch (Exception e) {
             log.error("出错原因：" + e.getMessage());
+            return false;
         }
-
     }
 }

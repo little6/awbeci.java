@@ -4,6 +4,9 @@ import com.awbeci.domain.UserCategory;
 import com.awbeci.domain.UserSites;
 import com.awbeci.service.IUserCategoryService;
 import com.awbeci.service.IUserSitesService;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import com.awbeci.aliyun.oss.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -119,23 +123,9 @@ public class NavigationController {
     public int saveSite(UserSites userSites, HttpServletRequest request, HttpSession session) throws IOException {
         String flag = request.getParameter("flag");
         String uid = (String) session.getAttribute("uid");
+        String properties = "aliyun-oss.properties";
         if (uid != null) {
-            BucketObject bucketObject = new BucketObject();
-            bucketObject.putObject("img/siteicon/aliyun3.ico", "http://www.aliyun.com/favicon.ico");
-            userSites.setUpdateDt(new Date());
-
-            if (flag.equals("add")) {
-                userSites.setId(UUID.randomUUID().toString());
-                userSites.setSortNo(1);
-                userSites.setCreateDt(new Date());
-                int val = userSitesService.insertSite(userSites);
-                return val;
-            }
-            if (flag.equals("update")) {
-//                int val = userCategoryService.updateCategoryById(userCategory);
-//                return val;
-            }
-            return 0;
+            return userSitesService.saveSite(flag, properties, userSites);
         } else {
             return 0;
         }

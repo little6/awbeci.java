@@ -158,6 +158,11 @@ function saveSite() {
         $.trim(siteurl).length == 0) {
         return alert('请输入完整');
     }
+
+    if(!isURL(siteurl)){
+        alert('您输入的URL不合法，请重新输入');
+        return;
+    }
     var categoryid = $('#siteType').val();
     $.post('/json/saveSite.json', {
         id: $('#categoryId').val(),
@@ -259,4 +264,13 @@ function canceleditNav() {
 
 function canceleditLink() {
     $('.editlinkdlg').removeClass('show');
+}
+
+function isURL(str_url) {
+    var strRegex = /^((http|https|ftp):\/\/)?(\w(\:\w)?@)?([0-9a-z_-]+\.)*?([a-z0-9-]+\.[a-z]{2,6}(\.[a-z]{2})?(\:[0-9]{2,6})?)((\/[^?#<>\/\\*":]*)+(\?[^#]*)?(#.*)?)?$/i;
+    if (strRegex.test(str_url)) {
+        return true;
+    } else {
+        return false;
+    }
 }
