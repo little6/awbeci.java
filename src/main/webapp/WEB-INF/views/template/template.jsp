@@ -11,8 +11,9 @@
     <link href="/css/social-buttons.css" rel="stylesheet">
     <link href="/css/template.css" rel="stylesheet">
     <link href="/js/awbeci/themes/default/dropmenu.css" rel="stylesheet">
-    <link href="/js/octicons/octicons.css" rel="stylesheet">
     <link href="/js/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <link href="/js/octicons/octicons.css" rel="stylesheet">
+
     <link href="http://static.bootcss.com/www/assets/ico/favicon.png" rel="shortcut icon">
     <link href="/css/common.css" rel="stylesheet">
     <script src="/js/jquery/jquery-1.11.2.min.js"></script>

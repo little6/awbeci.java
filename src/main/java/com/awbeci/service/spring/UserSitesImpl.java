@@ -78,4 +78,9 @@ public class UserSitesImpl implements IUserSitesService {
             return 0;
         }
     }
+
+    @Override
+    public List<UserSites> getSitesByMostClick() {
+        return userSitesDao.getSitesByMostClick();
+    }
 }

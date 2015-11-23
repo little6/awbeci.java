@@ -9,18 +9,19 @@ function setSiteBar(){
         $(this).children().hide()
     });
 
-    $(' .js-expand-btn').click(function () {
-        var topicGuides = $(this).find('.js-guides li')
+    $(' .js-expand-btn > h3 > a').click(function () {
+        var parent = $(this).parent().parent();
+        var topicGuides = parent.find('.js-guides li')
 
         if ($(this).hasClass('collapsed')) {
-            $(this).find('h3 a span')
-                .removeClass('octicon-triangle-down')
-                .addClass('octicon-triangle-right')
+            parent.find('h3 a span')
+                .removeClass('octicon octicon-chevron-down')
+                .addClass('octicon octicon-chevron-right')
         }
         else {
-            $(this).find('h3 a span')
-                .removeClass('octicon-triangle-right')
-                .addClass('octicon-triangle-down')
+            parent.find('h3 a span')
+                .removeClass('octicon octicon-chevron-right')
+                .addClass('octicon octicon-chevron-down')
         }
         $(this).toggleClass('collapsed')
         topicGuides.slideToggle(100)

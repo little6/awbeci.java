@@ -153,4 +153,15 @@ public class NavigationController {
         }
         return null;
     }
+
+    @RequestMapping(value = "/json/getSiteByMostClick.json", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserSites> getSitesByMostClick(HttpSession session){
+        String uid = (String) session.getAttribute("uid");
+        if (uid != null) {
+            List userSites = userSitesService.getSitesByMostClick();
+            return userSites;
+        }
+        return null;
+    }
 }

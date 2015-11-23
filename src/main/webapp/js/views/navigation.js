@@ -5,6 +5,7 @@ $(function () {
     $("[data-toggle='tooltip']").tooltip({html: true});
     //$("#showlink ul").dragsort({});
     initCategory();
+    initSite();
     editCategorySite();
     addcategory();
     addSite();
@@ -16,6 +17,12 @@ $(function () {
     });
 });
 
+function initSite() {
+    $.post('/json/getSiteByMostClick.json', function (data) {
+//todo:显示网址
+    });
+}
+
 function initCategory() {
     $('.sidebar-module').empty();
     $.post('/json/getCategoryByUid.json', function (data) {
@@ -25,7 +32,7 @@ function initCategory() {
                 html += '<li class="js-expand-btn">';
                 html += '<h3>';
                 html += '<a id="' + data[i].id + '" href="#" class="categoryParent">';
-                html += '<span class="octicon octicon-triangle-right arrow-btn"></span>';
+                html += '<span class="octicon octicon-chevron-right arrow-btn" aria-hidden="true"></span>';
                 html += data[i].name;
                 html += '</a>';
                 html += '<span class="navedit navediticon octicon octicon-pencil" ></span>';
@@ -159,7 +166,7 @@ function saveSite() {
         return alert('请输入完整');
     }
 
-    if(!isURL(siteurl)){
+    if (!isURL(siteurl)) {
         alert('您输入的URL不合法，请重新输入');
         return;
     }
@@ -206,7 +213,7 @@ function editCategorySite() {
 }
 
 function editDelCategory() {
-    $('.navediticon').on('click', function () {
+    $('.navediticon').on('click', function (event) {
         categoryflag = 'update';
         bindCategories($(this).parent().children('a').attr('id'));
         var positon = $(this).parent().position();
@@ -220,7 +227,7 @@ function editDelCategory() {
         event.stopPropagation();
     });
 
-    $('.navdelicon').on('click', function () {
+    $('.navdelicon').on('click', function (event) {
         event.stopPropagation();
         var parents = $(this).parent().parent().find('.list-item');
         var parent = $(this).parent();

@@ -36,7 +36,7 @@
 .sidebar-module ul h3, .headlines > li {
     margin: 0px;
     color: #666;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
     font-size: 14px;
 }
 
@@ -47,19 +47,19 @@
 .sidebar-module h3 a {
     padding: 8px 10px 8px 10px;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     font-weight: bold;
-    color: #428bca;
+    color: #333;
     font-size: 13px;
 }
 
 .sidebar-module h3 a:hover {
-    /*text-decoration: none;
-    color: #327fc7;*/
+    /*text-decoration: none;*/
+    color: #428bca;
 }
 
 .sidebar-module ul ul li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
     font-weight: bold;
     color: #666;
     background-color: #fff;
@@ -84,7 +84,11 @@
 }
 
 .sidebar-module ul ul li a:hover {
-    color: #2a6496;
+    color: #428BCA;
+}
+
+.sidebar-module ul ul li a:focus {
+    color: #428BCA;
 }
 
 /****************************/
