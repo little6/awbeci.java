@@ -19,8 +19,28 @@ $(function () {
 
 function initSite() {
     $.post('/json/getSiteByMostClick.json', function (data) {
-//todo:显示网址
+        showSite(data);
     });
+}
+
+function showSite(data){
+    var html = '';
+    $('#showmysite').empty();
+    for (var i = 0; i < data.length; i++) {
+        html += '<li>';
+        html += '<div class="showlinkicon">';
+        html += '<a target="_blank" href="' + data[i].url + '">';
+        html += '<img width="16px" height="16px" style="margin-right:5px;" src="' + data[i].icon + '">';
+        html += data[i].name;
+        html += ' </img>';
+        html += '</a>'
+        html += '<span class="linkedit linkediticon octicon octicon-pencil"></span>';
+        html += '<span class="linkedit linkdelicon octicon octicon-x"></span></div>';
+        html += ' </li>';
+    }
+    $('#showmysite').append(html);
+    $('.linkedit').addClass('hide');
+    editSite();
 }
 
 function initCategory() {
@@ -56,13 +76,11 @@ function initCategory() {
         }
         html += '</ul>';
         $('.sidebar-module').append($(html));
-        $('.linkedit').addClass('hide');
         $('.navedit').addClass('hide');
 
         //this funciton in github.js
         setSiteBar();
         editDelCategory();
-        editSite();
         categoryChildClick();
     }, 'json');
 }
@@ -72,7 +90,7 @@ function categoryChildClick() {
         $.post('/json/getSiteByCategoryId.json', {
             categoryId: $(this).attr('id')
         }, function (data) {
-//todo:点击分类生成网址
+            showSite(data);
         }, 'json');
     });
 }
@@ -165,7 +183,9 @@ function saveSite() {
         $.trim(siteurl).length == 0) {
         return alert('请输入完整');
     }
-
+    if (siteurl.search("http") != 0) {
+        siteurl = "http://" + siteurl;
+    }
     if (!isURL(siteurl)) {
         alert('您输入的URL不合法，请重新输入');
         return;

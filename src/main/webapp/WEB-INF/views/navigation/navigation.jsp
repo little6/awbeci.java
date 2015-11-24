@@ -87,79 +87,9 @@
 
                     </form>
                 </div>
-                <ul>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.baidu.com">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">百度
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
-                    <li>
-                        <div class="showlinkicon"><a target="_blank" href="http://www.solidot.org/?theme=clightgreen">
-                            <img width="16px" height="16px" style="margin-right:5px;"
-                                 src="http://www.solidot.org/favicon.ico">奇客
-                            </img>
-                        </a>
-                            <span class="linkedit linkediticon octicon octicon-pencil"></span>
-                            <span class="linkedit linkdelicon octicon octicon-x"></span></div>
-                    </li>
+                <ul id="showmysite">
+
+
 
                 </ul>
                 <div class="editlinkdlg">
