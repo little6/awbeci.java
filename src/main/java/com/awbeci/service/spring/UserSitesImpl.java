@@ -53,24 +53,24 @@ public class UserSitesImpl implements IUserSitesService {
 
             BucketObject bucketObject = new BucketObject(properties);
             boolean data = bucketObject.putObject(bucketfolder, favicon, searchapi + userSites.getUrl());
+            String icon = ossurl + bucketfolder + favicon;
+            if (!data) {
+                //设置成默认的图片
+                icon = ossurl + bucketfolder + defaultico;
+            }
+            userSites.setIcon(icon);
+            userSites.setSortNo(1);
             userSites.setUpdateDt(date);
 
             if (flag.equals("add")) {
                 userSites.setId(UUID.randomUUID().toString());
-                String icon = ossurl + bucketfolder + favicon;
-                if (!data) {
-                    //设置成默认的图片
-                    icon = ossurl + bucketfolder + defaultico;
-                }
-                userSites.setIcon(icon);
-                userSites.setSortNo(1);
                 userSites.setCreateDt(date);
                 int val = userSitesDao.insertSite(userSites);
                 return val;
             }
             if (flag.equals("update")) {
-//                int val = userCategoryService.updateCategoryById(userCategory);
-//                return val;
+                int val = userSitesDao.updateSite(userSites);
+                return val;
             }
             return 0;
         } catch (Exception e) {

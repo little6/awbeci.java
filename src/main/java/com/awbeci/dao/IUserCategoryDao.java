@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IUserCategoryDao {
 
-    @Select("select * from usercategory where uid=#{uid}")
+    @Select("select * from usercategory where uid=#{uid} order by updateDt")
     List<UserCategory> selectCategoryByUid(String uid);
 
     @Select("select * from usercategory where uid=#{uid} and ( pid is null or pid = '') ")

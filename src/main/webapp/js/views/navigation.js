@@ -1,5 +1,7 @@
 var categoryflag = '';
 var siteflag = '';
+//点击分类的时候(注意是子分类)
+var clickCategoryId = '';
 
 $(function () {
     $("[data-toggle='tooltip']").tooltip({html: true});
@@ -23,13 +25,13 @@ function initSite() {
     });
 }
 
-function showSite(data){
+function showSite(data) {
     var html = '';
     $('#showmysite').empty();
     for (var i = 0; i < data.length; i++) {
         html += '<li>';
         html += '<div class="showlinkicon">';
-        html += '<a target="_blank" href="' + data[i].url + '">';
+        html += '<a id="' + data[i].id + '" target="_blank" href="' + data[i].url + '" categoryid="' + data[i].categoryId + '">';
         html += '<img width="16px" height="16px" style="margin-right:5px;" src="' + data[i].icon + '">';
         html += data[i].name;
         html += ' </img>';
@@ -87,12 +89,18 @@ function initCategory() {
 
 function categoryChildClick() {
     $('.categoryChild').on('click', function () {
-        $.post('/json/getSiteByCategoryId.json', {
-            categoryId: $(this).attr('id')
-        }, function (data) {
-            showSite(data);
-        }, 'json');
+        clickCategoryId = $(this).attr('id');
+        clickCategoryShowSite();
     });
+}
+
+//点击分类的时候显示网址列表
+function clickCategoryShowSite(){
+    $.post('/json/getSiteByCategoryId.json', {
+        categoryId: clickCategoryId
+    }, function (data) {
+        showSite(data);
+    }, 'json');
 }
 
 function bindCategories(id) {
@@ -166,6 +174,7 @@ function addSite() {
         siteflag = 'add';
         $('.header-title').text('添加');
         var $positon = $(this).position();
+        $('#siteid').val('');
         $("#sitename").val('');
         $("#siteurl").val('');
         $('.editlinkdlg').css({
@@ -192,7 +201,7 @@ function saveSite() {
     }
     var categoryid = $('#siteType').val();
     $.post('/json/saveSite.json', {
-        id: $('#categoryId').val(),
+        id: $('#siteid').val(),
         name: sitename,
         url: siteurl,
         categoryId: categoryid,
@@ -200,7 +209,13 @@ function saveSite() {
     }, function (data) {
         if (data != 0) {
             canceleditLink();
-            //initCategory();
+            if (clickCategoryId == null || clickCategoryId == '')
+            {
+                initSite();
+            }
+            else{
+                clickCategoryShowSite();
+            }
         }
         else {
             alert('添加失败');
@@ -273,14 +288,18 @@ function editDelCategory() {
 /*编辑链接*/
 function editSite() {
     $('.linkediticon').on('click', function (event, data) {
+        siteflag = 'update';
         $('.header-title').text('编辑');
         var $positon = $(this).parent().position();
-        $("#linkeditname").val($.trim($(this).parent().children('a').text()));
-        $("#linkediturl").val($.trim($(this).parent().children('a').attr('href')));
+        $("#sitename").val($.trim($(this).parent().children('a').text()));
+        $("#siteurl").val($.trim($(this).parent().children('a').attr('href')));
         $('.editlinkdlg').css({
             left: $positon.left + 6,
             top: $positon.top + 39
         }).addClass('show');
+        bindSite('');
+        $('#siteid').val($(this).parent().children('a').attr('id'));
+        $('#siteType').selectpicker('val', $(this).parent().children('a').attr('categoryid'));
     })
 }
 

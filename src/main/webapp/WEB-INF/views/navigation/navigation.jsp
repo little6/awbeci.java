@@ -99,6 +99,7 @@
                     </div>
                     <div class="dlgBody">
                         <div class="form-group">
+                            <input type="hidden" id="siteid">
                             <input type="text" class="form-control" id="sitename" placeholder="请输入名称">
                         </div>
                         <div class="form-group">
