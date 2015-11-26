@@ -2,10 +2,7 @@ package com.awbeci.dao;
 
 import com.awbeci.domain.User;
 import com.awbeci.domain.UserSites;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -26,4 +23,7 @@ public interface IUserSitesDao {
     //todo:根据点击次数>100查询数据，暂时先查询所有
     @Select("select * from usersites")
     List<UserSites> getSitesByMostClick();
+
+    @Delete("delete from usersites where id=#{id}")
+    int deleteSite(String id);
 }

@@ -11,4 +11,6 @@ public interface IUserSitesService {
     int saveSite(String flag,String properties, UserSites userSites);
 
     List<UserSites> getSitesByMostClick();
+
+    int deleteSite(String id);
 }

@@ -18,7 +18,7 @@ public interface IUserCategoryDao {
     @Select("select * from usercategory where pid=#{pid}")
     List<UserCategory> selectCategoryChildByPid(String pid);
 
-    @Select("select * from usercategory where pid is not null and pid !=''")
+    @Select("select * from usercategory")
     List<UserCategory> selectCategoryChild();
 
     @Insert("insert into usercategory(id,uid,pid,name,sortno,createdt,updatedt)" +

@@ -131,6 +131,19 @@ public class NavigationController {
         }
     }
 
+    @RequestMapping(value = "/json/deleteSite.json", method = RequestMethod.POST)
+    @ResponseBody
+    public int deleteSite(String id, HttpSession session) {
+        String uid = (String) session.getAttribute("uid");
+        if (uid != null) {
+            //todo:编辑和删除的时候要删除对应的oss图标
+            int val = userSitesService.deleteSite(id);
+            return val;
+        } else {
+            return 0;
+        }
+    }
+
     @RequestMapping(value = "/json/deleteCategory.json", method = RequestMethod.POST)
     @ResponseBody
     public int deleteCategory(String id, HttpSession session) {

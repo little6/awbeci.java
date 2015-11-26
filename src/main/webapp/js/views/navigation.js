@@ -42,7 +42,7 @@ function showSite(data) {
     }
     $('#showmysite').append(html);
     $('.linkedit').addClass('hide');
-    editSite();
+    editDelSite();
 }
 
 function initCategory() {
@@ -95,7 +95,7 @@ function categoryChildClick() {
 }
 
 //点击分类的时候显示网址列表
-function clickCategoryShowSite(){
+function clickCategoryShowSite() {
     $.post('/json/getSiteByCategoryId.json', {
         categoryId: clickCategoryId
     }, function (data) {
@@ -124,7 +124,15 @@ function bindSite() {
     $.post('/json/getCategoryChild.json', function (data) {
         var html = '';
         for (var i = 0; i < data.length; i++) {
-            html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+            if (data[i].pid == '' || data[i].pid == null) {
+                html += '<optgroup label="' + data[i].name + '">'
+                for (var j = 0; j < data.length; j++) {
+                    if (data[j].pid == data[i].id) {
+                        html += '<option value="' + data[j].id + '">' + data[j].name + '</option>'
+                    }
+                }
+                html += '</optgroup>'
+            }
         }
         $('#siteType').append(html);
         $('#siteType').selectpicker('refresh');
@@ -192,7 +200,10 @@ function saveSite() {
         $.trim(siteurl).length == 0) {
         return alert('请输入完整');
     }
-    if (siteurl.search("http") != 0) {
+    if (siteurl.search("www.") == -1) {
+        siteurl = "www." + siteurl;
+    }
+    if (siteurl.search("http://") == -1) {
         siteurl = "http://" + siteurl;
     }
     if (!isURL(siteurl)) {
@@ -209,11 +220,10 @@ function saveSite() {
     }, function (data) {
         if (data != 0) {
             canceleditLink();
-            if (clickCategoryId == null || clickCategoryId == '')
-            {
+            if (clickCategoryId == null || clickCategoryId == '') {
                 initSite();
             }
-            else{
+            else {
                 clickCategoryShowSite();
             }
         }
@@ -247,6 +257,7 @@ function editCategorySite() {
     });
 }
 
+//编辑删除分类放到一起
 function editDelCategory() {
     $('.navediticon').on('click', function (event) {
         categoryflag = 'update';
@@ -285,8 +296,8 @@ function editDelCategory() {
     });
 }
 
-/*编辑链接*/
-function editSite() {
+/*编辑删除网址放到一起*/
+function editDelSite() {
     $('.linkediticon').on('click', function (event, data) {
         siteflag = 'update';
         $('.header-title').text('编辑');
@@ -300,7 +311,28 @@ function editSite() {
         bindSite('');
         $('#siteid').val($(this).parent().children('a').attr('id'));
         $('#siteType').selectpicker('val', $(this).parent().children('a').attr('categoryid'));
-    })
+    });
+
+    $('.linkdelicon').on('click', function (event, data) {
+        var val = confirm("您确定删除此网址？");
+        if (val) {
+            $.post('/json/deleteSite.json', {
+                id: $(this).parent().children('a').attr('id')
+            }, function (data) {
+                if (data != 0) {
+                    if (clickCategoryId == null || clickCategoryId == '') {
+                        initSite();
+                    }
+                    else {
+                        clickCategoryShowSite();
+                    }
+                }
+                else {
+                    alert('删除失败');
+                }
+            }, 'json');
+        }
+    });
 }
 
 //取消编辑
