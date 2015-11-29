@@ -38,6 +38,7 @@ public class BucketObject {
 
 
     /**
+     * 创建bucket
      * @param bucketName
      */
     public void createBucket(String bucketName) {
@@ -46,6 +47,7 @@ public class BucketObject {
     }
 
     /**
+     * 上传文件
      * @param folder   阿里云上该图片在Bucket所处的文件夹位置，不能以'/'开头
      * @param filename 文件名
      * @param urlStr   网上图片路径
@@ -72,5 +74,14 @@ public class BucketObject {
             log.error("出错原因：" + e.getMessage());
             return false;
         }
+    }
+
+    /**
+     * 删除文件
+     * @param url
+     */
+    public void deleteObject(String url) {
+        // 删除Object
+        client.deleteObject(bucketName, url);
     }
 }
