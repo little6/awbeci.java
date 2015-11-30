@@ -34,9 +34,10 @@ public class UserSitesImpl implements IUserSitesService {
 
     /**
      * 保存网址
-     * @param flag 判断是添加还是修改
+     *
+     * @param flag       判断是添加还是修改
      * @param properties 配置文件
-     * @param userSites site实体类
+     * @param userSites  site实体类
      * @return
      */
     @Override
@@ -84,8 +85,22 @@ public class UserSitesImpl implements IUserSitesService {
         return userSitesDao.getSitesByMostClick();
     }
 
+    /**
+     * @param properties
+     * @param id
+     * @param iconUrl
+     * @return
+     */
     @Override
-    public int deleteSite(String id) {
-        return userSitesDao.deleteSite(id);
+    public int deleteSite(String properties, String id, String iconUrl) {
+        try {
+            BucketObject bucketObject = new BucketObject(properties);
+            if (!iconUrl.equals("")) {
+                bucketObject.deleteObject(iconUrl);
+            }
+            return userSitesDao.deleteSite(id);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

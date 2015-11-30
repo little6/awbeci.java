@@ -315,9 +315,14 @@ function editDelSite() {
 
     $('.linkdelicon').on('click', function (event, data) {
         var val = confirm("您确定删除此网址？");
+        var iconurl = $(this).parent().children('a').children('img').attr('src');
+        if (iconurl.search('6000.png') != -1) {
+            iconurl = '';
+        }
         if (val) {
             $.post('/json/deleteSite.json', {
-                id: $(this).parent().children('a').attr('id')
+                id: $(this).parent().children('a').attr('id'),
+                iconurl: iconurl
             }, function (data) {
                 if (data != 0) {
                     if (clickCategoryId == null || clickCategoryId == '') {

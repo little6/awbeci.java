@@ -20,9 +20,10 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
-        <property name="url" value="jdbc:mysql://rds235xfzxq2nlx6c0fy.mysql.rds.aliyuncs.com:3306/awbeci?useUnicode=true&amp;characterEncoding=utf-8"/>
-        <property name="username" value="awbeci"/>
-        <property name="password" value="awbeci"/>
+        <!--rds235xfzxq2nlx6c0fy.mysql.rds.aliyuncs.com username:awbeci key:awbeci-->
+        <property name="url" value="jdbc:mysql://localhost:3306/awbeci?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="zhangwei"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

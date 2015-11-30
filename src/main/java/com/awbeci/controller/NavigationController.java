@@ -133,11 +133,11 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/deleteSite.json", method = RequestMethod.POST)
     @ResponseBody
-    public int deleteSite(String id, HttpSession session) {
+    public int deleteSite(String id, String iconurl, HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-            //todo:编辑和删除的时候要删除对应的oss图标
-            int val = userSitesService.deleteSite(id);
+            String properties = "aliyun-oss.properties";
+            int val = userSitesService.deleteSite(properties, id, iconurl);
             return val;
         } else {
             return 0;
@@ -169,7 +169,7 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/getSiteByMostClick.json", method = RequestMethod.POST)
     @ResponseBody
-    public List<UserSites> getSitesByMostClick(HttpSession session){
+    public List<UserSites> getSitesByMostClick(HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
             List userSites = userSitesService.getSitesByMostClick();
