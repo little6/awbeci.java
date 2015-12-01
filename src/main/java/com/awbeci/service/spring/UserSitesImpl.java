@@ -46,18 +46,19 @@ public class UserSitesImpl implements IUserSitesService {
             Properties prop = myProperties.getPropertiesByName(properties);
             Date date = new Date();
             String searchapi = prop.getProperty("searchapi");
-            String ossurl = prop.getProperty("ossurl");
+            String out_ossurl = prop.getProperty("out_ossurl");
             String bucketfolder = prop.getProperty("bucketfolder");
             String defaultico = prop.getProperty("defaultico");
             DateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
             String favicon = format.format(new Date()) + ".ico";
 
             BucketObject bucketObject = new BucketObject(properties);
+            //将图片上传到oss(走内网)
             boolean data = bucketObject.putObject(bucketfolder, favicon, searchapi + userSites.getUrl());
-            String icon = ossurl + bucketfolder + favicon;
+            String icon = out_ossurl + bucketfolder + favicon;
             if (!data) {
-                //设置成默认的图片
-                icon = ossurl + bucketfolder + defaultico;
+                //设置成默认的图片(走外网)
+                icon = out_ossurl + bucketfolder + defaultico;
             }
             userSites.setIcon(icon);
             userSites.setSortNo(1);
@@ -70,6 +71,9 @@ public class UserSitesImpl implements IUserSitesService {
                 return val;
             }
             if (flag.equals("update")) {
+                //todo:
+                String key = bucketfolder + userSites.getIcon().split("/")[userSites.getIcon().split("/").length - 1];
+                bucketObject.deleteObject(key);
                 int val = userSitesDao.updateSite(userSites);
                 return val;
             }
@@ -86,6 +90,8 @@ public class UserSitesImpl implements IUserSitesService {
     }
 
     /**
+     * 删除网址
+     *
      * @param properties
      * @param id
      * @param iconUrl
@@ -94,9 +100,12 @@ public class UserSitesImpl implements IUserSitesService {
     @Override
     public int deleteSite(String properties, String id, String iconUrl) {
         try {
+            Properties prop = myProperties.getPropertiesByName(properties);
+            String bucketfolder = prop.getProperty("bucketfolder");
             BucketObject bucketObject = new BucketObject(properties);
             if (!iconUrl.equals("")) {
-                bucketObject.deleteObject(iconUrl);
+                String key = bucketfolder + iconUrl.split("/")[iconUrl.split("/").length - 1];
+                bucketObject.deleteObject(key);
             }
             return userSitesDao.deleteSite(id);
         } catch (Exception e) {

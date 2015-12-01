@@ -200,16 +200,17 @@ function saveSite() {
         $.trim(siteurl).length == 0) {
         return alert('请输入完整');
     }
+    if (!isURL(siteurl)) {
+        alert('您输入的URL不合法，请重新输入');
+        return;
+    }
     if (siteurl.search("www.") == -1) {
         siteurl = "www." + siteurl;
     }
     if (siteurl.search("http://") == -1) {
         siteurl = "http://" + siteurl;
     }
-    if (!isURL(siteurl)) {
-        alert('您输入的URL不合法，请重新输入');
-        return;
-    }
+
     var categoryid = $('#siteType').val();
     $.post('/json/saveSite.json', {
         id: $('#siteid').val(),

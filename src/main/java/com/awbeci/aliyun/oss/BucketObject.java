@@ -78,10 +78,10 @@ public class BucketObject {
 
     /**
      * 删除文件
-     * @param url
+     * @param key
      */
-    public void deleteObject(String url) {
+    public void deleteObject(String key) {
         // 删除Object
-        client.deleteObject(bucketName, url);
+        client.deleteObject(bucketName, key);
     }
 }
