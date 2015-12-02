@@ -43,6 +43,7 @@ public class UserSitesImpl implements IUserSitesService {
     @Override
     public int saveSite(String flag, String properties, UserSites userSites) {
         try {
+            String oldicon = userSites.getIcon();
             Properties prop = myProperties.getPropertiesByName(properties);
             Date date = new Date();
             String searchapi = prop.getProperty("searchapi");
@@ -71,8 +72,8 @@ public class UserSitesImpl implements IUserSitesService {
                 return val;
             }
             if (flag.equals("update")) {
-                //todo:
-                String key = bucketfolder + userSites.getIcon().split("/")[userSites.getIcon().split("/").length - 1];
+                String key = bucketfolder + oldicon.split("/")[oldicon.split("/").length - 1];
+                //删除原先的icon
                 bucketObject.deleteObject(key);
                 int val = userSitesDao.updateSite(userSites);
                 return val;

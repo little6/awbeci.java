@@ -183,6 +183,7 @@ function addSite() {
         $('.header-title').text('添加');
         var $positon = $(this).position();
         $('#siteid').val('');
+        $('#siteid').attr('icon', '');
         $("#sitename").val('');
         $("#siteurl").val('');
         $('.editlinkdlg').css({
@@ -196,6 +197,7 @@ function addSite() {
 function saveSite() {
     var sitename = $('#sitename').val();
     var siteurl = $('#siteurl').val();
+    var siteicon = $('#siteid').attr('icon');
     if ($.trim(sitename).length == 0 ||
         $.trim(siteurl).length == 0) {
         return alert('请输入完整');
@@ -203,9 +205,6 @@ function saveSite() {
     if (!isURL(siteurl)) {
         alert('您输入的URL不合法，请重新输入');
         return;
-    }
-    if (siteurl.search("www.") == -1) {
-        siteurl = "www." + siteurl;
     }
     if (siteurl.search("http://") == -1) {
         siteurl = "http://" + siteurl;
@@ -216,6 +215,7 @@ function saveSite() {
         id: $('#siteid').val(),
         name: sitename,
         url: siteurl,
+        icon: siteicon,
         categoryId: categoryid,
         flag: siteflag
     }, function (data) {
@@ -311,6 +311,7 @@ function editDelSite() {
         }).addClass('show');
         bindSite('');
         $('#siteid').val($(this).parent().children('a').attr('id'));
+        $('#siteid').attr('icon', $(this).parent().children('a').children('img').attr('src'))
         $('#siteType').selectpicker('val', $(this).parent().children('a').attr('categoryid'));
     });
 

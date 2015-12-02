@@ -56,10 +56,6 @@ public class BucketObject {
     public boolean putObject(String folder, String filename, String urlStr) throws IOException {
         try {
             InputStream content = catchFavicon.GetUrlFavicon(urlStr);
-            //判断文件是否小于1kb
-            if (content.available() / 1000 < 1) {
-                return false;
-            }
             // 创建上传Object的Metadata
             ObjectMetadata meta = new ObjectMetadata();
 
