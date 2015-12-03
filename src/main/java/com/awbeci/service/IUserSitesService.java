@@ -13,4 +13,6 @@ public interface IUserSitesService {
     List<UserSites> getSitesByMostClick();
 
     int deleteSite(String properties, String id, String iconUrl);
+
+    List<UserSites> querySiteByParam(String param);
 }

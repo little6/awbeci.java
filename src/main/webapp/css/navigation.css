@@ -223,9 +223,6 @@ a.list-group-item:hover {
     padding-right: 10px;
 }
 
-.input-group {
-}
-
 /*右边链接*/
 .btn-search {
     padding: 5px 0;
@@ -321,7 +318,7 @@ a.list-group-item:hover {
 }
 
 .form-group {
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 
 /*链接编辑样式*/

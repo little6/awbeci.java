@@ -7,6 +7,8 @@ import com.awbeci.service.IUserSitesService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ import java.util.UUID;
 
 @Controller
 public class NavigationController {
+
+    Logger log = LoggerFactory.getLogger(NavigationController.class);
+
     @Autowired
     private IUserCategoryService userCategoryService;
 
@@ -176,5 +181,16 @@ public class NavigationController {
             return userSites;
         }
         return null;
+    }
+
+    @RequestMapping(value = "/json/querySiteByParam.json", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserSites> querySiteByParam(String param) {
+        try {
+                return userSitesService.querySiteByParam(param);
+        } catch (Exception e) {
+            log.debug("错误原因:" + e.getMessage());
+            return null;
+        }
     }
 }

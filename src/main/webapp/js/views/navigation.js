@@ -17,7 +17,24 @@ $(function () {
     $('#siteClose').on('click', function () {
         canceleditLink();
     });
+    querySite();
 });
+
+function querySite() {
+    $('#txtQuerySite').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var param = $('#txtQuerySite').val();
+            if ($.trim(param).length <= 0) {
+                return alert('请输入查询内容');
+            }
+            $.post('/json/querySiteByParam.json', {
+                param: param
+            }, function (data) {
+                showSite(data);
+            })
+        }
+    });
+}
 
 function initSite() {
     $.post('/json/getSiteByMostClick.json', function (data) {
@@ -107,7 +124,7 @@ function bindCategories(id) {
     $('#categoryType').empty();
     $.ajaxSettings.async = false;
     $.post('/json/getCategoryParent.json', function (data) {
-        var html = '<option value="">默认</option>';
+        var html = '<option value="">主分类</option>';
         for (var i = 0; i < data.length; i++) {
             if (data[i].id != id) {
                 html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'

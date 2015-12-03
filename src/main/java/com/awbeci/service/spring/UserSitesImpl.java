@@ -113,4 +113,11 @@ public class UserSitesImpl implements IUserSitesService {
             return 0;
         }
     }
+
+    @Override
+    public List<UserSites> querySiteByParam(String param) {
+        return userSitesDao.querySiteByParam(param);
+    }
+
+
 }

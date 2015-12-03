@@ -48,13 +48,13 @@
     padding: 3px 15px;
 }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+/*.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     text-decoration: none;
     color: #fff;
     background-image: none;
     background-color: #4078c0;
     background-image: none;
-}
+}*/
 
 .myhead {
     text-align: center;

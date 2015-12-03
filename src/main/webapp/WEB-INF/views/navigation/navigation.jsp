@@ -73,22 +73,12 @@
             </div>
             <div id="showlink">
                 <div class="btn-search">
-                    <form action="http://www.baidu.com/baidu" target="_blank">
-                        <div class="input-group input-group-sm">
-                            <input name="tn" type="hidden" value="baidu">
-                            <input type="text" class="form-control" placeholder="请输入查询内容" name="word" size="30"
-                                   baiduSug="1">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">搜索</button>
-                            </div>
-                        </div>
-                        <!-- /btn-group -->
-
-                    </form>
+                    <div class="form-group form-group-sm">
+                        <input id="txtQuerySite" type="text" class="form-control" placeholder="请输入查询内容">
+                    </div>
+                    <!-- /btn-group -->
                 </div>
                 <ul id="showmysite">
-
 
 
                 </ul>
