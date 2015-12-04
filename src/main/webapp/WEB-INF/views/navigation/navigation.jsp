@@ -73,7 +73,7 @@
             </div>
             <div id="showlink">
                 <div class="btn-search">
-                    <div class="form-group form-group-sm">
+                    <div class="form-group form-group-sm" style="margin-bottom: 0">
                         <input id="txtQuerySite" type="text" class="form-control" placeholder="请输入查询内容">
                     </div>
                     <!-- /btn-group -->

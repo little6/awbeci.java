@@ -27,7 +27,6 @@ public interface IUserSitesDao {
     @Delete("delete from usersites where id=#{id}")
     int deleteSite(String id);
 
-    @Select("select * from usersites where name like '%${0}%' " +
-            " or url like '%${0}%'")
-    List<UserSites> querySiteByParam(String param);
+    @Select("select * from usersites where name like '%${param}%'")
+    List<UserSites> querySiteByParam(@Param("param")String param);
 }
