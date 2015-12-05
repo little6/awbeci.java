@@ -46,61 +46,22 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/main/main.html" class="header-nav-link">首页</a></li>
                 <li><a href="/navigation/navigation.html" class="header-nav-link">我的主页</a></li>
-                <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于我</a></li>
+                <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <div class="dropmenu">
-                        <a id="shownav3" href="#" class="weibtn" data-toggle="dropmenu" aria-expanded="false">
-                            <img alt="@zhangwei900808" class="avatar" height="20"
-                                 src="https://avatars3.githubusercontent.com/u/4385154?v=3&amp;s=40" width="20">
-                            <b class="caret"></b>
-                        </a>
-
-                        <div class="dropmenu-panel">
-                            <div class="dropmenu-header">
-                                <span class="dropmenu-title">标题</span>
-                                <span class="octicon octicon-x header-close" role="button" aria-label="Close"></span>
-                            </div>
-                            <div class="dropmenu-filters">
-                                <div class="dropmenu-filter">
-                                    <input type="text" class="filter-input" placeholder="请输入过滤内容">
-                                </div>
-                            </div>
-                            <div class="dropmenu-items">
-                                <div class="dropmenu-item">
-                                    <span class="item-icon"></span>
-                                    <span class="item-content">
-                                        <div class="item-lable">个人资料</div>
-                                    </span>
-                                </div>
-                                <div class="dropmenu-item">
-                                    <span class="item-icon"></span>
-                                    <span class="item-content">
-                                        <div class="item-lable">探索</div>
-                                    </span>
-                                </div>
-                                <div class="dropmenu-item">
-                                    <span class="item-icon"></span>
-                                    <span class="item-content">
-                                        <div class="item-lable">帮助</div>
-                                    </span>
-                                </div>
-                                <div class="dropmenu-item">
-                                    <span class="item-icon"></span>
-                                    <span class="item-content">
-                                        <div class="item-lable">设置</div>
-                                    </span>
-                                </div>
-                                <div class="dropmenu-item">
-                                    <span class="item-icon"></span>
-                                    <span class="item-content">
-                                        <div class="item-lable" id="quit">退出</div>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        zhangwei <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">当前登入账号：
+                            <br>zhangwei</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">个人主页</a></li>
+                        <li><a href="#">帮助</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
                 </li>
             </ul>
             <% } else {%>

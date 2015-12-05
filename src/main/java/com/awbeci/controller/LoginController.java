@@ -41,10 +41,10 @@ public class LoginController {
         Map<String, Object> map = new HashMap<String, Object>();
         User user = userService.selectUser(name, password);
         if (user != null) {
-            session.setAttribute("user", name);
+            session.setAttribute("uname", name);
             session.setAttribute("uid", user.getId());
-            //设置session过期时间为一个月
-            session.setMaxInactiveInterval(60 * 24 * 31);
+            //设置session过期时间为一年
+            session.setMaxInactiveInterval(60 * 24 * 30 * 12);
             map.put("success", true);
         } else {
             map.put("success", false);

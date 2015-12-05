@@ -24,9 +24,6 @@ function querySite() {
     $('#txtQuerySite').keydown(function (e) {
         if (e.keyCode == 13) {
             var param = $('#txtQuerySite').val();
-            if ($.trim(param).length <= 0) {
-                return alert('请输入查询内容');
-            }
             $.post('/json/querySiteByParam.json', {
                 param: param
             }, function (data) {
@@ -223,7 +220,7 @@ function saveSite() {
         alert('您输入的URL不合法，请重新输入');
         return;
     }
-    if (siteurl.search("http://") == -1) {
+    if (siteurl.search("http") == -1) {
         siteurl = "http://" + siteurl;
     }
 
