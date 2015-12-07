@@ -12,10 +12,10 @@ $(function () {
             name: username,
             password: password
         }, function (val) {
-            if(val.success){
-                location.href="/main/main.html";
+            if (val.success) {
+                location.href = "/main/main.html";
             }
-            else{
+            else {
                 alert('登录失败');
             }
         })
@@ -40,4 +40,32 @@ $(function () {
             return $("#password").tooltip('show');
         }
     });
+
 });
+
+function region() {
+    var username = $("#username").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
+    if (username.length <= 0) {
+        return $("#username").tooltip('show');
+    }
+    if (email.length <= 0) {
+        return $("#email").tooltip('show');
+    }
+    if (password.length <= 0) {
+        return $("#password").tooltip('show');
+    }
+    $.post('/json/region.json', {
+        name: username,
+        email: email,
+        password: password
+    }, function (val) {
+        if (val.success) {
+            location.href = "/main/main.html";
+        }
+        else {
+            alert('登录失败');
+        }
+    })
+}

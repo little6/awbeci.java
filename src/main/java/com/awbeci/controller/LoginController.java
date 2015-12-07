@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,49 @@ public class LoginController {
     }
 
     /**
+     * 注册
+     *
+     * @param session
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/json/region.json")
+    public ModelAndView region(User user, HttpSession session) throws Exception {
+        Object sessionuser = session.getAttribute("user");
+        if (sessionuser != null) {
+            return new ModelAndView("redirect:/main/main.html");
+        }
+        boolean data = userService.sendEmail(user);
+        if (data) {
+            //设置session
+            session.setAttribute("user", user.getName());
+            return new ModelAndView("redirect:/main/main.html");
+        } else {
+            //邮件发送失败
+            return new ModelAndView("redirect:/");
+        }
+    }
+
+//    /**
+//     * 验证邮箱
+//     *
+//     * @return
+//     */
+//    @RequestMapping("/validate/validateEmail.html")
+//    public ModelAndView validateEmail(HttpServletRequest request) {
+//        ModelAndView view = new ModelAndView("validate/validateEmail");
+//        String activecode = request.getParameter("activecode");
+//        //boolean data = userService.validateEmail(activecode);
+////        if (data) {
+////            view.addObject("message", "验证成功，正在跳转中...");
+////        } else {
+////            view.addObject("message", "验证失败，正在跳转中...");
+////        }
+//        return null;
+//    }
+//}
+
+    /**
      * 登录
      *
      * @param name
@@ -41,10 +85,10 @@ public class LoginController {
         Map<String, Object> map = new HashMap<String, Object>();
         User user = userService.selectUser(name, password);
         if (user != null) {
-            session.setAttribute("uname", name);
+            session.setAttribute("user", user.getName());
             session.setAttribute("uid", user.getId());
             //设置session过期时间为一年
-            session.setMaxInactiveInterval(60 * 24 * 30 * 12);
+            session.setMaxInactiveInterval(60 * 24 * 30);
             map.put("success", true);
         } else {
             map.put("success", false);
@@ -57,7 +101,10 @@ public class LoginController {
      */
     @RequestMapping("/json/loginOut.json")
     @ResponseBody
-    public void loginOut(HttpSession session) {
-        Object sess = session.getAttribute("user");
+    public Map<String, Object> loginOut(HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        session.invalidate();
+        map.put("success", true);
+        return map;
     }
 }

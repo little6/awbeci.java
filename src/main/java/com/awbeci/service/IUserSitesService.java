@@ -1,5 +1,6 @@
 package com.awbeci.service;
 
+import com.awbeci.domain.User;
 import com.awbeci.domain.UserSites;
 
 import java.util.List;

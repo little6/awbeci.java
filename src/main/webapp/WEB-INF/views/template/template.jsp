@@ -60,7 +60,7 @@
                         <li><a href="#">帮助</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">设置</a></li>
-                        <li><a href="#">退出</a></li>
+                        <li><a href="javascript:void(0)" onclick="quit()">退出</a></li>
                     </ul>
                 </li>
             </ul>

@@ -11,4 +11,6 @@ public interface IUserService {
     List<User> selectUser();
 
     User selectUser(String name, String passwd);
+
+    public boolean sendEmail(User newUser);
 }

@@ -6,8 +6,7 @@
     <title>新感觉,新体验</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/index.css">
-    <script type="application/javascript" src="js/index.js"></script>
-    <script type="application/javascript" src="js/jquery.form.js"></script>
+    <script type="application/javascript" src="/js/views/login.js"></script>
 </head>
 <body>
 
@@ -20,13 +19,13 @@
             <p class="text-muted">至少使用一个小写字母，一个数字和七个字符。</p>
 
             <div class="form-group">
-                <button  class="btn btn-success btn-block" id="region" type="submit"><b>注册为Awbeci</b></button>
+                <a href="javascript:void(0)" class="btn btn-success btn-block" id="region" onclick="region()"><b>注册为Awbeci</b></a>
             </div>
             <p class="text-muted">当你点击注册为awbeci，默认你同意我们的<a href="#">服务条款</a>和隐私保护的条款.我们将发送一封电子邮件到你注册的邮箱.</p>
         </form>
         <h1>新感觉 新体验<br>分享你的缤纷世界</h1>
         <p class="subheading">强大的网络资源分享社区，优质的资源共享，友好的社交平台，在这里不管是工作 学习还是
-            娱乐，你都可以享受到资源分享带来的快捷与便利，快快加入我们吧<a href="#">QQ群(代码世界):464696550.</a> </p>
+            娱乐，你都可以享受到资源分享带来的快乐与便利，快快加入我们吧<a href="#">QQ群(代码世界):464696550.</a> </p>
     </div>
 </div>
 
