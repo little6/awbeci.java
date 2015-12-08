@@ -11,8 +11,8 @@ public class User {
     private String avatarUrl;
     private String niceName;
     private String email;
+    private String emailAble;
     private String url;
-    private String activationKey;
     private Integer status;
     private Integer deleted;
     private Date createDt;
@@ -74,12 +74,12 @@ public class User {
         this.url = url;
     }
 
-    public String getActivationKey() {
-        return activationKey;
+    public String getEmailAble() {
+        return emailAble;
     }
 
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
+    public void setEmailAble(String emailAble) {
+        this.emailAble = emailAble;
     }
 
     public Integer getStatus() {

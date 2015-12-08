@@ -56,16 +56,9 @@ function region() {
     if (password.length <= 0) {
         return $("#password").tooltip('show');
     }
-    $.post('/json/region.json', {
+    $.post('/region.html', {
         name: username,
         email: email,
         password: password
-    }, function (val) {
-        if (val.success) {
-            location.href = "/main/main.html";
-        }
-        else {
-            alert('登录失败');
-        }
     })
 }

@@ -20,4 +20,8 @@ public interface IUserDao {
 
     @Select("select * from user where name=#{name} and password=#{password}")
     User selectUserByParam(@Param("name") String name, @Param("password") String passwd);
+
+    @Insert("insert into user(id,name,password,avatarUrl,niceName,email,emailAble,url,status,deleted,createDt,updateDt)" +
+            "values(#{id},#{name},#{password},#{avatarUrl},#{niceName},#{email},#{emailAble},#{url},#{status},#{deleted},#{createDt},#{updateDt})")
+    int insertUser(User user);
 }

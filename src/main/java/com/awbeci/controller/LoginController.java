@@ -35,20 +35,23 @@ public class LoginController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/json/region.json")
-    public ModelAndView region(User user, HttpSession session) throws Exception {
+    @RequestMapping("/region.html")
+    public String region(User user, HttpSession session) throws Exception {
         Object sessionuser = session.getAttribute("user");
+        String properties = "awbeci.properties";
         if (sessionuser != null) {
-            return new ModelAndView("redirect:/main/main.html");
+            return "/main/main.html";
         }
-        boolean data = userService.sendEmail(user);
+        boolean data = userService.sendEmail(user, properties);
         if (data) {
             //设置session
             session.setAttribute("user", user.getName());
-            return new ModelAndView("redirect:/main/main.html");
+            session.setAttribute("uid", user.getId());
+            //todo:跳转不成功
+            return "/main/main.html";
         } else {
             //邮件发送失败
-            return new ModelAndView("redirect:/");
+            return "/";
         }
     }
 

@@ -12,7 +12,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
  * 发送邮件服务类
  * Created by zhangwei on 2015/7/5.
  */
-public class Email{
+public class Email {
 
     private String host;
 
@@ -21,12 +21,14 @@ public class Email{
     private String userName;
 
     private String password;
+    MyProperties myProperties = new MyProperties();
 
-    public Email() {
-        this.userName = "system@awbeci.com";
-        this.password = "@zh1ngw5i0808";
-        setHost("smtp.awbeci.com");
-        setFromEmail("system@awbeci.com");
+    public Email(String  properties) {
+        Properties prop = myProperties.getPropertiesByName(properties);
+        this.userName = prop.getProperty("email");
+        this.password = prop.getProperty("pwd");
+        setHost(prop.getProperty("host"));
+        setFromEmail(prop.getProperty("fromEmail"));
     }
 
     /**
@@ -65,7 +67,6 @@ public class Email{
 
             //发送邮件
             senderImpl.send(mailMessage);
-            System.out.println("邮件发送成功..");
             return true;
         } catch (Exception e) {
             return false;

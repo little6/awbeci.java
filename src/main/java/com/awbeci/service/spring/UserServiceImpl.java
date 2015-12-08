@@ -4,17 +4,20 @@ import com.awbeci.dao.IUserDao;
 import com.awbeci.domain.User;
 import com.awbeci.service.IUserService;
 import com.awbeci.util.Email;
+import com.awbeci.util.MyProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Properties;
 import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
     private IUserDao userDao;
+    MyProperties myProperties = new MyProperties();
 
     @Override
     public List<User> selectUser() {
@@ -27,34 +30,34 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean sendEmail(User newUser){
-        Email emailUtil = new Email();
+    public boolean sendEmail(User newUser, String properties) {
+        Email emailUtil = new Email(properties);
+        Properties prop = myProperties.getPropertiesByName(properties);
+        String volidateEmailUrl = prop.getProperty("volidateEmailUrl");
 
-        User user = new User();
         //设置激活码
         UUID id = UUID.randomUUID();
-        user.setActivationKey(id.toString());
-        user.setPassword(newUser.getPassword());
-        user.setStatus(0);
-        user.setCreateDt(new Timestamp(System.currentTimeMillis()));
-        user.setEmail(newUser.getEmail());
-        user.setName(newUser.getName());
-        user.setUpdateDt(new Timestamp(System.currentTimeMillis()));
+        newUser.setId(id.toString());
+        newUser.setStatus(1);
+        newUser.setEmailAble("0");
+        //todo:这个url如何设计，如：www.awbeci.com/u/1234456
+        newUser.setUrl(volidateEmailUrl + "u/" + id);
+        newUser.setCreateDt(new Timestamp(System.currentTimeMillis()));
+        newUser.setUpdateDt(new Timestamp(System.currentTimeMillis()));
 
+        //todo:这个要判断这个eamil是否已经被注册！！！
         boolean data = emailUtil.sendEmail(newUser.getEmail(), "来自Awbeci的注册邮件",
                 "<html><head></head><body><p>您好,<br>" +
                         "感谢您通过Awbeci注册.<br>" +
                         "点击以下链接验证您的邮箱地址：</p>" +
-                        "<a href='http://localhost:8080/validate/validateEmail.html?activecode=" + id + "'>" +
-                        "http://localhost:8080/validate/validateEmail.html?activecode=" + id + "</a>" +
+                        "<a href='" + volidateEmailUrl + "validateEmail/" + id + "'>" +
+                        volidateEmailUrl + "validateEmail/" + id + "</a>" +
                         "</body></html>");
         //邮件发送成功
         if (data) {
-            //todo:
-            //userDAO.insertUser(user);
+            userDao.insertUser(newUser);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

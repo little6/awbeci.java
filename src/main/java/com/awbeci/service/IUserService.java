@@ -12,5 +12,5 @@ public interface IUserService {
 
     User selectUser(String name, String passwd);
 
-    public boolean sendEmail(User newUser);
+    public boolean sendEmail(User newUser,String properties);
 }
