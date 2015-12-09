@@ -3,7 +3,10 @@ package com.awbeci.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,5 +39,14 @@ public class MainController {
         } else {
             return "/main/main";
         }
+    }
+
+    @RequestMapping(value = "validate/{id}", method = RequestMethod.GET)
+    public String validate(@PathVariable String id, HttpSession session) {
+        Object username = session.getAttribute("user");
+        if (id != null && !id.equals("") && username != null && !username.equals(""))
+            return "validate/validateEmail";
+        //todo:这里可以导向一个新页面：提示用户：请先登录！
+        return "redirect:/";
     }
 }

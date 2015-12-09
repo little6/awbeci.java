@@ -13,7 +13,7 @@
 <div class="mycontent">
     <div id="content-c" class="container">
         <form action="/region.html" id="myform">
-            <div class="form-group"><input type="text" id="username" name="username" class="form-control" placeholder="用户名" required></div>
+            <div class="form-group"><input type="text" id="name" name="name" class="form-control" placeholder="用户名" required></div>
             <div class="form-group"><input type="email" id="email" name="email" class="form-control" placeholder="邮箱" required></div>
             <div class="form-group"><input type="password" id="password" name="password" class="form-control" placeholder="密码" required></div>
             <p class="text-muted">至少使用一个小写字母，一个数字和七个字符。</p>

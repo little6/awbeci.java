@@ -42,13 +42,13 @@ $(function () {
     });
 
 });
-
+//注册
 function region() {
-    var username = $("#username").val();
+    var username = $("#name").val();
     var email = $("#email").val();
     var password = $("#password").val();
     if (username.length <= 0) {
-        return $("#username").tooltip('show');
+        return $("#name").tooltip('show');
     }
     if (email.length <= 0) {
         return $("#email").tooltip('show');
@@ -56,9 +56,5 @@ function region() {
     if (password.length <= 0) {
         return $("#password").tooltip('show');
     }
-    $.post('/region.html', {
-        name: username,
-        email: email,
-        password: password
-    })
+    $('#myform').submit();
 }

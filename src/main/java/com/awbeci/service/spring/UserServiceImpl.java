@@ -50,8 +50,8 @@ public class UserServiceImpl implements IUserService {
                 "<html><head></head><body><p>您好,<br>" +
                         "感谢您通过Awbeci注册.<br>" +
                         "点击以下链接验证您的邮箱地址：</p>" +
-                        "<a href='" + volidateEmailUrl + "validateEmail/" + id + "'>" +
-                        volidateEmailUrl + "validateEmail/" + id + "</a>" +
+                        "<a href='" + volidateEmailUrl + "validate/" + id + "'>" +
+                        volidateEmailUrl + "validate/" + id + "</a>" +
                         "</body></html>");
         //邮件发送成功
         if (data) {

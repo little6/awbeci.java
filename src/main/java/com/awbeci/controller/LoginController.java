@@ -40,15 +40,14 @@ public class LoginController {
         Object sessionuser = session.getAttribute("user");
         String properties = "awbeci.properties";
         if (sessionuser != null) {
-            return "/main/main.html";
+            return "/";
         }
         boolean data = userService.sendEmail(user, properties);
         if (data) {
             //设置session
             session.setAttribute("user", user.getName());
             session.setAttribute("uid", user.getId());
-            //todo:跳转不成功
-            return "/main/main.html";
+            return "redirect:/main/main.html";
         } else {
             //邮件发送失败
             return "/";
