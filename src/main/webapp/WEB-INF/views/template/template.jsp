@@ -73,7 +73,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <button type="button" class="btn btn-success btn-nav">注册
+                    <button type="button" class="btn btn-success btn-nav" onclick="region()">注册
                     </button>
                 </li>
                 <li>
@@ -92,7 +92,7 @@
 <sitemesh:write property="body"/>
 <footer>
     <div class="myclearfix">
-        <span>©2015 hellozw <a href="http://www.miitbeian.gov.cn/">皖ICP备14011269号-1</a></span>
+        <span>©2014-2015 awbeci <a href="http://www.miitbeian.gov.cn/">皖ICP备14011269号-2</a></span>
     </div>
 </footer>
 <!-- /menu -->

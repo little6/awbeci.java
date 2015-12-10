@@ -3,15 +3,24 @@
 <html>
 <head>
     <title>验证邮箱</title>
+    <script type="application/javascript">
+        $(function () {
+            setTimeout('toMainPage()',3000);
+        });
+        function toMainPage() {
+            location.href = '/main/main.html';
+        }
+    </script>
     <style type="text/css">
         .content {
             margin-top: 50px;
+            padding: 0 20px;
         }
     </style>
 </head>
 <body>
 <div class="content">
-    验证成功，正在跳转
+    验证成功，正在跳转...
 </div>
 </body>
 </html>

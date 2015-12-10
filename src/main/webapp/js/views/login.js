@@ -43,7 +43,7 @@ $(function () {
 
 });
 //注册
-function region() {
+function quickRegion() {
     var username = $("#name").val();
     var email = $("#email").val();
     var password = $("#password").val();

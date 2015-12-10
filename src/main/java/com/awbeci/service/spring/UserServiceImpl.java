@@ -61,4 +61,9 @@ public class UserServiceImpl implements IUserService {
             return false;
         }
     }
+
+    @Override
+    public int validateEmail(String id) {
+        return userDao.updateEmailAble(id);
+    }
 }

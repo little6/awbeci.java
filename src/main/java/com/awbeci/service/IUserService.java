@@ -13,4 +13,6 @@ public interface IUserService {
     User selectUser(String name, String passwd);
 
     public boolean sendEmail(User newUser,String properties);
+
+    int validateEmail(String id);
 }

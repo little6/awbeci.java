@@ -3,12 +3,10 @@ package com.awbeci.controller;
 import com.awbeci.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import com.awbeci.service.IUserService;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,15 +26,30 @@ public class LoginController {
         return new ModelAndView("login/login");
     }
 
+
     /**
-     * 注册
+     * 主页注册
      *
      * @param session
      * @return
      * @throws Exception
      */
     @RequestMapping("/region.html")
-    public String region(User user, HttpSession session) throws Exception {
+    public String region(HttpSession session) throws Exception {
+        Object sessionuser = session.getAttribute("user");
+        return "/login/region";
+    }
+
+
+    /**
+     * 主页注册
+     *
+     * @param session
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/quickRegion.html")
+    public String quickRegion(User user, HttpSession session) throws Exception {
         Object sessionuser = session.getAttribute("user");
         String properties = "awbeci.properties";
         if (sessionuser != null) {
@@ -54,24 +67,24 @@ public class LoginController {
         }
     }
 
-//    /**
-//     * 验证邮箱
-//     *
-//     * @return
-//     */
-//    @RequestMapping("/validate/validateEmail.html")
-//    public ModelAndView validateEmail(HttpServletRequest request) {
-//        ModelAndView view = new ModelAndView("validate/validateEmail");
-//        String activecode = request.getParameter("activecode");
-//        //boolean data = userService.validateEmail(activecode);
-////        if (data) {
-////            view.addObject("message", "验证成功，正在跳转中...");
-////        } else {
-////            view.addObject("message", "验证失败，正在跳转中...");
-////        }
-//        return null;
-//    }
-//}
+    /**
+     * 验证邮箱
+     * @param id
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "validate/{id}", method = RequestMethod.GET)
+    public String validate(@PathVariable String id, HttpSession session) {
+        Object username = session.getAttribute("user");
+        if (id != null && !id.equals("") && username != null && !username.equals(""))
+        {
+            //todo:是否验证了多次，要判断下
+            userService.validateEmail(id);
+            return "validate/validateEmail";
+        }
+        //todo:这里可以导向一个新页面：提示用户：请先登录！
+        return "redirect:/";
+    }
 
     /**
      * 登录

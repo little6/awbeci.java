@@ -8,6 +8,10 @@ $(function () {
     })
 });
 
+function region() {
+    location.href = '/region.html';
+}
+
 function login() {
     location.href = "/login.html";
 }

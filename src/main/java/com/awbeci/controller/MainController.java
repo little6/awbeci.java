@@ -1,5 +1,6 @@
 package com.awbeci.controller;
 
+import com.awbeci.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +17,8 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    //@Autowired
-    //private ILinkService linkService;
+    @Autowired
+    private IUserService userService;
 
     /**
      * 首页页面
@@ -41,12 +42,4 @@ public class MainController {
         }
     }
 
-    @RequestMapping(value = "validate/{id}", method = RequestMethod.GET)
-    public String validate(@PathVariable String id, HttpSession session) {
-        Object username = session.getAttribute("user");
-        if (id != null && !id.equals("") && username != null && !username.equals(""))
-            return "validate/validateEmail";
-        //todo:这里可以导向一个新页面：提示用户：请先登录！
-        return "redirect:/";
-    }
 }

@@ -17,7 +17,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     用户名或者邮箱
-                    <input type="email"  class="form-control" id="username" data-toggle="tooltip" data-placement="bottom"
+                    <input type="text" class="form-control" id="username" data-toggle="tooltip" data-placement="bottom"
                            title="请输入用户名或者邮箱" >
                 </div>
                 <div class="form-group">

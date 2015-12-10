@@ -18,10 +18,13 @@ public interface IUserDao {
     @ResultMap("com.awbeci.mapper.UserMapper.UserResult")
     List<User> selectUser();
 
-    @Select("select * from user where name=#{name} and password=#{password}")
+    @Select("select * from user where name=#{name} or (emailAble='1' and email=#{name}) and password=#{password} ")
     User selectUserByParam(@Param("name") String name, @Param("password") String passwd);
 
     @Insert("insert into user(id,name,password,avatarUrl,niceName,email,emailAble,url,status,deleted,createDt,updateDt)" +
             "values(#{id},#{name},#{password},#{avatarUrl},#{niceName},#{email},#{emailAble},#{url},#{status},#{deleted},#{createDt},#{updateDt})")
     int insertUser(User user);
+
+    @Update("update user set emailAble='1' where id=#{id}")
+    int updateEmailAble(@Param("id") String id);
 }

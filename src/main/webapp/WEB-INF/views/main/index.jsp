@@ -12,14 +12,14 @@
 
 <div class="mycontent">
     <div id="content-c" class="container">
-        <form action="/region.html" id="myform">
+        <form action="/quickRegion.html" id="myform">
             <div class="form-group"><input type="text" id="name" name="name" class="form-control" placeholder="用户名" required></div>
             <div class="form-group"><input type="email" id="email" name="email" class="form-control" placeholder="邮箱" required></div>
             <div class="form-group"><input type="password" id="password" name="password" class="form-control" placeholder="密码" required></div>
             <p class="text-muted">至少使用一个小写字母，一个数字和七个字符。</p>
 
             <div class="form-group">
-                <a href="javascript:void(0)" class="btn btn-success btn-block" id="region" onclick="region()"><b>注册为Awbeci</b></a>
+                <a href="javascript:void(0)" class="btn btn-success btn-block" id="region" onclick="quickRegion()"><b>注册为Awbeci</b></a>
             </div>
             <p class="text-muted">当你点击注册为awbeci，默认你同意我们的<a href="#">服务条款</a>和隐私保护的条款.我们将发送一封电子邮件到你注册的邮箱.</p>
         </form>
