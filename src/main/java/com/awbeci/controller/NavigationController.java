@@ -38,6 +38,7 @@ public class NavigationController {
     @Autowired
     private IUserSitesService userSitesService;
 
+    //todo:通过用户url来访问自己的页面
     @RequestMapping("/navigation/navigation.html")
     public String navigation(HttpSession session) {
         if (session.getAttribute("user") == null) {

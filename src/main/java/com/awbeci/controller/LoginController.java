@@ -21,9 +21,12 @@ public class LoginController {
     private IUserService userService;
 
     @RequestMapping("/login.html")
-    //todo:要判断是否已经登录，如果登录就不需要到登录界面
-    public ModelAndView login() {
-        return new ModelAndView("login/login");
+    public String login(HttpSession session) {
+        Object sessionuser = session.getAttribute("user");
+        if (sessionuser != null) {
+            return "redirect:/main.html";
+        }
+        return "login/login";
     }
 
 
@@ -37,6 +40,9 @@ public class LoginController {
     @RequestMapping("/region.html")
     public String region(HttpSession session) throws Exception {
         Object sessionuser = session.getAttribute("user");
+        if (sessionuser != null) {
+            return "redirect:/main.html";
+        }
         return "/login/region";
     }
 
@@ -55,7 +61,7 @@ public class LoginController {
         if (sessionuser != null) {
             return "/";
         }
-        boolean data = userService.sendEmail(user, properties);
+        boolean data = userService.region(user, properties);
         if (data) {
             //设置session
             session.setAttribute("user", user.getName());

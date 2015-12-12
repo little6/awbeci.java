@@ -25,21 +25,12 @@ public class MainController {
      */
     @RequestMapping("/")
     public String index(Model model, HttpSession session) {
-        //List<Link> list = linkService.selectLinkById();
         if (session.getAttribute("user") == null) {
+            //跳转到快速注册页面
             return "main/index";
         } else {
+            //跳转到awbeci主页
             return "/main/main";
         }
     }
-
-    @RequestMapping("/main/main.html")
-    public String main(Model model, HttpSession session) {
-        if (session.getAttribute("user") == null) {
-            return "main/index";
-        } else {
-            return "/main/main";
-        }
-    }
-
 }

@@ -30,7 +30,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean sendEmail(User newUser, String properties) {
+    public boolean region(User newUser, String properties) {
         Email emailUtil = new Email(properties);
         Properties prop = myProperties.getPropertiesByName(properties);
         String volidateEmailUrl = prop.getProperty("volidateEmailUrl");

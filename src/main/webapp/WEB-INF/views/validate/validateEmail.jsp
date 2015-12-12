@@ -8,7 +8,7 @@
             setTimeout('toMainPage()',3000);
         });
         function toMainPage() {
-            location.href = '/main/main.html';
+            location.href = '/';
         }
     </script>
     <style type="text/css">
