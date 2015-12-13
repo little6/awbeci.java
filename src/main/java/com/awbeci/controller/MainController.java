@@ -1,5 +1,6 @@
 package com.awbeci.controller;
 
+import com.awbeci.domain.User;
 import com.awbeci.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class MainController {
     private IUserService userService;
 
     /**
-     * 首页页面
+     * 网站主页
      */
     @RequestMapping("/")
     public String index(Model model, HttpSession session) {
@@ -31,6 +32,22 @@ public class MainController {
         } else {
             //跳转到awbeci主页
             return "/main/main";
+        }
+    }
+
+    /**
+     * 导航到用户个人主页
+     * @param username
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "{username}", method = RequestMethod.GET)
+    public String usersPage(@PathVariable String username, HttpSession session) {
+        User data = userService.selectUserByName(username);
+        if (data == null) {
+            return "error/404";
+        } else {
+            return "navigation/navigation";
         }
     }
 }

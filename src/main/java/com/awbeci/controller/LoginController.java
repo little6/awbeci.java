@@ -61,12 +61,13 @@ public class LoginController {
         if (sessionuser != null) {
             return "/";
         }
+        //todo:确保名称是唯一的
         boolean data = userService.region(user, properties);
         if (data) {
             //设置session
             session.setAttribute("user", user.getName());
             session.setAttribute("uid", user.getId());
-            return "redirect:/main/main.html";
+            return "redirect:/";
         } else {
             //邮件发送失败
             return "/";

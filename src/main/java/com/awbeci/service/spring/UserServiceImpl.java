@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService {
         newUser.setStatus(1);
         newUser.setEmailAble("0");
         //todo:这个url如何设计，如：www.awbeci.com/u/1234456
-        newUser.setUrl(volidateEmailUrl + "u/" + id);
+        newUser.setUrl(volidateEmailUrl + newUser.getName());
         newUser.setCreateDt(new Timestamp(System.currentTimeMillis()));
         newUser.setUpdateDt(new Timestamp(System.currentTimeMillis()));
 
@@ -65,5 +65,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public int validateEmail(String id) {
         return userDao.updateEmailAble(id);
+    }
+
+    @Override
+    public User selectUserByName(String name) {
+        return userDao.selectUserByName(name);
     }
 }

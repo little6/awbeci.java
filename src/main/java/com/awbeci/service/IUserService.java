@@ -15,4 +15,6 @@ public interface IUserService {
     public boolean region(User newUser,String properties);
 
     int validateEmail(String id);
+
+    User selectUserByName(String name);
 }

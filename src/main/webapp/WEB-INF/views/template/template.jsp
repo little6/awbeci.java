@@ -45,12 +45,13 @@
             <h1 class="logo"><span class="mega-octicon octicon-mark-github"></span></h1>
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/" class="header-nav-link">首页</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">我的主页</a></li>
+                <li><a href="/<%= request.getSession().getAttribute("user")%>" class="header-nav-link">我的主页</a></li>
                 <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
                         zhangwei <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">当前登入账号：
@@ -81,9 +82,7 @@
                     </button>
                 </li>
             </ul>
-
             <%}%>
-
         </div>
     </div>
     <!-- /.navbar-collapse --> </nav>

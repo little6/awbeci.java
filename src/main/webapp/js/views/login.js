@@ -5,7 +5,7 @@ $(function () {
         if (username.length <= 0) {
             return $("#username").tooltip('show');
         }
-        if (password.length <= 0) {
+        if (password.length < 7) {
             return $("#password").tooltip('show');
         }
         $.post('/json/loginIn.json', {
@@ -53,7 +53,7 @@ function quickRegion() {
     if (email.length <= 0) {
         return $("#email").tooltip('show');
     }
-    if (password.length <= 0) {
+    if (password.length < 7) {
         return $("#password").tooltip('show');
     }
     $('#myform').submit();

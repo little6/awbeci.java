@@ -48,7 +48,7 @@
 <div class="content">
     <h1>加入Awbeci</h1>
 
-    <p>让您在工作和娱乐的同时享受到awbeci带来的便利和快乐。</p>
+    <p>让你在工作和娱乐的同时享受到awbeci带来的便利和快乐。</p>
 
     <div class="regionContent">
         <form action="/quickRegion.html" id="myform">
@@ -58,7 +58,7 @@
                 <label>用户名</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="请输入用户名"
                        required></div>
-            <p class="text-muted">这里输入的是您的用户名，完成注册后您也可以在设置中更改它。</p>
+            <p class="text-muted">这里输入的用户名将做为您网站url的地址，如：http://www.awbeci.com/zhangwei</p>
             <div class="form-group">
                 <label>邮箱地址</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="请输入邮箱地址"

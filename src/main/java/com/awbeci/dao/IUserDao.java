@@ -27,4 +27,7 @@ public interface IUserDao {
 
     @Update("update user set emailAble='1' where id=#{id}")
     int updateEmailAble(@Param("id") String id);
+
+    @Select("select * from user where name=#{name}")
+    User selectUserByName(@Param("name") String name);
 }
