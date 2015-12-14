@@ -110,6 +110,7 @@ a.list-group-item:hover {
     height: 100%;
     border: 1px solid #ddd;
     padding: 4px;
+    background-color: #f9f9f9;
 }
 
 #showlink ul:not([class*=dropdown-menu]) li {

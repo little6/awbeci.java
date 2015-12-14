@@ -41,48 +41,53 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
-            <% if (request.getSession().getAttribute("user") != null) { %>
-            <h1 class="logo"><span class="mega-octicon octicon-mark-github"></span></h1>
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="/" class="header-nav-link">首页</a></li>
-                <li><a href="/<%= request.getSession().getAttribute("user")%>" class="header-nav-link">我的主页</a></li>
-                <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">
-                        zhangwei <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">当前登入账号：
-                            <br>zhangwei</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">个人主页</a></li>
-                        <li><a href="#">帮助</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">设置</a></li>
-                        <li><a href="javascript:void(0)" onclick="quit()">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <% } else {%>
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="/navigation/navigation.html" class="header-nav-link">探索发现</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">功能特性</a></li>
-                <li><a href="/navigation/navigation.html" class="header-nav-link">站点博客</a></li>
-                <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <button type="button" class="btn btn-success btn-nav" onclick="region()">注册
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-default btn-nav" onclick="login()">登录
-                    </button>
-                </li>
-            </ul>
-            <%}%>
+            <div id="menu1">
+                <!--menu1 start-->
+                <h1 class="logo"><span class="mega-octicon octicon-mark-github"></span></h1>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/" class="header-nav-link">首页</a></li>
+                    <li><a href="/<%= request.getSession().getAttribute("user")%>" class="header-nav-link">我的主页</a></li>
+                    <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
+                            zhangwei <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">当前登入账号：
+                                <br>zhangwei</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">个人主页</a></li>
+                            <li><a href="#">帮助</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">设置</a></li>
+                            <li><a href="javascript:void(0)" onclick="quit()">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--menu1 end-->
+            </div>
+            <div id="menu2">
+                <!--menu2 start-->
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/navigation/navigation.html" class="header-nav-link">探索发现</a></li>
+                    <li><a href="/navigation/navigation.html" class="header-nav-link">功能特性</a></li>
+                    <li><a href="/navigation/navigation.html" class="header-nav-link">站点博客</a></li>
+                    <li><a href="/aboutme/aboutme.html" class="header-nav-link">关于</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" class="btn btn-success btn-nav" onclick="region()">注册
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default btn-nav" onclick="login()">登录
+                        </button>
+                    </li>
+                </ul>
+                <!--menu2 end-->
+            </div>
         </div>
     </div>
     <!-- /.navbar-collapse --> </nav>

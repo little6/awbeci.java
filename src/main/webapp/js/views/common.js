@@ -2,11 +2,15 @@
  *
  */
 $(function () {
-
+    initPage();
     $('#quit').on('click', function (event, data) {
         alert(1)
     })
 });
+
+function initPage(){
+    $("#menu2").hide();
+}
 
 function region() {
     location.href = '/region.html';
