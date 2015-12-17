@@ -16,6 +16,9 @@
 
     <link href="http://static.bootcss.com/www/assets/ico/favicon.png" rel="shortcut icon">
     <link href="/css/common.css" rel="stylesheet">
+    <script src="/js/react-0.14.3/build/react.min.js"></script>
+    <script src="/js/react-0.14.3/build/react-dom.min.js"></script>
+    <script src="/js/react-0.14.3/browser.min.js"></script>
     <script src="/js/jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/js/Bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/views/common.js"></script>
