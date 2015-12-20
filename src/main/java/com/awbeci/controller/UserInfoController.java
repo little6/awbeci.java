@@ -17,8 +17,18 @@ import java.util.Map;
 @Controller
 public class UserInfoController {
 
-    @RequestMapping("/user/userinfo.html")
+    @RequestMapping("/settings/account")
     public ModelAndView login() {
         return new ModelAndView("user/showInfo");
+    }
+
+    @RequestMapping("/following")
+    public ModelAndView following() {
+        return new ModelAndView("user/following");
+    }
+
+    @RequestMapping("/followers")
+    public ModelAndView followers() {
+        return new ModelAndView("user/followers");
     }
 }

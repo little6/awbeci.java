@@ -5,6 +5,7 @@ import java.util.Date;
 public class UserSites {
     private String id;
     private String categoryId;
+    private String uId;
     private String name;
     private String url;
     private String icon;
@@ -84,5 +85,13 @@ public class UserSites {
 
     public void setUpdateDt(Date updateDt) {
         this.updateDt = updateDt;
+    }
+
+    public String getuId() {
+        return uId;
+    }
+
+    public void setuId(String uId) {
+        this.uId = uId;
     }
 }

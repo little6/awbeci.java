@@ -38,17 +38,6 @@ public class NavigationController {
     @Autowired
     private IUserSitesService userSitesService;
 
-    //todo:通过用户url来访问自己的页面
-    @RequestMapping("/navigation/navigation.html")
-    public String navigation(HttpSession session) {
-        if (session.getAttribute("user") == null) {
-            return "redirect:/";
-        } else {
-            return "navigation/navigation";
-        }
-    }
-
-
     @RequestMapping(value = "/json/getCategoryByUid.json", method = RequestMethod.POST)
     @ResponseBody
     public List<UserCategory> selectAllCategory(HttpSession session) {
@@ -178,7 +167,7 @@ public class NavigationController {
     public List<UserSites> getSitesByMostClick(HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-            List userSites = userSitesService.getSitesByMostClick();
+            List userSites = userSitesService.getSitesByMostClick(uid);
             return userSites;
         }
         return null;

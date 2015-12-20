@@ -318,7 +318,6 @@ a.list-group-item:hover {
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
 }
 
-
 /*链接编辑样式*/
 .linkedit, .navedit {
     color: #3C3C3C;
@@ -354,4 +353,21 @@ a.list-group-item:hover {
 
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100%;
+}
+.btn-flower-content{
+    padding:5px 10px 10px 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.btn-flower-left{
+    display: inline-block;
+}
+.btn-flower-left h5{
+    font-weight: bold;
+}
+.btn-flower-right{
+    float:right;
+}
+.btn-flower >span{
+    margin-right: 5px;
 }

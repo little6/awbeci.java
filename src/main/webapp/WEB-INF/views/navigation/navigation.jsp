@@ -16,6 +16,14 @@
 </head>
 <body>
 <div class="container" id="container-main">
+    <div class="row btn-flower-content">
+        <div class="btn-flower-left">
+            <h5><a href="#">zhangwei</a>的个人主页</h5>
+        </div>
+        <div class="btn-flower-right"><a class="btn btn-success btn-sm btn-flower">
+            <span class="octicon octicon-person"></span>关注</a></div>
+
+    </div>
     <div class="row">
         <div class="col-lg-3 rowcol-left">
             <div class="treeview-head">分类列表

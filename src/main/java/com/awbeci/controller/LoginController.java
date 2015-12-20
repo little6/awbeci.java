@@ -20,11 +20,11 @@ public class LoginController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/login.html")
+    @RequestMapping("/login")
     public String login(HttpSession session) {
         Object sessionuser = session.getAttribute("user");
         if (sessionuser != null) {
-            return "redirect:/main.html";
+            return "redirect:/main";
         }
         return "login/login";
     }
@@ -37,11 +37,11 @@ public class LoginController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/region.html")
+    @RequestMapping("/region")
     public String region(HttpSession session) throws Exception {
         Object sessionuser = session.getAttribute("user");
         if (sessionuser != null) {
-            return "redirect:/main.html";
+            return "redirect:/main";
         }
         return "/login/region";
     }
@@ -54,7 +54,7 @@ public class LoginController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/quickRegion.html")
+    @RequestMapping("/quickRegion")
     public String quickRegion(User user, HttpSession session) throws Exception {
         Object sessionuser = session.getAttribute("user");
         String properties = "awbeci.properties";

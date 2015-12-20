@@ -51,7 +51,7 @@
     <p>让你在工作和娱乐的同时享受到awbeci带来的便利和快乐。</p>
 
     <div class="regionContent">
-        <form action="/quickRegion.html" id="myform">
+        <form action="/quickRegion" id="myform">
             <h4>创建个人账号</h4>
 
             <div class="form-group">

@@ -9,11 +9,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MainController {
@@ -37,6 +40,7 @@ public class MainController {
 
     /**
      * 导航到用户个人主页
+     *
      * @param username
      * @param session
      * @return
@@ -47,7 +51,21 @@ public class MainController {
         if (data == null) {
             return "error/404";
         } else {
+            session.setAttribute("uid", data.getId());
             return "navigation/navigation";
         }
+    }
+
+    @RequestMapping("/json/getSession.json")
+    @ResponseBody
+    public Map<String, Object> loginIn(HttpSession session) {
+        Object username = session.getAttribute("user");
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (username == null) {
+            map.put("session", null);
+        } else {
+            map.put("session", username);
+        }
+        return map;
     }
 }

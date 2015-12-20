@@ -12,7 +12,7 @@
 
 <div class="mycontent">
     <div id="content-c" class="container">
-        <form action="/quickRegion.html" id="myform">
+        <form action="/quickRegion" id="myform">
             <div class="form-group"><input type="text" id="name" name="name" class="form-control" placeholder="用户名" required></div>
             <div class="form-group"><input type="email" id="email" name="email" class="form-control" placeholder="邮箱" required></div>
             <div class="form-group"><input type="password" id="password" name="password" class="form-control" placeholder="密码" required></div>

@@ -23,19 +23,19 @@
                     <div class="userstats">
                         <ul class="arrange">
                             <li>
-                                <a href="#">
+                                <a href="">
                                     <span>1061</span>
-                                    <span>云址</span>
+                                    <span>网址</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/following">
                                     <span>56</span>
                                     <span>正在关注</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/followers">
                                     <span>12</span>
                                     <span>关注者</span>
                                 </a>
@@ -341,7 +341,7 @@
         <div class="rowright">
             <div class="showother">
                 <div class="showother-header">
-                    推荐云主
+                    推荐关注
                     ･
                     <a href="#">刷新</a>
                     ･

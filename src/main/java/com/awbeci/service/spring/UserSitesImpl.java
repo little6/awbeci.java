@@ -86,8 +86,8 @@ public class UserSitesImpl implements IUserSitesService {
     }
 
     @Override
-    public List<UserSites> getSitesByMostClick() {
-        return userSitesDao.getSitesByMostClick();
+    public List<UserSites> getSitesByMostClick(String id) {
+        return userSitesDao.getSitesByMostClick(id);
     }
 
     /**

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class AboutMeController {
-    @RequestMapping("/aboutme/aboutme.html")
+    @RequestMapping("/aboutme/aboutme")
     public ModelAndView aboutme(HttpSession session) {
         Object user = session.getAttribute("user");
         if (user != null) {
