@@ -44,7 +44,85 @@
                     </div>
                 </div>
             </div>
-
+            <div class="showother">
+                <div class="showother-header">
+                    推荐关注
+                    ･
+                    <a href="#">刷新</a>
+                    ･
+                    <a href="#">查看全部</a>
+                </div>
+                <div class="showother-content">
+                    <div class="showother-avator">
+                        <a href="#"><img class="userimg" src="" alt=""></a>
+                    </div>
+                    <div class="showother-main">
+                        <div class="showother-main-header">
+                            <a href="#">张威</a>
+                            <a href="#">@ZhangWei0808</a>
+                        </div>
+                        <div class="showother-main-btn">
+                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showother-content">
+                    <div class="showother-avator">
+                        <a href="#"><img class="userimg" src="" alt=""></a>
+                    </div>
+                    <div class="showother-main">
+                        <div class="showother-main-header">
+                            <a href="#">张威</a>
+                            <a href="#">@ZhangWei0808</a>
+                        </div>
+                        <div class="showother-main-btn">
+                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showother-content">
+                    <div class="showother-avator">
+                        <a href="#"><img class="userimg" src="" alt=""></a>
+                    </div>
+                    <div class="showother-main">
+                        <div class="showother-main-header">
+                            <a href="#">张威</a>
+                            <a href="#">@ZhangWei0808</a>
+                        </div>
+                        <div class="showother-main-btn">
+                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showother-content">
+                    <div class="showother-avator">
+                        <a href="#"><img class="userimg" src="" alt=""></a>
+                    </div>
+                    <div class="showother-main">
+                        <div class="showother-main-header">
+                            <a href="#">张威</a>
+                            <a href="#">@ZhangWei0808</a>
+                        </div>
+                        <div class="showother-main-btn">
+                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showother-content">
+                    <div class="showother-avator">
+                        <a href="#"><img class="userimg" src="" alt=""></a>
+                    </div>
+                    <div class="showother-main">
+                        <div class="showother-main-header">
+                            <a href="#">张威</a>
+                            <a href="#">@ZhangWei0808</a>
+                        </div>
+                        <div class="showother-main-btn">
+                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="rowmiddle">
             <div class="infocontent">
@@ -338,87 +416,7 @@
                 </div>
             </div>
         </div>
-        <div class="rowright">
-            <div class="showother">
-                <div class="showother-header">
-                    推荐关注
-                    ･
-                    <a href="#">刷新</a>
-                    ･
-                    <a href="#">查看全部</a>
-                </div>
-                <div class="showother-content">
-                    <div class="showother-avator">
-                        <a href="#"><img class="userimg" src="" alt=""></a>
-                    </div>
-                    <div class="showother-main">
-                        <div class="showother-main-header">
-                            <a href="#">张威</a>
-                            <a href="#">@ZhangWei0808</a>
-                        </div>
-                        <div class="showother-main-btn">
-                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="showother-content">
-                    <div class="showother-avator">
-                        <a href="#"><img class="userimg" src="" alt=""></a>
-                    </div>
-                    <div class="showother-main">
-                        <div class="showother-main-header">
-                            <a href="#">张威</a>
-                            <a href="#">@ZhangWei0808</a>
-                        </div>
-                        <div class="showother-main-btn">
-                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="showother-content">
-                    <div class="showother-avator">
-                        <a href="#"><img class="userimg" src="" alt=""></a>
-                    </div>
-                    <div class="showother-main">
-                        <div class="showother-main-header">
-                            <a href="#">张威</a>
-                            <a href="#">@ZhangWei0808</a>
-                        </div>
-                        <div class="showother-main-btn">
-                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="showother-content">
-                    <div class="showother-avator">
-                        <a href="#"><img class="userimg" src="" alt=""></a>
-                    </div>
-                    <div class="showother-main">
-                        <div class="showother-main-header">
-                            <a href="#">张威</a>
-                            <a href="#">@ZhangWei0808</a>
-                        </div>
-                        <div class="showother-main-btn">
-                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="showother-content">
-                    <div class="showother-avator">
-                        <a href="#"><img class="userimg" src="" alt=""></a>
-                    </div>
-                    <div class="showother-main">
-                        <div class="showother-main-header">
-                            <a href="#">张威</a>
-                            <a href="#">@ZhangWei0808</a>
-                        </div>
-                        <div class="showother-main-btn">
-                            <button class="btn btn-default btn-sm"><span class="octicon octicon-plus wei-icon"></span>关注</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 </body>

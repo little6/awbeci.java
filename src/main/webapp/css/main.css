@@ -4,7 +4,7 @@
 }
 
 .rowmiddle {
-    width: 50%;
+    width: 75%;
     padding: 0 8px;
 }
 
@@ -227,6 +227,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 0 10px;
+    margin-top: 10px;
 }
 
 .showother-header {
