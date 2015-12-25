@@ -54,7 +54,7 @@
                         <input type="hidden" id="categoryId">
                     </div>
                     <div class="form-group">
-                        <select id="categoryType" class="selectpicker  show-tick" data-size="8" data-live-search="true">
+                        <select id="categoryType" class="selectpicker  show-tick" data-size="8">
                         </select>
                     </div>
                     <div class="categorytoolbar">
@@ -104,7 +104,7 @@
                             <input type="text" class="form-control" id="siteurl" placeholder="请输入网址">
                         </div>
                         <div class="form-group">
-                            <select id="siteType" class="selectpicker  show-tick" data-size="8" data-live-search="true">
+                            <select id="siteType" class="selectpicker  show-tick" data-size="8">
                             </select>
                         </div>
                         <div class="sitetoolbar  form-group-sm">

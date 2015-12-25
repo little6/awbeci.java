@@ -18,8 +18,8 @@ public interface IUserCategoryDao {
     @Select("select * from usercategory where pid=#{pid}")
     List<UserCategory> selectCategoryChildByPid(String pid);
 
-    @Select("select * from usercategory")
-    List<UserCategory> selectCategoryChild();
+    @Select("select * from usercategory where uid=#{uid}")
+    List<UserCategory> selectCategoryChild(String uid);
 
     @Insert("insert into usercategory(id,uid,pid,name,sortno,createdt,updatedt)" +
             "values(#{id},#{uid},#{pid},#{name},#{sortNo},#{createDt},#{updateDt})")

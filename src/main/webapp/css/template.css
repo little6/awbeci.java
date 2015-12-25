@@ -67,6 +67,7 @@
     min-height: 40px;
     background-color: #f5f5f5;
     border-bottom: 1px solid #e5e5e5;
+    z-index: 19;
 }
 
 .zw-template-a {
@@ -357,4 +358,23 @@ footer a {
 .tooltip-inner {
     padding: 6px 10px;
     font-weight: 700;
+}
+
+/*对话框显示*/
+body.menu-active .modal-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    background: transparent;
+}
+.modal-backdrop {
+    display: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

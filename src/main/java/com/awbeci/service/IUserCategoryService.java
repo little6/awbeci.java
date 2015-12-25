@@ -13,7 +13,7 @@ public interface IUserCategoryService {
 
     List<UserCategory> selectCategoryChildByPid(String pid);
 
-    List<UserCategory> selectCategoryChild();
+    List<UserCategory> selectCategoryChild(String uid);
 
     int updateCategoryById(UserCategory userCategory);
 

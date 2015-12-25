@@ -79,7 +79,7 @@ public class NavigationController {
     public List<UserCategory> getCategoryChild(HttpSession session) {
         String uid = (String) session.getAttribute("uid");
         if (uid != null) {
-            List<UserCategory> userCategories = userCategoryService.selectCategoryChild();
+            List<UserCategory> userCategories = userCategoryService.selectCategoryChild(uid);
             return userCategories;
         } else {
             return null;
