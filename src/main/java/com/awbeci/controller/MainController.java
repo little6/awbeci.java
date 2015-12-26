@@ -29,13 +29,7 @@ public class MainController {
      */
     @RequestMapping("/")
     public String index(Model model, HttpSession session) {
-        if (session.getAttribute("user") == null) {
-            //跳转到快速注册页面
-            return "main/index";
-        } else {
-            //跳转到awbeci主页
-            return "/main/main";
-        }
+        return "/main/main";
     }
 
     /**

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>账户设置</title>
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/setting.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" id="container-main">
