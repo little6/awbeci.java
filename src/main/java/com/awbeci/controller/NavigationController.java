@@ -118,6 +118,7 @@ public class NavigationController {
     public int saveSite(UserSites userSites, HttpServletRequest request, HttpSession session) throws IOException {
         String flag = request.getParameter("flag");
         String uid = (String) session.getAttribute("uid");
+        userSites.setuId(uid);
         String properties = "aliyun-oss.properties";
         if (uid != null) {
             return userSitesService.saveSite(flag, properties, userSites);

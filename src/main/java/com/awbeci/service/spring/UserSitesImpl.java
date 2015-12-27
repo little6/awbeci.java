@@ -118,6 +118,4 @@ public class UserSitesImpl implements IUserSitesService {
     public List<UserSites> querySiteByParam(String param) {
         return userSitesDao.querySiteByParam(param);
     }
-
-
 }
