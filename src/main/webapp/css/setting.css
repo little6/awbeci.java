@@ -1,26 +1,66 @@
 .row-left {
     width: 25%;
+    float: left;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .row-right {
-    width: 74%;
-}
-
-.person-info-header {
-    height: 100px;
-    background-color: #79BEF1;
+    width: 73%;
+    margin: 0 0 0 10px;
+    float: left;
     border-radius: 8px 8px 0 0;
 }
 
-.person-info-detail {
-    height: 50px;
-    border: 1px solid #ccc;
-    border-top: none;
+.person-info-header {
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    font-weight: bold;
+    border-bottom: none;
+    padding: 8px 10px;
+    border-radius: 4px 4px 0 0;
+    font-size: 14px;
+    position: relative;
 }
-.person-info-setlist{
-    margin-top: 20px;
+
+.person-info-setlist {
+
 }
-.list-group-item a span{
-    font-size: 20px;
+
+a.list-group-item:hover, a.list-group-item:focus {
+    color: #0084B4;
+}
+
+.list-group-item {
+    font-size: 14px;
+    padding: 5px 15px;
+}
+
+.list-group-item span {
     float: right;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.setting-content {
+
+}
+
+.setting-header {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+}
+
+.setting-header h4, .setting-header p {
+    color: #8899a6;
+}
+
+.setting-detail {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 10px;
 }
