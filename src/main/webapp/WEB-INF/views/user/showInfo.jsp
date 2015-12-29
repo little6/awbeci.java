@@ -13,7 +13,7 @@
         <div class="row-left">
             <div class="person-info-content">
                 <div class="person-info-header">
-                  用户设置
+                    用户设置
                 </div>
             </div>
             <div class="person-info-setlist">
@@ -38,7 +38,41 @@
                     <p>修改你的基本账号</p>
                 </div>
                 <div class="setting-detail">
-                    sf
+                    <dl>
+                        <dt><label>头像图片</label></dt>
+                        <dd>
+                            <img class="left" src="" alt="" width="70" height="70">
+                            <div class="user-avatar-info">
+                                <a href="#" class="btn btn-default">上传新头像</a>
+                                <p>上传后你可以通过拖动新头像来设置</p>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="form-group clearboth margintop">
+                        <dt><label>用户名</label></dt>
+                        <dd>
+                            <input type="text" class="form-control form-control-width">
+                        </dd>
+                    </dl>
+                    <dl class="form-group clearboth">
+                        <dt><label>昵称</label></dt>
+                        <dd>
+                            <input type="text" class="form-control form-control-width">
+                        </dd>
+                    </dl>
+                    <dl class="form-group clearboth">
+                        <dt><label>邮箱</label></dt>
+                        <dd>
+                            <input type="text" class="form-control form-control-width">
+                        </dd>
+                    </dl>
+                    <dl class="form-group clearboth">
+                        <dt><label>URL</label></dt>
+                        <dd>
+                            <input type="text" class="form-control form-control-width">
+                        </dd>
+                    </dl>
+                    <p><button class="btn btn-success">更新资料</button></p>
                 </div>
             </div>
         </div>

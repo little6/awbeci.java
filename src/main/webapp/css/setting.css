@@ -30,8 +30,9 @@
 
 }
 
-a.list-group-item:hover, a.list-group-item:focus {
-    color: #0084B4;
+
+.list-group-items{
+    color: #0084B4 !important;
 }
 
 .list-group-item {
@@ -56,11 +57,41 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 
 .setting-header h4, .setting-header p {
-    color: #8899a6;
+    color: #0084B4;
 }
 
 .setting-detail {
     border: 1px solid #ddd;
     border-top: none;
     padding: 10px;
+}
+
+.setting-detail label {
+    font-size: 13px;
+    color: #666;
+}
+
+.user-avatar-info {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+}
+
+.user-avatar-info p {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.clearboth {
+    clear: both;
+}
+.left{
+    float: left;
+}
+.margintop{
+    margin-top: 80px;
+}
+.form-control-width{
+    width: 440px;
 }
