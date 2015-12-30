@@ -25,14 +25,26 @@
     font-size: 14px;
     position: relative;
 }
+.person-info-header2 {
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 4px 4px 0 0;
+    font-size: 14px;
+    position: relative;
+}
 
 .person-info-setlist {
 
 }
-
+a.list-group-item:hover, a.list-group-item:focus {
+    background-color: #fff;
+}
 
 .list-group-items{
     color: #0084B4 !important;
+    font-weight:bold;
 }
 
 .list-group-item {

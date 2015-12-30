@@ -17,3 +17,7 @@ function settingProfile(type) {
             break;
     }
 }
+
+function uploadAvator(){
+    $('#myModal').modal();
+}

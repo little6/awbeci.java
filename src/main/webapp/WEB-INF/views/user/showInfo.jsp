@@ -4,7 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>账户设置</title>
+    <link href="/js/cropper/cropper.min.css" rel="stylesheet">
     <link href="/css/setting.css" rel="stylesheet">
+    <script src="/js/cropper/cropper.min.js"></script>
+    <script src="/js/cropper/main.js"></script>
     <script src="/js/views/setting.js"></script>
 </head>
 <body>
@@ -33,9 +36,10 @@
         </div>
         <div class="row-right">
             <div class="setting-content">
-                <div class="setting-header">
-                    <h4>个人资料</h4>
-                    <p>修改你的基本账号</p>
+                <div class="person-info-content">
+                    <div class="person-info-header2">
+                        个人资料
+                    </div>
                 </div>
                 <div class="setting-detail">
                     <dl>
@@ -43,7 +47,9 @@
                         <dd>
                             <img class="left" src="" alt="" width="70" height="70">
                             <div class="user-avatar-info">
-                                <a href="#" class="btn btn-default">上传新头像</a>
+                                <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+                                <a href="#" class="btn btn-default">上传新头像
+                                </a>
                                 <p>上传后你可以通过拖动新头像来设置</p>
                             </div>
                         </dd>
@@ -72,13 +78,38 @@
                             <input type="text" class="form-control form-control-width">
                         </dd>
                     </dl>
-                    <p><button class="btn btn-success">更新资料</button></p>
+                    <p>
+                        <button class="btn btn-success">更新资料</button>
+                    </p>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
-
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    裁剪新头像
+                </h4>
+            </div>
+            <div class="modal-body">
+                在这里添加一些文本
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 </body>
 </html>
