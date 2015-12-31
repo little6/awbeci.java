@@ -7,7 +7,6 @@
     <link href="/js/cropper/cropper.min.css" rel="stylesheet">
     <link href="/css/setting.css" rel="stylesheet">
     <script src="/js/cropper/cropper.min.js"></script>
-    <script src="/js/cropper/main.js"></script>
     <script src="/js/views/setting.js"></script>
 </head>
 <body>
@@ -47,9 +46,10 @@
                         <dd>
                             <img class="left" src="" alt="" width="70" height="70">
                             <div class="user-avatar-info">
-                                <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
-                                <a href="#" class="btn btn-default">上传新头像
-                                </a>
+                                <label class="btn btn-default">
+                                    <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+                                    上传新头像
+                                </label>
                                 <p>上传后你可以通过拖动新头像来设置</p>
                             </div>
                         </dd>
@@ -102,7 +102,9 @@
                 </h4>
             </div>
             <div class="modal-body">
-                在这里添加一些文本
+                <div>
+                    <img id="image"  src="http://fengyuanchen.github.io/cropper/img/picture.jpg" width="140" height="140">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

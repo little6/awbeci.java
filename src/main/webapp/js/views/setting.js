@@ -6,6 +6,24 @@ $(function(){
         })
     });
     $('.list-group-item:first-child').addClass('list-group-items')
+
+    $('#inputImage').change(function(){
+        var $image = $('#image');
+        $('#myModal').modal();
+        $('#myModal').on('shown.bs.modal', function () {
+            $image.cropper({
+                autoCropArea: 0.5,
+                built: function () {
+                    $image.cropper('setCanvasData', canvasData);
+                    $image.cropper('setCropBoxData', cropBoxData);
+                }
+            });
+        }).on('hidden.bs.modal', function () {
+            cropBoxData = $image.cropper('getCropBoxData');
+            canvasData = $image.cropper('getCanvasData');
+            $image.cropper('destroy');
+        });
+    });
 })
 function settingProfile(type) {
     switch (type) {
@@ -19,5 +37,6 @@ function settingProfile(type) {
 }
 
 function uploadAvator(){
-    $('#myModal').modal();
+
 }
+
