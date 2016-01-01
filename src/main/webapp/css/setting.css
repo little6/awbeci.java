@@ -1,3 +1,6 @@
+img {
+    max-width: 100%;
+}
 .row-left {
     width: 25%;
     float: left;

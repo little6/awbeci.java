@@ -8,8 +8,26 @@ $(function(){
     $('.list-group-item:first-child').addClass('list-group-items')
 
     $('#inputImage').change(function(){
-        var $image = $('#image');
-        $('#myModal').modal();
+        var $image = $('#avatorImg');
+        var cropBoxData;
+        var canvasData;
+        var files = this.files;
+        var file;
+
+        if (files && files.length) {
+            file = files[0];
+
+            //if (/^image\/\w+$/.test(file.type)) {
+            //    blobURL = URL.createObjectURL(file);
+            //    $image.one('built.cropper', function () {
+            //        // Revoke when load complete
+            //        URL.revokeObjectURL(blobURL);
+            //    }).cropper('reset').cropper('replace', blobURL);
+            //
+            //} else {
+            //    window.alert('Please choose an image file.');
+            //}
+        }
         $('#myModal').on('shown.bs.modal', function () {
             $image.cropper({
                 autoCropArea: 0.5,
@@ -23,6 +41,8 @@ $(function(){
             canvasData = $image.cropper('getCanvasData');
             $image.cropper('destroy');
         });
+        $('#myModal').modal('show');
+
     });
 })
 function settingProfile(type) {

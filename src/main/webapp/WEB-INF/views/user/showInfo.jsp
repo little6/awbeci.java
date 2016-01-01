@@ -103,7 +103,7 @@
             </div>
             <div class="modal-body">
                 <div>
-                    <img id="image"  src="http://fengyuanchen.github.io/cropper/img/picture.jpg" width="140" height="140">
+                    <img id="avatorImg"  src="http://static.awbeci.com/psbe.jpg">
                 </div>
             </div>
             <div class="modal-footer">

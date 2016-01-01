@@ -53,9 +53,28 @@ public class BucketObject {
      * @param urlStr   网上图片路径
      * @throws IOException
      */
-    public boolean putObject(String folder, String filename, String urlStr) throws IOException {
+    public boolean putObjectByUrl(String folder, String filename, String urlStr) throws IOException {
         try {
             InputStream content = catchFavicon.GetUrlFavicon(urlStr);
+            // 创建上传Object的Metadata
+            ObjectMetadata meta = new ObjectMetadata();
+
+            // 必须设置ContentLength
+            meta.setContentLength(content.available());
+
+            // 上传Object.
+            PutObjectResult result = client.putObject(bucketName, folder + filename, content, meta);
+            log.info(result.getETag());
+            return true;
+        } catch (Exception e) {
+            log.error("出错原因：" + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean putObjectByFilePath(String folder, String filename, String filePath) throws IOException {
+        try {
+            InputStream content = catchFavicon.GetFilePathStream(filePath);
             // 创建上传Object的Metadata
             ObjectMetadata meta = new ObjectMetadata();
 

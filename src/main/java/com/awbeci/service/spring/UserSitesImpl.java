@@ -27,7 +27,7 @@ public class UserSitesImpl implements IUserSitesService {
     Logger log = LoggerFactory.getLogger(BucketObject.class);
     MyProperties myProperties = new MyProperties();
 
-    @Override
+
     public List<UserSites> getSiteByCategoryId(String categoryid) {
         return userSitesDao.getSiteByCategoryId(categoryid);
     }
@@ -40,7 +40,7 @@ public class UserSitesImpl implements IUserSitesService {
      * @param userSites  site实体类
      * @return
      */
-    @Override
+
     public int saveSite(String flag, String properties, UserSites userSites) {
         try {
             String oldicon = userSites.getIcon();
@@ -55,7 +55,7 @@ public class UserSitesImpl implements IUserSitesService {
 
             BucketObject bucketObject = new BucketObject(properties);
             //将图片上传到oss(走内网)
-            boolean data = bucketObject.putObject(bucketfolder, favicon, searchapi + userSites.getUrl());
+            boolean data = bucketObject.putObjectByUrl(bucketfolder, favicon, searchapi + userSites.getUrl());
             String icon = out_ossurl + bucketfolder + favicon;
             if (!data) {
                 //设置成默认的图片(走外网)
@@ -85,7 +85,7 @@ public class UserSitesImpl implements IUserSitesService {
         }
     }
 
-    @Override
+
     public List<UserSites> getSitesByMostClick(String id) {
         return userSitesDao.getSitesByMostClick(id);
     }
@@ -98,7 +98,7 @@ public class UserSitesImpl implements IUserSitesService {
      * @param iconUrl
      * @return
      */
-    @Override
+
     public int deleteSite(String properties, String id, String iconUrl) {
         try {
             Properties prop = myProperties.getPropertiesByName(properties);
@@ -114,8 +114,12 @@ public class UserSitesImpl implements IUserSitesService {
         }
     }
 
-    @Override
+
     public List<UserSites> querySiteByParam(String param) {
         return userSitesDao.querySiteByParam(param);
+    }
+
+    public String uploadAvatar() {
+        return null;
     }
 }

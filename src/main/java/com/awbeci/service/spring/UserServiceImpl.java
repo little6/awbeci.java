@@ -19,17 +19,17 @@ public class UserServiceImpl implements IUserService {
     private IUserDao userDao;
     MyProperties myProperties = new MyProperties();
 
-    @Override
+
     public List<User> selectUser() {
         return userDao.selectUser();
     }
 
-    @Override
+
     public User selectUser(String name, String passwd) {
         return userDao.selectUserByParam(name, passwd);
     }
 
-    @Override
+
     public boolean region(User newUser, String properties) {
         Email emailUtil = new Email(properties);
         Properties prop = myProperties.getPropertiesByName(properties);
@@ -62,12 +62,11 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
-    @Override
     public int validateEmail(String id) {
         return userDao.updateEmailAble(id);
     }
 
-    @Override
+
     public User selectUserByName(String name) {
         return userDao.selectUserByName(name);
     }
