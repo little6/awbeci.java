@@ -127,6 +127,14 @@ public class NavigationController {
         }
     }
 
+    @RequestMapping(value = "/json/uploadAvatar.json", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadAvatar(String filePath) {
+        String properties = "aliyun-oss.properties";
+        String filepath = userSitesService.uploadAvatar(properties, filePath);
+        return null;
+    }
+
     @RequestMapping(value = "/json/deleteSite.json", method = RequestMethod.POST)
     @ResponseBody
     public int deleteSite(String id, String iconurl, HttpSession session) {
@@ -178,7 +186,7 @@ public class NavigationController {
     @ResponseBody
     public List<UserSites> querySiteByParam(String param) {
         try {
-                return userSitesService.querySiteByParam(param);
+            return userSitesService.querySiteByParam(param);
         } catch (Exception e) {
             log.debug("错误原因:" + e.getMessage());
             return null;

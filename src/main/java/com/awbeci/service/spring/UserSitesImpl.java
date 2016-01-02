@@ -119,7 +119,23 @@ public class UserSitesImpl implements IUserSitesService {
         return userSitesDao.querySiteByParam(param);
     }
 
-    public String uploadAvatar() {
-        return null;
+    public String uploadAvatar(String properties,String filePath) {
+        try{
+            Properties prop = myProperties.getPropertiesByName(properties);
+            Date date = new Date();
+            String out_ossurl = prop.getProperty("out_ossurl");
+            String bucketfolder = prop.getProperty("avatarBucketFolder");
+            DateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+            String favicon = format.format(new Date()) + ".ico";
+
+            BucketObject bucketObject = new BucketObject(properties);
+            //将图片上传到oss(走内网)
+            boolean data = bucketObject.putObjectByFilePath(bucketfolder, favicon, filePath);
+            String icon = out_ossurl + bucketfolder + favicon;
+        }
+        catch (Exception ex){
+
+        }
+       return null;
     }
 }

@@ -72,6 +72,14 @@ public class BucketObject {
         }
     }
 
+    /**
+     * 根据路径上传图片
+     * @param folder
+     * @param filename
+     * @param filePath
+     * @return
+     * @throws IOException
+     */
     public boolean putObjectByFilePath(String folder, String filename, String filePath) throws IOException {
         try {
             InputStream content = catchFavicon.GetFilePathStream(filePath);

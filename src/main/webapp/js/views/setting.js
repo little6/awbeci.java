@@ -16,17 +16,27 @@ $(function(){
 
         if (files && files.length) {
             file = files[0];
+            var reader=new FileReader();
+            reader.onload=function(){
+                // 通过 reader.result 来访问生成的 DataURL
+                var url=reader.result;
+                //setImageURL(url);
+            };
+            if (/^image\/\w+$/.test(file.type)) {
+                blobURL = URL.createObjectURL(file);
+                $.post('/json/uploadAvatar.json',{
+                    filePath:blobURL
+                },function(){
 
-            //if (/^image\/\w+$/.test(file.type)) {
-            //    blobURL = URL.createObjectURL(file);
-            //    $image.one('built.cropper', function () {
-            //        // Revoke when load complete
-            //        URL.revokeObjectURL(blobURL);
-            //    }).cropper('reset').cropper('replace', blobURL);
-            //
-            //} else {
-            //    window.alert('Please choose an image file.');
-            //}
+                },'json');
+                //$image.one('built.cropper', function () {
+                //    // Revoke when load complete
+                //    URL.revokeObjectURL(blobURL);
+                //}).cropper('reset').cropper('replace', blobURL);
+
+            } else {
+                window.alert('Please choose an image file.');
+            }
         }
         $('#myModal').on('shown.bs.modal', function () {
             $image.cropper({

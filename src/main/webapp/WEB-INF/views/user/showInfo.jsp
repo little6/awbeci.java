@@ -103,7 +103,7 @@
             </div>
             <div class="modal-body">
                 <div>
-                    <img id="avatorImg"  src="http://static.awbeci.com/psbe.jpg">
+                    <img id="avatorImg"  src="http://static.awbeci.com/img/avatar/psbe.jpg">
                 </div>
             </div>
             <div class="modal-footer">
