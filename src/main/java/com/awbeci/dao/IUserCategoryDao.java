@@ -4,15 +4,19 @@ import com.awbeci.domain.User;
 import com.awbeci.domain.UserCategory;
 import com.awbeci.domain.UserSites;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface IUserCategoryDao {
 
-    @Select("select * from usercategory where uid=#{uid} order by updateDt")
+    @Select("select * from usercategory where uid=#{uid}" +
+            " order by sortNo")
     List<UserCategory> selectCategoryByUid(String uid);
 
-    @Select("select * from usercategory where uid=#{uid} and ( pid is null or pid = '') ")
+    @Select("select * from usercategory " +
+            "where uid=#{uid} and ( pid is null or pid = '') " +
+            "order by sortNo")
     List<UserCategory> selectCategoryParent(String uid);
 
     @Select("select * from usercategory where pid=#{pid}")

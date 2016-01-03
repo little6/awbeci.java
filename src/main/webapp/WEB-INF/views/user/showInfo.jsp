@@ -47,7 +47,10 @@
                             <img class="left" src="" alt="" width="70" height="70">
                             <div class="user-avatar-info">
                                 <label class="btn btn-default">
-                                    <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+                                    <form id="avatarForm" class="avatar-form"
+                                          enctype="multipart/form-data" method="post">
+                                        <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+                                    </form>
                                     上传新头像
                                 </label>
                                 <p>上传后你可以通过拖动新头像来设置</p>
@@ -75,6 +78,7 @@
                     <dl class="form-group clearboth">
                         <dt><label>URL</label></dt>
                         <dd>
+
                             <input type="text" class="form-control form-control-width">
                         </dd>
                     </dl>
@@ -98,17 +102,19 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    裁剪新头像
+                    设置新头像
                 </h4>
             </div>
             <div class="modal-body">
-                <div>
-                    <img id="avatorImg"  src="http://static.awbeci.com/img/avatar/psbe.jpg">
+
+                <div class="avatar-wrapper">
+                    <img id="avatorImg" src="" alt="Picture">
                 </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a class="btn btn-primary" id="download" href="javascript:void(0);" onclick="uploadAvator()">确定</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

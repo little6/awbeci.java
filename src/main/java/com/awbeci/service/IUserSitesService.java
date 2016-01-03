@@ -3,6 +3,7 @@ package com.awbeci.service;
 import com.awbeci.domain.User;
 import com.awbeci.domain.UserSites;
 
+import java.io.InputStream;
 import java.util.List;
 
 public interface IUserSitesService {
@@ -17,5 +18,5 @@ public interface IUserSitesService {
 
     List<UserSites> querySiteByParam(String param);
 
-    String uploadAvatar(String properties,String filePath);
+    String uploadAvatar(String properties,InputStream content);
 }

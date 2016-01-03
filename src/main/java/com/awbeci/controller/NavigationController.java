@@ -14,13 +14,16 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.awbeci.aliyun.oss.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -129,9 +132,15 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/uploadAvatar.json", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadAvatar(String filePath) {
-        String properties = "aliyun-oss.properties";
-        String filepath = userSitesService.uploadAvatar(properties, filePath);
+    public String uploadAvatar(HttpServletRequest request) {
+        try{
+            InputStream content = request.getInputStream();
+            String properties = "aliyun-oss.properties";
+            String filepath = userSitesService.uploadAvatar(properties, content);
+        }
+        catch (Exception ex){
+
+        }
         return null;
     }
 

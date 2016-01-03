@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -119,7 +120,7 @@ public class UserSitesImpl implements IUserSitesService {
         return userSitesDao.querySiteByParam(param);
     }
 
-    public String uploadAvatar(String properties,String filePath) {
+    public String uploadAvatar(String properties, InputStream content) {
         try{
             Properties prop = myProperties.getPropertiesByName(properties);
             Date date = new Date();
@@ -130,7 +131,7 @@ public class UserSitesImpl implements IUserSitesService {
 
             BucketObject bucketObject = new BucketObject(properties);
             //将图片上传到oss(走内网)
-            boolean data = bucketObject.putObjectByFilePath(bucketfolder, favicon, filePath);
+            boolean data = bucketObject.putObjectByFilePath(bucketfolder, favicon, content);
             String icon = out_ossurl + bucketfolder + favicon;
         }
         catch (Exception ex){

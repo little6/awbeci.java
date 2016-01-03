@@ -3,9 +3,10 @@ package com.awbeci.dao;
 import com.awbeci.domain.User;
 import com.awbeci.domain.UserSites;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository("IUserSitesDao")
 public interface IUserSitesDao {
 
     @Select("select * from usersites where categoryId=#{categoryId}")

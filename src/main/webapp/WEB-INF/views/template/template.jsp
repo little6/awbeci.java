@@ -35,8 +35,6 @@
     <% }%>
 </head>
 <body>
-<!--遮罩层弹出菜单的-->
-<div class="modal-backdrop"></div>
 <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">

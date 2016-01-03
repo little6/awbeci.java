@@ -1,5 +1,13 @@
-img {
+
+.avatar-wrapper img {
+    display: block;
+    height: auto;
     max-width: 100%;
+}
+.avatar-wrapper{
+    height: 364px;
+    width: 100%;
+    overflow: hidden;
 }
 .row-left {
     width: 25%;

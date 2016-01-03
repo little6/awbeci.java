@@ -371,10 +371,3 @@ body.menu-active .modal-backdrop {
     z-index: 20;
     background: transparent;
 }
-.modal-backdrop {
-    display: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}

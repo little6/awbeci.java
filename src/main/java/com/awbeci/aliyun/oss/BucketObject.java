@@ -76,13 +76,12 @@ public class BucketObject {
      * 根据路径上传图片
      * @param folder
      * @param filename
-     * @param filePath
      * @return
      * @throws IOException
      */
-    public boolean putObjectByFilePath(String folder, String filename, String filePath) throws IOException {
+    public boolean putObjectByFilePath(String folder, String filename, InputStream content) throws IOException {
         try {
-            InputStream content = catchFavicon.GetFilePathStream(filePath);
+
             // 创建上传Object的Metadata
             ObjectMetadata meta = new ObjectMetadata();
 
