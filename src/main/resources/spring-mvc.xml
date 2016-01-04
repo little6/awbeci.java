@@ -52,7 +52,8 @@
         <property name="suffix" value=".ftl" />
         <property name="order" value="0"/>
     </bean>
-
+    <!-- 支持上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     <!-- 配置freeMarker的模板路径 -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/views/"/>

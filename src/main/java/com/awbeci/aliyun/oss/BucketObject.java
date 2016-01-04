@@ -89,7 +89,7 @@ public class BucketObject {
             meta.setContentLength(content.available());
 
             // 上传Object.
-            PutObjectResult result = client.putObject(bucketName, folder + filename, content, meta);
+            PutObjectResult result = client.putObject(bucketName, folder + filename+".jpg", content, meta);
             log.info(result.getETag());
             return true;
         } catch (Exception e) {

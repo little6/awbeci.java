@@ -4,6 +4,9 @@ import com.awbeci.domain.UserCategory;
 import com.awbeci.domain.UserSites;
 import com.awbeci.service.IUserCategoryService;
 import com.awbeci.service.IUserSitesService;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.awbeci.aliyun.oss.*;
 
@@ -27,6 +31,7 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -132,13 +137,12 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/uploadAvatar.json", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadAvatar(HttpServletRequest request) {
-        try{
-            InputStream content = request.getInputStream();
+    public String uploadAvatar(@RequestParam("croppedImage") MultipartFile file) {
+        try {
+            InputStream content = file.getInputStream();
             String properties = "aliyun-oss.properties";
             String filepath = userSitesService.uploadAvatar(properties, content);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
 
         }
         return null;

@@ -60,20 +60,39 @@ function settingProfile(type) {
 }
 
 function uploadAvator() {
-    $avatarForm = $("#avatarForm");
-    var data = new FormData($avatarForm[0]);
-    var _this = this;
-    $.ajax({
-        url: '/json/uploadAvatar.json',
-        type: 'post',
-        data: data,
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        success: function (data) {
+    var $image = $('#avatorImg');
+    $image.cropper('getCroppedCanvas').toBlob(function (blob) {
 
-        },
+        var formData = new FormData();
 
+        formData.append('croppedImage', blob);
+        $.ajax('/json/uploadAvatar.json', {
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function () {
+                console.log('Upload success');
+            },
+            error: function () {
+                console.log('Upload error');
+            }
+        });
     });
+    //$avatarForm = $("#avatarForm");
+    //var data = new FormData($avatarForm[0]);
+    //var _this = this;
+    //$.ajax({
+    //    url: '/json/uploadAvatar.json',
+    //    type: 'post',
+    //    data: data,
+    //    dataType: 'json',
+    //    processData: false,
+    //    contentType: false,
+    //    success: function (data) {
+    //
+    //    },
+    //
+    //});
 }
 

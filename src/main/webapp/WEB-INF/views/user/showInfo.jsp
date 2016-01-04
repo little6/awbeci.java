@@ -7,6 +7,7 @@
     <link href="/js/cropper/cropper.min.css" rel="stylesheet">
     <link href="/css/setting.css" rel="stylesheet">
     <script src="/js/cropper/cropper.min.js"></script>
+    <script src="/js/cropper/canvas-toBlob.js"></script>
     <script src="/js/views/setting.js"></script>
 </head>
 <body>
@@ -34,59 +35,58 @@
             </div>
         </div>
         <div class="row-right">
-            <div class="setting-content">
-                <div class="person-info-content">
-                    <div class="person-info-header2">
-                        个人资料
+                <div class="setting-content">
+                    <div class="person-info-content">
+                        <div class="person-info-header2">
+                            个人资料
+                        </div>
+                    </div>
+                    <div class="setting-detail">
+                        <dl>
+                            <dt><label>头像图片</label></dt>
+                            <dd>
+                                <img class="left" src="" alt="" width="70" height="70">
+                                <div class="user-avatar-info">
+                                    <label class="btn btn-default">
+
+                                        <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+
+                                        上传新头像
+                                    </label>
+                                    <p>上传后你可以通过拖动新头像来设置</p>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="form-group clearboth margintop">
+                            <dt><label>用户名</label></dt>
+                            <dd>
+                                <input type="text" class="form-control form-control-width">
+                            </dd>
+                        </dl>
+                        <dl class="form-group clearboth">
+                            <dt><label>昵称</label></dt>
+                            <dd>
+                                <input type="text" class="form-control form-control-width">
+                            </dd>
+                        </dl>
+                        <dl class="form-group clearboth">
+                            <dt><label>邮箱</label></dt>
+                            <dd>
+                                <input type="text" class="form-control form-control-width">
+                            </dd>
+                        </dl>
+                        <dl class="form-group clearboth">
+                            <dt><label>URL</label></dt>
+                            <dd>
+
+                                <input type="text" class="form-control form-control-width">
+                            </dd>
+                        </dl>
+                        <p>
+                            <button class="btn btn-success">更新资料</button>
+                        </p>
                     </div>
                 </div>
-                <div class="setting-detail">
-                    <dl>
-                        <dt><label>头像图片</label></dt>
-                        <dd>
-                            <img class="left" src="" alt="" width="70" height="70">
-                            <div class="user-avatar-info">
-                                <label class="btn btn-default">
-                                    <form id="avatarForm" class="avatar-form"
-                                          enctype="multipart/form-data" method="post">
-                                        <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
-                                    </form>
-                                    上传新头像
-                                </label>
-                                <p>上传后你可以通过拖动新头像来设置</p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl class="form-group clearboth margintop">
-                        <dt><label>用户名</label></dt>
-                        <dd>
-                            <input type="text" class="form-control form-control-width">
-                        </dd>
-                    </dl>
-                    <dl class="form-group clearboth">
-                        <dt><label>昵称</label></dt>
-                        <dd>
-                            <input type="text" class="form-control form-control-width">
-                        </dd>
-                    </dl>
-                    <dl class="form-group clearboth">
-                        <dt><label>邮箱</label></dt>
-                        <dd>
-                            <input type="text" class="form-control form-control-width">
-                        </dd>
-                    </dl>
-                    <dl class="form-group clearboth">
-                        <dt><label>URL</label></dt>
-                        <dd>
-
-                            <input type="text" class="form-control form-control-width">
-                        </dd>
-                    </dl>
-                    <p>
-                        <button class="btn btn-success">更新资料</button>
-                    </p>
-                </div>
-            </div>
         </div>
 
     </div>
