@@ -18,5 +18,5 @@ public interface IUserSitesService {
 
     List<UserSites> querySiteByParam(String param);
 
-    String uploadAvatar(String properties,InputStream content);
+    String uploadAvatar(String properties,InputStream content,String uid);
 }

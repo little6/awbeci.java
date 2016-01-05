@@ -45,7 +45,7 @@
                         <dl>
                             <dt><label>头像图片</label></dt>
                             <dd>
-                                <img class="left" src="" alt="" width="70" height="70">
+                                <img id="userAvatar" class="left" src="" alt="" width="70" height="70">
                                 <div class="user-avatar-info">
                                     <label class="btn btn-default">
 

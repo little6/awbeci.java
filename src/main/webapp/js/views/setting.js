@@ -61,18 +61,20 @@ function settingProfile(type) {
 
 function uploadAvator() {
     var $image = $('#avatorImg');
+    var $modal = $('#myModal');
     $image.cropper('getCroppedCanvas').toBlob(function (blob) {
-
         var formData = new FormData();
-
         formData.append('croppedImage', blob);
         $.ajax('/json/uploadAvatar.json', {
             method: "POST",
             data: formData,
             processData: false,
             contentType: false,
-            success: function () {
-                console.log('Upload success');
+            success: function (data) {
+                if (data) {
+                    $modal.modal('hide');
+                    $("#userAvatar").attr('src', data);
+                }
             },
             error: function () {
                 console.log('Upload error');

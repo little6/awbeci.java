@@ -1,6 +1,7 @@
 package com.awbeci.service.spring;
 
 import com.awbeci.aliyun.oss.BucketObject;
+import com.awbeci.dao.IUserDao;
 import com.awbeci.dao.IUserSitesDao;
 import com.awbeci.domain.UserCategory;
 import com.awbeci.domain.UserSites;
@@ -24,6 +25,9 @@ public class UserSitesImpl implements IUserSitesService {
 
     @Autowired
     private IUserSitesDao userSitesDao;
+
+    @Autowired
+    private IUserDao userDao;
 
     Logger log = LoggerFactory.getLogger(BucketObject.class);
     MyProperties myProperties = new MyProperties();
@@ -120,23 +124,32 @@ public class UserSitesImpl implements IUserSitesService {
         return userSitesDao.querySiteByParam(param);
     }
 
-    public String uploadAvatar(String properties, InputStream content) {
-        try{
+    /**
+     * 上传头像
+     * @param properties
+     * @param content
+     * @param uid
+     * @return
+     */
+    public String uploadAvatar(String properties, InputStream content, String uid) {
+        try {
             Properties prop = myProperties.getPropertiesByName(properties);
-            Date date = new Date();
             String out_ossurl = prop.getProperty("out_ossurl");
             String bucketfolder = prop.getProperty("avatarBucketFolder");
             DateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-            String favicon = format.format(new Date()) + ".ico";
+            String favicon = format.format(new Date());
 
             BucketObject bucketObject = new BucketObject(properties);
             //将图片上传到oss(走内网)
             boolean data = bucketObject.putObjectByFilePath(bucketfolder, favicon, content);
-            String icon = out_ossurl + bucketfolder + favicon;
-        }
-        catch (Exception ex){
+            String avatorImgPath = out_ossurl + bucketfolder + favicon;
+            if (data) {
+                userDao.updateAvatarUrl(uid, avatorImgPath);
+                return avatorImgPath;
+            }
+        } catch (Exception ex) {
 
         }
-       return null;
+        return null;
     }
 }

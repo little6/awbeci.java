@@ -137,15 +137,17 @@ public class NavigationController {
 
     @RequestMapping(value = "/json/uploadAvatar.json", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadAvatar(@RequestParam("croppedImage") MultipartFile file) {
+    public String uploadAvatar(@RequestParam("croppedImage") MultipartFile file, HttpSession session) {
         try {
+            String uid = (String) session.getAttribute("uid");
             InputStream content = file.getInputStream();
             String properties = "aliyun-oss.properties";
-            String filepath = userSitesService.uploadAvatar(properties, content);
+            String filepath = userSitesService.uploadAvatar(properties, content, uid);
+            return filepath;
         } catch (Exception ex) {
-
+            log.error("上传头像失败：" + ex.getMessage());
+            return null;
         }
-        return null;
     }
 
     @RequestMapping(value = "/json/deleteSite.json", method = RequestMethod.POST)

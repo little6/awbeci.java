@@ -25,6 +25,9 @@ public interface IUserDao {
             "values(#{id},#{name},#{password},#{avatarUrl},#{niceName},#{email},#{emailAble},#{url},#{status},#{deleted},#{createDt},#{updateDt})")
     int insertUser(User user);
 
+    @Update("update user set avatarUrl=#{avatarUrl} where id=#{id}")
+    int updateAvatarUrl(@Param("id") String id, @Param("avatarUrl") String avatarUrl);
+
     @Update("update user set emailAble='1' where id=#{id}")
     int updateEmailAble(@Param("id") String id);
 

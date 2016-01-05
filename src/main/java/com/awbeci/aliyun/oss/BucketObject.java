@@ -39,6 +39,7 @@ public class BucketObject {
 
     /**
      * 创建bucket
+     *
      * @param bucketName
      */
     public void createBucket(String bucketName) {
@@ -48,6 +49,7 @@ public class BucketObject {
 
     /**
      * 上传文件
+     *
      * @param folder   阿里云上该图片在Bucket所处的文件夹位置，不能以'/'开头
      * @param filename 文件名
      * @param urlStr   网上图片路径
@@ -74,6 +76,7 @@ public class BucketObject {
 
     /**
      * 根据路径上传图片
+     *
      * @param folder
      * @param filename
      * @return
@@ -89,7 +92,7 @@ public class BucketObject {
             meta.setContentLength(content.available());
 
             // 上传Object.
-            PutObjectResult result = client.putObject(bucketName, folder + filename+".jpg", content, meta);
+            PutObjectResult result = client.putObject(bucketName, folder + filename, content, meta);
             log.info(result.getETag());
             return true;
         } catch (Exception e) {
@@ -100,6 +103,7 @@ public class BucketObject {
 
     /**
      * 删除文件
+     *
      * @param key
      */
     public void deleteObject(String key) {
