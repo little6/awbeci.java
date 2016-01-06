@@ -60,11 +60,13 @@ function settingProfile(type) {
 }
 
 function uploadAvator() {
+    var $avatar = $("#userAvatar");
     var $image = $('#avatorImg');
     var $modal = $('#myModal');
     $image.cropper('getCroppedCanvas').toBlob(function (blob) {
         var formData = new FormData();
         formData.append('croppedImage', blob);
+        formData.append('avatarUrl', $avatar.attr('src'));
         $.ajax('/json/uploadAvatar.json', {
             method: "POST",
             data: formData,
@@ -73,7 +75,7 @@ function uploadAvator() {
             success: function (data) {
                 if (data) {
                     $modal.modal('hide');
-                    $("#userAvatar").attr('src', data);
+                    $avatar.attr('src', data);
                 }
             },
             error: function () {

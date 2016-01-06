@@ -126,12 +126,13 @@ public class UserSitesImpl implements IUserSitesService {
 
     /**
      * 上传头像
+     *
      * @param properties
      * @param content
      * @param uid
      * @return
      */
-    public String uploadAvatar(String properties, InputStream content, String uid) {
+    public String uploadAvatar(String properties, InputStream content, String uid, String avatarImgUrl) {
         try {
             Properties prop = myProperties.getPropertiesByName(properties);
             String out_ossurl = prop.getProperty("out_ossurl");
@@ -145,6 +146,11 @@ public class UserSitesImpl implements IUserSitesService {
             String avatorImgPath = out_ossurl + bucketfolder + favicon;
             if (data) {
                 userDao.updateAvatarUrl(uid, avatorImgPath);
+                //如果不为空删除旧头像
+                if (!avatarImgUrl.isEmpty()){
+                    String key = bucketfolder + avatarImgUrl.split("/")[avatarImgUrl.split("/").length - 1];
+                    bucketObject.deleteObject(key);
+                }
                 return avatorImgPath;
             }
         } catch (Exception ex) {
